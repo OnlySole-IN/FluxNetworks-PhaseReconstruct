@@ -1,20 +1,18 @@
-## TemplateDevEnv
-_For Kotlin see [TemplateDevEnvKt](https://github.com/CleanroomMC/TemplateDevEnvKt)_
-
-Template workspace for modding Minecraft 1.12.2. Licensed under MIT, it is made for public use.
-
-This template runs on Java 21! Currently utilizies **Gradle 8.12** + **[RetroFuturaGradle](https://github.com/GTNewHorizons/RetroFuturaGradle) 1.4.1** + **Forge 14.23.5.2847**.
-
-With **coremod and mixin support** that is easy to configure.
-
-### Instructions:
-
-1. Click `use this template` at the top.
-2. Clone the repository that you have created with this template to your local machine.
-3. Make sure IDEA is using Java 21 for Gradle before you sync the project. Verify this by going to IDEA's `Settings > Build, Execution, Deployment > Build Tools > Gradle > Gradle JVM`.
-4. Open the project folder in IDEA. When prompted, click "Load Gradle Project" as it detects the `build.gradle`, if you weren't prompted, right-click the project's `build.gradle` in IDEA, select `Link Gradle Project`, after completion, hit `Refresh All` in the gradle tab on the right.
-5. Run gradle tasks such as `runClient` and `runServer` in the IDEA gradle tab, or use the auto-imported run configurations like `1. Run Client`.
-
-### Mixins:
-
-- When writing Mixins on IntelliJ, it is advisable to use latest [MinecraftDev Fork for RetroFuturaGradle](https://github.com/eigenraven/MinecraftDev/releases).
+# Flux Network
+For any suggestions or bugs, open a new issue labelled with [Suggestion] or [Bug]
+## License
+* GUI designs and GUI resources --- Copyright (C) 2019 BloCamLimb. All rights reserved.
+* Others --- Under MIT License.
+### Wiki
+[GitHub Wiki](https://github.com/SonarSonic/Flux-Networks/wiki)
+### New GUI
+![20190923204427.png](https://i.loli.net/2019/09/23/1ZVtXlg3MvBIGQH.png)
+![20190923204400.png](https://i.loli.net/2019/09/23/reLOqVAwiDTaQvx.png)
+![20190923204505.png](https://i.loli.net/2019/09/23/6FdKngioTEyaB5N.png)
+![20190923204517.png](https://i.loli.net/2019/09/23/QlBPcfvV15pjzs4.png)
+### Comparison
+![20190825210548.png](https://i.loli.net/2019/08/25/3KGnWsAXlUmdE1Y.png)  
+The lag goggles result with same setup (40 points and 40 plugs)
+### Get Flux
+![20190825213555.png](https://i.loli.net/2019/08/25/xhVraPnkAJoQ7fu.png)  
+Place obsidian above bedrock 1 block high, drop some redstones, then left click the obsidian to obtain Flux.
