@@ -61,7 +61,7 @@ public class FluxRecipeWrapper implements IRecipeWrapper {
         GlStateManager.popMatrix();
 
         FontRenderer fontRenderer = minecraft.fontRenderer;
-        String help = I18n.format("info.fluxnetworks.jei.leftclickhelp", Blocks.OBSIDIAN.getLocalizedName());
+        String help = I18n.format("info.fluxnetworksreconstruct.jei.leftclickhelp", Blocks.OBSIDIAN.getLocalizedName());
         fontRenderer.drawString(help, (int) (64 - fontRenderer.getStringWidth(help) / 2f), 68, 0xff404040);
     }
 

@@ -1,6 +1,6 @@
 package com.onlysole.fluxnetworksreconstruct.client.gui.tab;
 
-import com.onlysole.fluxnetworksreconstruct.FluxNetworks;
+import com.onlysole.fluxnetworksreconstruct.FluxNetworksReconstruct;
 import com.onlysole.fluxnetworksreconstruct.api.gui.EnumFeedbackInfo;
 import com.onlysole.fluxnetworksreconstruct.api.gui.EnumNavigationTabs;
 import com.onlysole.fluxnetworksreconstruct.api.network.IFluxNetwork;
@@ -50,7 +50,7 @@ public class GuiTabSelection extends GuiTabPages<IFluxNetwork> {
             fontRenderer.drawString(amount, 158 - fontRenderer.getStringWidth(amount), 10, 0xffffff);
             fontRenderer.drawString(FluxTranslate.SORT_BY.t() + ": " + TextFormatting.AQUA + sortType.getTranslatedName(), 19, 10, 0xffffff);
             if (!hasActivePopup()) {
-                drawCenteredString(fontRenderer, TextFormatting.RED + FluxNetworks.proxy.getFeedback(false).getInfo(), 88, 150, 0xffffff);
+                drawCenteredString(fontRenderer, TextFormatting.RED + FluxNetworksReconstruct.proxy.getFeedback(false).getInfo(), 88, 150, 0xffffff);
             }
         }
     }
@@ -133,7 +133,7 @@ public class GuiTabSelection extends GuiTabPages<IFluxNetwork> {
         if(timer2 == 0) {
             refreshPages(FluxNetworkCache.instance.getAllClientNetworks());
         }
-        if(FluxNetworks.proxy.getFeedback(true) == EnumFeedbackInfo.SUCCESS) {
+        if(FluxNetworksReconstruct.proxy.getFeedback(true) == EnumFeedbackInfo.SUCCESS) {
            closePopUp();
            if(connector instanceof ItemConfigurator.NetworkConnector){
                ItemConfigurator.NetworkConnector networkConnector = (ItemConfigurator.NetworkConnector)connector;
@@ -144,9 +144,9 @@ public class GuiTabSelection extends GuiTabPages<IFluxNetwork> {
                this.networkValid = !selectedNetwork.isInvalid();
            }
         }
-        if(FluxNetworks.proxy.getFeedback(true) == EnumFeedbackInfo.PASSWORD_REQUIRE) {
+        if(FluxNetworksReconstruct.proxy.getFeedback(true) == EnumFeedbackInfo.PASSWORD_REQUIRE) {
             openPopUp(new GuiPopNetworkPassword(this, player, connector));
-            FluxNetworks.proxy.setFeedback(EnumFeedbackInfo.NONE, true);
+            FluxNetworksReconstruct.proxy.setFeedback(EnumFeedbackInfo.NONE, true);
         }
         timer2++;
         timer2 %= 10;

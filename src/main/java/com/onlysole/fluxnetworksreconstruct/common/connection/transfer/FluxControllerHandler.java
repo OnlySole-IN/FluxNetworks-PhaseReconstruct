@@ -1,7 +1,7 @@
 package com.onlysole.fluxnetworksreconstruct.common.connection.transfer;
 
 import baubles.api.cap.BaublesCapabilities;
-import com.onlysole.fluxnetworksreconstruct.FluxNetworks;
+import com.onlysole.fluxnetworksreconstruct.FluxNetworksReconstruct;
 import com.onlysole.fluxnetworksreconstruct.api.energy.IItemEnergyHandler;
 import com.onlysole.fluxnetworksreconstruct.api.network.NetworkMember;
 import com.onlysole.fluxnetworksreconstruct.api.network.NetworkSettings;
@@ -142,7 +142,7 @@ public class FluxControllerHandler extends BasicPointHandler<TileFluxController>
             if (WirelessType.ARMOR_SLOT.isActivated(wireless)) {
                 handlers.add(new WirelessHandler(inv.armorInventory::iterator, NOT_EMPTY));
             }
-            if (WirelessType.BAUBLES.isActivated(wireless) && FluxNetworks.proxy.baublesLoaded) {
+            if (WirelessType.BAUBLES.isActivated(wireless) && FluxNetworksReconstruct.proxy.baublesLoaded) {
                 if (player.hasCapability(BaublesCapabilities.CAPABILITY_BAUBLES, null)) {
                     IItemHandler handler = player.getCapability(BaublesCapabilities.CAPABILITY_BAUBLES, null);
                     handlers.add(new WirelessHandler(() -> new Iterator<ItemStack>() {

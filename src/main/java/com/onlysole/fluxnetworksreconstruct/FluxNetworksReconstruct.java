@@ -7,19 +7,29 @@ import net.minecraftforge.fml.common.event.*;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-@Mod(modid = FluxNetworks.MODID, name = FluxNetworks.NAME, version = FluxNetworks.VERSION, dependencies = "required-after:forge@[14.23.4.2854,)", acceptedMinecraftVersions = "[1.12.2]", guiFactory = "com.example.fluxnetworks.common.core.ConfigGuiFactory")
-public class FluxNetworks {
+@Mod(
+        modid = FluxNetworksReconstruct.MODID,
+        name = FluxNetworksReconstruct.NAME,
+        version = FluxNetworksReconstruct.VERSION,
+        dependencies = "required-after:forge@[14.23.4.2854,)",
+        acceptedMinecraftVersions = "[1.12.2]",
+        guiFactory = "com.onlysole.fluxnetworksreconstruct.common.core.ConfigGuiFactory"
+)
+public class FluxNetworksReconstruct {
 
-    public static final String MODID = "fluxnetworks";
-    public static final String NAME = "Flux Networks";
-    public static final String VERSION = "4.1.0";
+    public static final String MODID = "fluxnetworksreconstruct";
+    public static final String NAME = "Flux Networks Reconstruct";
+    public static final String VERSION = "1.0.0";
 
     @Mod.Instance(MODID)
-    public static FluxNetworks instance;
+    public static FluxNetworksReconstruct instance;
 
-    public static Logger logger = LogManager.getLogger("FluxNetworks");
+    public static Logger logger = LogManager.getLogger("FluxNetworksReconstruct");
 
-    @SidedProxy(clientSide = "com.example.fluxnetworks.client.ClientProxy", serverSide = "com.example.fluxnetworks.common.CommonProxy")
+    @SidedProxy(
+            clientSide = "com.onlysole.fluxnetworksreconstruct.client.ClientProxy",
+            serverSide = "com.onlysole.fluxnetworksreconstruct.common.CommonProxy"
+    )
     public static CommonProxy proxy;
 
     @Mod.EventHandler

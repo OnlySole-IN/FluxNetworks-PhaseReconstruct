@@ -1,7 +1,7 @@
 package com.onlysole.fluxnetworksreconstruct.client.gui;
 
 import com.onlysole.fluxnetworksreconstruct.FluxConfig;
-import com.onlysole.fluxnetworksreconstruct.FluxNetworks;
+import com.onlysole.fluxnetworksreconstruct.FluxNetworksReconstruct;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraftforge.common.config.ConfigElement;
 import net.minecraftforge.fml.client.config.GuiConfig;
@@ -13,7 +13,7 @@ import java.util.List;
 public class GuiModConfig extends GuiConfig {
 
     public GuiModConfig(GuiScreen parentScreen) {
-        super(parentScreen, getConfigElements(), FluxNetworks.MODID, false, false, FluxNetworks.NAME);
+        super(parentScreen, getConfigElements(), FluxNetworksReconstruct.MODID, false, false, FluxNetworksReconstruct.NAME);
     }
 
     private static List<IConfigElement> getConfigElements() {

@@ -1,6 +1,6 @@
 package com.onlysole.fluxnetworksreconstruct.common.network;
 
-import com.onlysole.fluxnetworksreconstruct.FluxNetworks;
+import com.onlysole.fluxnetworksreconstruct.FluxNetworksReconstruct;
 import com.onlysole.fluxnetworksreconstruct.api.network.ISuperAdmin;
 import com.onlysole.fluxnetworksreconstruct.api.utils.Capabilities;
 import com.onlysole.fluxnetworksreconstruct.common.capabilities.DefaultSuperAdmin;
@@ -15,7 +15,7 @@ public class PacketActivateSuperAdmin implements IMessageHandler<PacketActivateS
     @SuppressWarnings("ConstantConditions")
     @Override
     public IMessage onMessage(ActivateSuperAdminMessage message, MessageContext ctx) {
-        EntityPlayer player = FluxNetworks.proxy.getPlayer(ctx);
+        EntityPlayer player = FluxNetworksReconstruct.proxy.getPlayer(ctx);
 
         ISuperAdmin iSuperAdmin = player.getCapability(Capabilities.SUPER_ADMIN, null);
         if(iSuperAdmin != null){

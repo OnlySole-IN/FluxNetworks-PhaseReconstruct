@@ -1,6 +1,6 @@
 package com.onlysole.fluxnetworksreconstruct.client.gui.basic;
 
-import com.onlysole.fluxnetworksreconstruct.FluxNetworks;
+import com.onlysole.fluxnetworksreconstruct.FluxNetworksReconstruct;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.RenderHelper;
@@ -18,11 +18,11 @@ import java.util.concurrent.atomic.AtomicInteger;
 ////ONLY RENDER METHODS & TEXTURES \\\\
 public abstract class GuiDraw extends GuiContainer implements ITextBoxButton {
 
-    public static final ResourceLocation BACKGROUND = new ResourceLocation(FluxNetworks.MODID, "textures/gui/gui_default_background.png");
-    public static final ResourceLocation FRAME = new ResourceLocation(FluxNetworks.MODID, "textures/gui/gui_default_frame.png");
-    public static final ResourceLocation GUI_BAR = new ResourceLocation(FluxNetworks.MODID, "textures/gui/gui_bar.png");
-    public static final ResourceLocation INVENTORY = new ResourceLocation(FluxNetworks.MODID, "textures/gui/inventory_configuration.png");
-    public static final ResourceLocation BUTTONS = new ResourceLocation(FluxNetworks.MODID, "textures/gui/gui_button.png");
+    public static final ResourceLocation BACKGROUND = new ResourceLocation(FluxNetworksReconstruct.MODID, "textures/gui/gui_default_background.png");
+    public static final ResourceLocation FRAME = new ResourceLocation(FluxNetworksReconstruct.MODID, "textures/gui/gui_default_frame.png");
+    public static final ResourceLocation GUI_BAR = new ResourceLocation(FluxNetworksReconstruct.MODID, "textures/gui/gui_bar.png");
+    public static final ResourceLocation INVENTORY = new ResourceLocation(FluxNetworksReconstruct.MODID, "textures/gui/inventory_configuration.png");
+    public static final ResourceLocation BUTTONS = new ResourceLocation(FluxNetworksReconstruct.MODID, "textures/gui/gui_button.png");
 
     public GuiDraw(Container inventorySlotsIn) {
         super(inventorySlotsIn);
@@ -49,7 +49,7 @@ public abstract class GuiDraw extends GuiContainer implements ITextBoxButton {
         GlStateManager.pushMatrix();
         drawCenteredString(fontRenderer, error, xSize / 2, 16, 0x808080);
         GlStateManager.scale(0.625, 0.625, 0.625);
-        drawCenteredString(fontRenderer, I18n.format("info.fluxnetworks.clickabove", TextFormatting.AQUA + prompt + TextFormatting.RESET), (int) (xSize / 2 * 1.6), (int) (26 * 1.6), 0x808080);
+        drawCenteredString(fontRenderer, I18n.format("info.fluxnetworksreconstruct.clickabove", TextFormatting.AQUA + prompt + TextFormatting.RESET), (int) (xSize / 2 * 1.6), (int) (26 * 1.6), 0x808080);
         GlStateManager.scale(1.6, 1.6, 1.6);
         GlStateManager.popMatrix();
     }

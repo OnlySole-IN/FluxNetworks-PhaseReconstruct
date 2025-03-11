@@ -1,6 +1,6 @@
 package com.onlysole.fluxnetworksreconstruct.client.gui.popups;
 
-import com.onlysole.fluxnetworksreconstruct.FluxNetworks;
+import com.onlysole.fluxnetworksreconstruct.FluxNetworksReconstruct;
 import com.onlysole.fluxnetworksreconstruct.api.network.AccessLevel;
 import com.onlysole.fluxnetworksreconstruct.api.network.INetworkConnector;
 import com.onlysole.fluxnetworksreconstruct.api.translate.FluxTranslate;
@@ -75,7 +75,7 @@ public class GuiPopUserEdit extends GuiPopCore<GuiTabMembers> {
     public void drawGuiContainerForegroundLayer(int mouseX, int mouseY) {
         drawRectWithBackground(20, 34, 100, 138, 0xccffffff, 0x80000000);
         super.drawGuiContainerForegroundLayer(mouseX, mouseY);
-        drawCenteredString(fontRenderer, TextFormatting.RED + FluxNetworks.proxy.getFeedback(false).getInfo(), 88, 162, 0xffffff);
+        drawCenteredString(fontRenderer, TextFormatting.RED + FluxNetworksReconstruct.proxy.getFeedback(false).getInfo(), 88, 162, 0xffffff);
         drawCenteredString(fontRenderer, TextFormatting.AQUA + host.selectedPlayer.getCachedName(), 88, 38, 0xffffff);
         drawCenteredString(fontRenderer, host.selectedPlayer.getAccessPermission().getName(), 88, 48, 0xffffff);
         String text = host.selectedPlayer.getPlayerUUID().toString();

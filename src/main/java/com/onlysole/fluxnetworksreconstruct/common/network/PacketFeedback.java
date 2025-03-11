@@ -1,6 +1,6 @@
 package com.onlysole.fluxnetworksreconstruct.common.network;
 
-import com.onlysole.fluxnetworksreconstruct.FluxNetworks;
+import com.onlysole.fluxnetworksreconstruct.FluxNetworksReconstruct;
 import com.onlysole.fluxnetworksreconstruct.api.gui.EnumFeedbackInfo;
 import com.onlysole.fluxnetworksreconstruct.common.handler.PacketHandler;
 import io.netty.buffer.ByteBuf;
@@ -14,9 +14,9 @@ public class PacketFeedback implements IMessageHandler<PacketFeedback.FeedbackMe
     public IMessage onMessage(FeedbackMessage message, MessageContext ctx) {
         PacketHandler.handlePacket(() -> {
             if(message.info == EnumFeedbackInfo.SUCCESS || message.info == EnumFeedbackInfo.SUCCESS_2 || message.info == EnumFeedbackInfo.PASSWORD_REQUIRE) {
-                FluxNetworks.proxy.setFeedback(message.info, true);
+                FluxNetworksReconstruct.proxy.setFeedback(message.info, true);
             } else {
-                FluxNetworks.proxy.setFeedback(message.info, false);
+                FluxNetworksReconstruct.proxy.setFeedback(message.info, false);
             }
             }, ctx.netHandler);
         return null;

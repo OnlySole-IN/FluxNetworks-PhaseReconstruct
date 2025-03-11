@@ -1,6 +1,6 @@
 package com.onlysole.fluxnetworksreconstruct.common.data;
 
-import com.onlysole.fluxnetworksreconstruct.FluxNetworks;
+import com.onlysole.fluxnetworksreconstruct.FluxNetworksReconstruct;
 import com.onlysole.fluxnetworksreconstruct.api.network.*;
 import com.onlysole.fluxnetworksreconstruct.api.tiles.IFluxConnector;
 import com.onlysole.fluxnetworksreconstruct.api.utils.Capabilities;
@@ -39,7 +39,7 @@ import java.util.Map;
  */
 public class FluxNetworkData extends WorldSavedData {
 
-    private static final String NETWORK_DATA = FluxNetworks.MODID + "data";
+    private static final String NETWORK_DATA = FluxNetworksReconstruct.MODID + "data";
 
     private static FluxNetworkData data;
 
@@ -81,7 +81,7 @@ public class FluxNetworkData extends WorldSavedData {
     public static void clear() {
         if(data != null) {
             data = null;
-            FluxNetworks.logger.info("FluxNetworkData has been unloaded");
+            FluxNetworksReconstruct.logger.info("FluxNetworkData has been unloaded");
         }
     }
 
@@ -112,16 +112,16 @@ public class FluxNetworkData extends WorldSavedData {
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
-                FluxNetworks.logger.info("Old FluxNetworkData found");
+                FluxNetworksReconstruct.logger.info("Old FluxNetworkData found");
                 savedData = (FluxNetworkData) mapStorage.getOrLoadData(FluxNetworkData.class, NETWORK_DATA);
             } else {
                 savedData = new FluxNetworkData(NETWORK_DATA);
                 mapStorage.setData(NETWORK_DATA, savedData);
-                FluxNetworks.logger.info("No FluxNetworkData found");
+                FluxNetworksReconstruct.logger.info("No FluxNetworkData found");
             }
         }
         data = savedData;
-        FluxNetworks.logger.info("FluxNetworkData has been successfully loaded");
+        FluxNetworksReconstruct.logger.info("FluxNetworkData has been successfully loaded");
     }
 
     public void addNetwork(IFluxNetwork network) {

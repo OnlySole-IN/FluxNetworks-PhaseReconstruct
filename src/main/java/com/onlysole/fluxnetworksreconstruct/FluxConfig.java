@@ -37,7 +37,7 @@ public class FluxConfig {
         TileEntityHandler.blockBlacklist.clear();
         for (String str : blockBlacklistStrings) {
             if (!str.contains(":")) {
-                FluxNetworks.logger.error("BLACKLIST ERROR: " + str + " has incorrect formatting, please use 'modid:name@meta'");
+                FluxNetworksReconstruct.logger.error("BLACKLIST ERROR: " + str + " has incorrect formatting, please use 'modid:name@meta'");
             }
             String root = str;
             int meta = -1;
@@ -48,7 +48,7 @@ public class FluxConfig {
                     meta = Integer.parseInt(split[1]);
                     TileEntityHandler.blockBlacklist.put(root, meta);
                 } catch (Exception e) {
-                    FluxNetworks.logger.error("BLACKLIST ERROR: " + str + " has incorrect formatting, meta must be positive integer'");
+                    FluxNetworksReconstruct.logger.error("BLACKLIST ERROR: " + str + " has incorrect formatting, meta must be positive integer'");
                 }
             } else {
                 TileEntityHandler.blockBlacklist.put(root, meta);
@@ -57,7 +57,7 @@ public class FluxConfig {
         ItemEnergyHandler.itemBlackList.clear();
         for (String str : itemBlackListStrings) {
             if (!str.contains(":")) {
-                FluxNetworks.logger.error("BLACKLIST ERROR: " + str + " has incorrect formatting, please use 'modid:name@meta'");
+                FluxNetworksReconstruct.logger.error("BLACKLIST ERROR: " + str + " has incorrect formatting, please use 'modid:name@meta'");
             }
             String root = str;
             int meta = -1;
@@ -68,7 +68,7 @@ public class FluxConfig {
                     meta = Integer.parseInt(split[1]);
                     ItemEnergyHandler.itemBlackList.put(root, meta);
                 } catch (Exception e) {
-                    FluxNetworks.logger.error("BLACKLIST ERROR: " + str + " has incorrect formatting, meta must be positive integer'");
+                    FluxNetworksReconstruct.logger.error("BLACKLIST ERROR: " + str + " has incorrect formatting, meta must be positive integer'");
                 }
             } else {
                 ItemEnergyHandler.itemBlackList.put(root, meta);
@@ -77,9 +77,9 @@ public class FluxConfig {
     }
 
     public static void generateFluxChunkConfig() {
-        if (!ForgeChunkManager.getConfig().hasCategory(FluxNetworks.MODID)) {
-            ForgeChunkManager.getConfig().get(FluxNetworks.MODID, "maximumChunksPerTicket", 1000000).setMinValue(0);
-            ForgeChunkManager.getConfig().get(FluxNetworks.MODID, "maximumTicketCount", 1000000).setMinValue(0);
+        if (!ForgeChunkManager.getConfig().hasCategory(FluxNetworksReconstruct.MODID)) {
+            ForgeChunkManager.getConfig().get(FluxNetworksReconstruct.MODID, "maximumChunksPerTicket", 1000000).setMinValue(0);
+            ForgeChunkManager.getConfig().get(FluxNetworksReconstruct.MODID, "maximumTicketCount", 1000000).setMinValue(0);
             ForgeChunkManager.getConfig().save();
         }
     }

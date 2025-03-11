@@ -1,15 +1,13 @@
-[
-{
-  "modid": "fluxnetworksreconstruct",
-  "name": "Flux Networks Reconstruct",
-  "description": "Wireless Energy Networks.",
-  "version": "${version}",
-  "mcversion": "${mcversion}",
-  "url": "https://www.curseforge.com/minecraft/mc-mods/flux-networks",
+[{
+  "modid": "${mod_id}",
+  "name": "${mod_name}",
+  "description": "${mod_description}",
+  "version": "${mod_version}",
+  "mcversion": "1.12.2",
+  "url": "${mod_url}",
   "updateUrl": "",
-  "authorList": ["Sonar Sonic","BloCamLimb"],
-  "logoFile": "",
+  "authorList": ["${mod_authors}"],
+  "logoFile": "${mod_logo_path}",
   "screenshots": [],
   "dependencies": []
-}
-]
+}]

@@ -1,6 +1,6 @@
 package com.onlysole.fluxnetworksreconstruct.common.block;
 
-import com.onlysole.fluxnetworksreconstruct.FluxNetworks;
+import com.onlysole.fluxnetworksreconstruct.FluxNetworksReconstruct;
 import com.onlysole.fluxnetworksreconstruct.api.translate.FluxTranslate;
 import com.onlysole.fluxnetworksreconstruct.api.utils.NBTType;
 import com.onlysole.fluxnetworksreconstruct.common.core.FluxUtils;
@@ -63,7 +63,7 @@ public abstract class BlockFluxCore extends BlockCore {
                 playerIn.sendStatusMessage(textComponents, true);
                 return true;
             } else if(fluxCore.canAccess(playerIn)) {
-                playerIn.openGui(FluxNetworks.instance, 0, worldIn, pos.getX(), pos.getY(), pos.getZ());
+                playerIn.openGui(FluxNetworksReconstruct.instance, 0, worldIn, pos.getX(), pos.getY(), pos.getZ());
                 return true;
             }
         }

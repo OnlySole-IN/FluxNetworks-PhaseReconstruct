@@ -11,11 +11,11 @@ public class FluxTranslate implements ITranslationProvider {
 
     public static final Translation EMPTY = new Translation("");
 
-    public static final Translation FLUX_TOOLTIP = t("tooltip.fluxnetworks.flux");
-    public static final Translation FLUX_CONTROLLER_TOOLTIP = t("tooltip.fluxnetworks.fluxcontroller");
-    public static final Translation FLUX_PLUG_TOOLTIP = t("tooltip.fluxnetworks.fluxplug");
-    public static final Translation FLUX_POINT_TOOLTIP = t("tooltip.fluxnetworks.fluxpoint");
-    public static final Translation FLUX_STORAGE_TOOLTIP = t("tooltip.fluxnetworks.fluxstorage");
+    public static final Translation FLUX_TOOLTIP = t("tooltip.fluxnetworksreconstruct.flux");
+    public static final Translation FLUX_CONTROLLER_TOOLTIP = t("tooltip.fluxnetworksreconstruct.fluxcontroller");
+    public static final Translation FLUX_PLUG_TOOLTIP = t("tooltip.fluxnetworksreconstruct.fluxplug");
+    public static final Translation FLUX_POINT_TOOLTIP = t("tooltip.fluxnetworksreconstruct.fluxpoint");
+    public static final Translation FLUX_STORAGE_TOOLTIP = t("tooltip.fluxnetworksreconstruct.fluxstorage");
 
     public static final Translation TAB_HOME = i("tab.home");
     public static final Translation TAB_SELECTION = i("tab.selection");
@@ -103,32 +103,32 @@ public class FluxTranslate implements ITranslationProvider {
 
 
     /** Server Only (Translation key) **/
-    public static final String ACCESS_DENIED_KEY = "info.fluxnetworks.denied.access";
-    public static final String ACCESS_OCCUPY_KEY = "info.fluxnetworks.denied.occupy";
-    public static final String REMOVAL_DENIED_KEY = "info.fluxnetworks.denied.removal";
-    public static final String SA_ON_KEY = "info.fluxnetworks.superadmin.on";
-    public static final String SA_OFF_KEY = "info.fluxnetworks.superadmin.off";
+    public static final String ACCESS_DENIED_KEY = "info.fluxnetworksreconstruct.denied.access";
+    public static final String ACCESS_OCCUPY_KEY = "info.fluxnetworksreconstruct.denied.occupy";
+    public static final String REMOVAL_DENIED_KEY = "info.fluxnetworksreconstruct.denied.removal";
+    public static final String SA_ON_KEY = "info.fluxnetworksreconstruct.superadmin.on";
+    public static final String SA_OFF_KEY = "info.fluxnetworksreconstruct.superadmin.off";
 
     /** Server Only **/
-    public static final Translation REJECT = t("info.fluxnetworks.feedback.reject");
-    public static final Translation NO_OWNER = t("info.fluxnetworks.feedback.noowner");
-    public static final Translation NO_ADMIN = t("info.fluxnetworks.feedback.noadmin");
-    public static final Translation NO_SPACE = t("info.fluxnetworks.feedback.nospace");
-    public static final Translation HAS_CONTROLLER = t("info.fluxnetworks.feedback.hascontroller");
-    public static final Translation INVALID_USER = t("info.fluxnetworks.feedback.invaliduser");
-    public static final Translation ILLEGAL_PASSWORD = t("info.fluxnetworks.feedback.illegalpassword");
-    public static final Translation HAS_LOADER = t("info.fluxnetworks.feedback.hasloader");
-    public static final Translation BANNED_LOADING = t("info.fluxnetworks.feedback.bannedloading");
-    public static final Translation REJECT_SOME = t("info.fluxnetworks.feedback.rejectsome");
+    public static final Translation REJECT = t("info.fluxnetworksreconstruct.feedback.reject");
+    public static final Translation NO_OWNER = t("info.fluxnetworksreconstruct.feedback.noowner");
+    public static final Translation NO_ADMIN = t("info.fluxnetworksreconstruct.feedback.noadmin");
+    public static final Translation NO_SPACE = t("info.fluxnetworksreconstruct.feedback.nospace");
+    public static final Translation HAS_CONTROLLER = t("info.fluxnetworksreconstruct.feedback.hascontroller");
+    public static final Translation INVALID_USER = t("info.fluxnetworksreconstruct.feedback.invaliduser");
+    public static final Translation ILLEGAL_PASSWORD = t("info.fluxnetworksreconstruct.feedback.illegalpassword");
+    public static final Translation HAS_LOADER = t("info.fluxnetworksreconstruct.feedback.hasloader");
+    public static final Translation BANNED_LOADING = t("info.fluxnetworksreconstruct.feedback.bannedloading");
+    public static final Translation REJECT_SOME = t("info.fluxnetworksreconstruct.feedback.rejectsome");
 
-    public static final Translation OWNER = t("info.fluxnetworks.access.owner");
-    public static final Translation ADMIN = t("info.fluxnetworks.access.admin");
-    public static final Translation USER = t("info.fluxnetworks.access.user");
-    public static final Translation BLOCKED = t("info.fluxnetworks.access.blocked");
-    public static final Translation SUPER_ADMIN = t("info.fluxnetworks.access.superadmin");
+    public static final Translation OWNER = t("info.fluxnetworksreconstruct.access.owner");
+    public static final Translation ADMIN = t("info.fluxnetworksreconstruct.access.admin");
+    public static final Translation USER = t("info.fluxnetworksreconstruct.access.user");
+    public static final Translation BLOCKED = t("info.fluxnetworksreconstruct.access.blocked");
+    public static final Translation SUPER_ADMIN = t("info.fluxnetworksreconstruct.access.superadmin");
 
-    public static final Translation ENCRYPTED = t("info.fluxnetworks.security.encrypted");
-    public static final Translation PUBLIC = t("info.fluxnetworks.security.public");
+    public static final Translation ENCRYPTED = t("info.fluxnetworksreconstruct.security.encrypted");
+    public static final Translation PUBLIC = t("info.fluxnetworksreconstruct.security.public");
 
     public static Translation t(String s) {
         Translation l = new Translation(s);
@@ -137,7 +137,7 @@ public class FluxTranslate implements ITranslationProvider {
     }
 
     public static Translation i(String s) {
-        return t("info.fluxnetworks." + s);
+        return t("info.fluxnetworksreconstruct." + s);
     }
 
     @Override

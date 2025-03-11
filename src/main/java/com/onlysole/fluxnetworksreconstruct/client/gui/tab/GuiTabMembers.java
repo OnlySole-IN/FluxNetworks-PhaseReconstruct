@@ -1,6 +1,6 @@
 package com.onlysole.fluxnetworksreconstruct.client.gui.tab;
 
-import com.onlysole.fluxnetworksreconstruct.FluxNetworks;
+import com.onlysole.fluxnetworksreconstruct.FluxNetworksReconstruct;
 import com.onlysole.fluxnetworksreconstruct.api.gui.EnumFeedbackInfo;
 import com.onlysole.fluxnetworksreconstruct.api.gui.EnumNavigationTabs;
 import com.onlysole.fluxnetworksreconstruct.api.network.INetworkConnector;
@@ -155,7 +155,7 @@ public class GuiTabMembers extends GuiTabPages<NetworkMember> {
         }
         if(timer % 2 == 0) {
             refreshPages(network.getSetting(NetworkSettings.NETWORK_PLAYERS));
-            if(FluxNetworks.proxy.getFeedback(true) == EnumFeedbackInfo.SUCCESS) {
+            if(FluxNetworksReconstruct.proxy.getFeedback(true) == EnumFeedbackInfo.SUCCESS) {
                 if(hasActivePopup()) {
                     Optional<NetworkMember> n = elements.stream().filter(f -> f.getPlayerUUID().equals(selectedPlayer.getPlayerUUID())).findFirst();
                     if (n.isPresent()) {
@@ -165,7 +165,7 @@ public class GuiTabMembers extends GuiTabPages<NetworkMember> {
                         closePopUp();
                     }
                 }
-                FluxNetworks.proxy.setFeedback(EnumFeedbackInfo.NONE, true);
+                FluxNetworksReconstruct.proxy.setFeedback(EnumFeedbackInfo.NONE, true);
             }
         }
         timer++;

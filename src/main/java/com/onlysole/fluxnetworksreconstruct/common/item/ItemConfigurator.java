@@ -1,6 +1,6 @@
 package com.onlysole.fluxnetworksreconstruct.common.item;
 
-import com.onlysole.fluxnetworksreconstruct.FluxNetworks;
+import com.onlysole.fluxnetworksreconstruct.FluxNetworksReconstruct;
 import com.onlysole.fluxnetworksreconstruct.api.network.IFluxNetwork;
 import com.onlysole.fluxnetworksreconstruct.api.network.INetworkConnector;
 import com.onlysole.fluxnetworksreconstruct.api.translate.FluxTranslate;
@@ -65,14 +65,14 @@ public class ItemConfigurator extends ItemCore {
             }
             return EnumActionResult.SUCCESS;
         }
-        player.openGui(FluxNetworks.instance, 1, worldIn, 0, 0, 0);
+        player.openGui(FluxNetworksReconstruct.instance, 1, worldIn, 0, 0, 0);
         return EnumActionResult.SUCCESS;
     }
 
     @Override
     public ActionResult<ItemStack> onItemRightClick(World worldIn, EntityPlayer playerIn, EnumHand handIn) {
         if (!worldIn.isRemote) {
-            playerIn.openGui(FluxNetworks.instance, 1, worldIn, 0, 0, 0);
+            playerIn.openGui(FluxNetworksReconstruct.instance, 1, worldIn, 0, 0, 0);
         }
         return new ActionResult<>(EnumActionResult.SUCCESS, playerIn.getHeldItem(handIn));
     }

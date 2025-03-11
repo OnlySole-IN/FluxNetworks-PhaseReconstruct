@@ -1,6 +1,6 @@
 package com.onlysole.fluxnetworksreconstruct.client.gui;
 
-import com.onlysole.fluxnetworksreconstruct.FluxNetworks;
+import com.onlysole.fluxnetworksreconstruct.FluxNetworksReconstruct;
 import com.onlysole.fluxnetworksreconstruct.api.gui.EnumNavigationTabs;
 import com.onlysole.fluxnetworksreconstruct.api.network.NetworkSettings;
 import com.onlysole.fluxnetworksreconstruct.api.translate.FluxTranslate;
@@ -41,7 +41,7 @@ public class GuiFluxConnectorHome extends GuiTabCore {
         super.drawForegroundLayer(mouseX, mouseY);
         renderNetwork(network.getSetting(NetworkSettings.NETWORK_NAME), network.getSetting(NetworkSettings.NETWORK_COLOR), 20, 8);
         renderTransfer(tileEntity, 0xffffff, 30, 90);
-        drawCenteredString(fontRenderer, TextFormatting.RED + FluxNetworks.proxy.getFeedback(false).getInfo(), 89, 150, 0xffffff);
+        drawCenteredString(fontRenderer, TextFormatting.RED + FluxNetworksReconstruct.proxy.getFeedback(false).getInfo(), 89, 150, 0xffffff);
 
         fontRenderer.drawString(FluxTranslate.SURGE_MODE.t(), 20, 120, network.getSetting(NetworkSettings.NETWORK_COLOR));
         fontRenderer.drawString(FluxTranslate.DISABLE_LIMIT.t(), 20, 132, network.getSetting(NetworkSettings.NETWORK_COLOR));

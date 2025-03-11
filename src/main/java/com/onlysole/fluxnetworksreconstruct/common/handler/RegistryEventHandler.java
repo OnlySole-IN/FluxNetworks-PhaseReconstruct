@@ -1,6 +1,6 @@
 package com.onlysole.fluxnetworksreconstruct.common.handler;
 
-import com.onlysole.fluxnetworksreconstruct.FluxNetworks;
+import com.onlysole.fluxnetworksreconstruct.FluxNetworksReconstruct;
 import com.onlysole.fluxnetworksreconstruct.common.block.BlockCore;
 import com.onlysole.fluxnetworksreconstruct.common.item.ItemCore;
 import com.onlysole.fluxnetworksreconstruct.common.registry.RegistryBlocks;
@@ -31,7 +31,7 @@ public class RegistryEventHandler {
     public static void registerBlocks(@Nonnull RegistryEvent.Register<Block> event) {
         event.getRegistry().registerAll(RegistryBlocks.BLOCKS.toArray(new Block[0]));
         TileEntityHandler.registerTileEntity();
-        NetworkRegistry.INSTANCE.registerGuiHandler(FluxNetworks.instance, new GuiHandler());
+        NetworkRegistry.INSTANCE.registerGuiHandler(FluxNetworksReconstruct.instance, new GuiHandler());
     }
 
     @SubscribeEvent

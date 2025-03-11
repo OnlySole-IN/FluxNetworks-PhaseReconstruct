@@ -1,6 +1,6 @@
 package com.onlysole.fluxnetworksreconstruct.client.gui.tab;
 
-import com.onlysole.fluxnetworksreconstruct.FluxNetworks;
+import com.onlysole.fluxnetworksreconstruct.FluxNetworksReconstruct;
 import com.onlysole.fluxnetworksreconstruct.api.gui.EnumFeedbackInfo;
 import com.onlysole.fluxnetworksreconstruct.api.gui.EnumNavigationTabs;
 import com.onlysole.fluxnetworksreconstruct.api.gui.EnumNetworkColor;
@@ -53,7 +53,7 @@ public class GuiTabCreate extends GuiTabEditAbstract {
         super.drawForegroundLayer(mouseX, mouseY);
 
         renderNetwork(name.getText(), color.color, 20, 129);
-        drawCenteredString(fontRenderer, TextFormatting.RED + FluxNetworks.proxy.getFeedback(false).getInfo(), 88, 150, 0xffffff);
+        drawCenteredString(fontRenderer, TextFormatting.RED + FluxNetworksReconstruct.proxy.getFeedback(false).getInfo(), 88, 150, 0xffffff);
     }
 
     @Override
@@ -74,9 +74,9 @@ public class GuiTabCreate extends GuiTabEditAbstract {
     @Override
     public void updateScreen() {
         super.updateScreen();
-        if(FluxNetworks.proxy.getFeedback(true) == EnumFeedbackInfo.SUCCESS) {
+        if(FluxNetworksReconstruct.proxy.getFeedback(true) == EnumFeedbackInfo.SUCCESS) {
             switchTab(EnumNavigationTabs.TAB_SELECTION, player, connector);
-            FluxNetworks.proxy.setFeedback(EnumFeedbackInfo.NONE, true);
+            FluxNetworksReconstruct.proxy.setFeedback(EnumFeedbackInfo.NONE, true);
         }
     }
 

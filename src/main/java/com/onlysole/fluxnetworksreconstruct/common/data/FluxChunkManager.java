@@ -1,7 +1,7 @@
 package com.onlysole.fluxnetworksreconstruct.common.data;
 
 import com.onlysole.fluxnetworksreconstruct.FluxConfig;
-import com.onlysole.fluxnetworksreconstruct.FluxNetworks;
+import com.onlysole.fluxnetworksreconstruct.FluxNetworksReconstruct;
 import net.minecraft.util.math.ChunkPos;
 import net.minecraft.world.World;
 import net.minecraftforge.common.ForgeChunkManager;
@@ -23,7 +23,7 @@ public class FluxChunkManager {
         if(FluxNetworkData.get().loadedChunks.computeIfAbsent(world.provider.getDimension(), l -> new ArrayList<>()).contains(chunk)) {
             return false;
         }
-        ForgeChunkManager.Ticket ticket = worldTickets.computeIfAbsent(world.provider.getDimension(), t -> ForgeChunkManager.requestTicket(FluxNetworks.instance, world, ForgeChunkManager.Type.NORMAL));
+        ForgeChunkManager.Ticket ticket = worldTickets.computeIfAbsent(world.provider.getDimension(), t -> ForgeChunkManager.requestTicket(FluxNetworksReconstruct.instance, world, ForgeChunkManager.Type.NORMAL));
         ForgeChunkManager.forceChunk(ticket, chunk);
         FluxNetworkData.get().loadedChunks.get(world.provider.getDimension()).add(chunk);
         return true;

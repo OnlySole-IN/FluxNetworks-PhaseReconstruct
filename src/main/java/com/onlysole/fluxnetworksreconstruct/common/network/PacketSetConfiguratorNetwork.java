@@ -1,6 +1,6 @@
 package com.onlysole.fluxnetworksreconstruct.common.network;
 
-import com.onlysole.fluxnetworksreconstruct.FluxNetworks;
+import com.onlysole.fluxnetworksreconstruct.FluxNetworksReconstruct;
 import com.onlysole.fluxnetworksreconstruct.api.gui.EnumFeedbackInfo;
 import com.onlysole.fluxnetworksreconstruct.api.network.IFluxNetwork;
 import com.onlysole.fluxnetworksreconstruct.api.network.NetworkSettings;
@@ -21,7 +21,7 @@ public class PacketSetConfiguratorNetwork implements IMessageHandler<PacketSetCo
 
     @Override
     public IMessage onMessage(SetConfiguratorNetworkMessage message, MessageContext ctx) {
-        EntityPlayer player = FluxNetworks.proxy.getPlayer(ctx);
+        EntityPlayer player = FluxNetworksReconstruct.proxy.getPlayer(ctx);
 
         IFluxNetwork network = FluxNetworkCache.instance.getNetwork(message.id);
         if(!network.isInvalid()) {

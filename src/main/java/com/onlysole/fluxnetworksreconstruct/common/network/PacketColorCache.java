@@ -1,6 +1,6 @@
 package com.onlysole.fluxnetworksreconstruct.common.network;
 
-import com.onlysole.fluxnetworksreconstruct.FluxNetworks;
+import com.onlysole.fluxnetworksreconstruct.FluxNetworksReconstruct;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.util.Tuple;
 import net.minecraftforge.fml.common.network.ByteBufUtils;
@@ -15,7 +15,7 @@ public class PacketColorCache implements IMessageHandler<PacketColorCache.ColorC
 
     @Override
     public IMessage onMessage(ColorCacheMessage message, MessageContext ctx) {
-        FluxNetworks.proxy.receiveColorCache(message.cache);
+        FluxNetworksReconstruct.proxy.receiveColorCache(message.cache);
         return null;
     }
 

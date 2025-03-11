@@ -1,6 +1,6 @@
 package com.onlysole.fluxnetworksreconstruct.client.gui.popups;
 
-import com.onlysole.fluxnetworksreconstruct.FluxNetworks;
+import com.onlysole.fluxnetworksreconstruct.FluxNetworksReconstruct;
 import com.onlysole.fluxnetworksreconstruct.api.network.INetworkConnector;
 import com.onlysole.fluxnetworksreconstruct.api.network.NetworkSettings;
 import com.onlysole.fluxnetworksreconstruct.api.translate.FluxTranslate;
@@ -43,7 +43,7 @@ public class GuiPopNetworkPassword extends GuiPopCore<GuiTabSelection> {
         }
         drawCenteredString(fontRenderer, FluxTranslate.NETWORK_PASSWORD.t() + ":", 40, 68, 0xffffff);
 
-        drawCenteredString(fontRenderer, TextFormatting.RED + FluxNetworks.proxy.getFeedback(false).getInfo(), 88, 110, 0xffffff);
+        drawCenteredString(fontRenderer, TextFormatting.RED + FluxNetworksReconstruct.proxy.getFeedback(false).getInfo(), 88, 110, 0xffffff);
     }
 
 

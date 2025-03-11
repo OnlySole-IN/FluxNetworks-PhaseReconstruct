@@ -1,7 +1,7 @@
 package com.onlysole.fluxnetworksreconstruct.client.gui;
 
 import com.onlysole.fluxnetworksreconstruct.FluxConfig;
-import com.onlysole.fluxnetworksreconstruct.FluxNetworks;
+import com.onlysole.fluxnetworksreconstruct.FluxNetworksReconstruct;
 import com.onlysole.fluxnetworksreconstruct.api.gui.EnumNavigationTabs;
 import com.onlysole.fluxnetworksreconstruct.api.network.NetworkSettings;
 import com.onlysole.fluxnetworksreconstruct.api.translate.FluxTranslate;
@@ -57,7 +57,7 @@ public class GuiFluxConfiguratorHome extends GuiTabCore {
     protected void drawForegroundLayer(int mouseX, int mouseY) {
         super.drawForegroundLayer(mouseX, mouseY);
         renderNetwork(network.getSetting(NetworkSettings.NETWORK_NAME), network.getSetting(NetworkSettings.NETWORK_COLOR), 20, 8);
-        drawCenteredString(fontRenderer, TextFormatting.RED + FluxNetworks.proxy.getFeedback(false).getInfo(), 89, 150, 0xffffff);
+        drawCenteredString(fontRenderer, TextFormatting.RED + FluxNetworksReconstruct.proxy.getFeedback(false).getInfo(), 89, 150, 0xffffff);
 
         fontRenderer.drawString(FluxTranslate.SURGE_MODE.t(), 20, 90, network.getSetting(NetworkSettings.NETWORK_COLOR));
         fontRenderer.drawString(FluxTranslate.DISABLE_LIMIT.t(), 20, 102, network.getSetting(NetworkSettings.NETWORK_COLOR));

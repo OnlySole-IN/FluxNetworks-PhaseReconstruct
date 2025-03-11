@@ -1,6 +1,6 @@
 package com.onlysole.fluxnetworksreconstruct.client.gui.popups;
 
-import com.onlysole.fluxnetworksreconstruct.FluxNetworks;
+import com.onlysole.fluxnetworksreconstruct.FluxNetworksReconstruct;
 import com.onlysole.fluxnetworksreconstruct.api.network.INetworkConnector;
 import com.onlysole.fluxnetworksreconstruct.api.network.NetworkSettings;
 import com.onlysole.fluxnetworksreconstruct.api.tiles.IFluxConnector;
@@ -141,7 +141,7 @@ public class GuiPopConnectionEdit extends GuiPopCore<GuiTabConnections> {
         if(batchMode || !host.singleConnection.getConnectionType().isStorage()) {
             fontRenderer.drawString(FluxTranslate.CHUNK_LOADING.t(), 20, 106, host.network.getSetting(NetworkSettings.NETWORK_COLOR));
         }
-        drawCenteredString(fontRenderer, TextFormatting.RED + FluxNetworks.proxy.getFeedback(false).getInfo(), 88, 155, 0xffffff);
+        drawCenteredString(fontRenderer, TextFormatting.RED + FluxNetworksReconstruct.proxy.getFeedback(false).getInfo(), 88, 155, 0xffffff);
     }
 
 

@@ -1,0 +1,132 @@
+itemGroup.fluxnetworksreconstruct=Flux Networks Reconstruct
+
+tile.fluxnetworksreconstruct.fluxblock.name=Bloco de Flux
+tile.fluxnetworksreconstruct.fluxcontroller.name=Controlador de Flux
+tile.fluxnetworksreconstruct.fluxpoint.name=Ponto de Flux
+tile.fluxnetworksreconstruct.fluxplug.name=Plugue de Flux
+tile.fluxnetworksreconstruct.fluxstorage.name=Armazenamento Básico de Flux
+tile.fluxnetworksreconstruct.herculeanfluxstorage.name=Armazenamento Hercúleo de Flux
+tile.fluxnetworksreconstruct.gargantuanfluxstorage.name=Armazenamento Gigantesco de Flux
+
+item.fluxnetworksreconstruct.flux.name=Flux
+item.fluxnetworksreconstruct.fluxcore.name=Núcleo de Flux
+item.fluxnetworksreconstruct.fluxconfigurator.name=Configurador de Flux
+item.fluxnetworksreconstruct.adminconfigurator.name=Configurador Admin
+
+tooltip.fluxnetworksreconstruct.flux=Obtido comprimindo redstones com rocha matriz e obsidiana
+tooltip.fluxnetworksreconstruct.fluxcontroller=Ativa o Carregamento Sem Fio em sua Rede de Flux
+tooltip.fluxnetworksreconstruct.fluxplug=Extrai energia de blocos adjacentes, adicionando energia para sua Rede de Flux
+tooltip.fluxnetworksreconstruct.fluxpoint=Insere energia em blocos adjacentes, removendo energia de sua Rede de Flux
+tooltip.fluxnetworksreconstruct.fluxstorage=Guarda energia para sua Rede de Flux.
+
+info.fluxnetworksreconstruct.tab.home=Início
+info.fluxnetworksreconstruct.tab.selection=Seleção de Rede
+info.fluxnetworksreconstruct.tab.wireless=Carregamento Sem Fio
+info.fluxnetworksreconstruct.tab.connection=Conexões da Rede
+info.fluxnetworksreconstruct.tab.statistics=Estatísticas da Rede
+info.fluxnetworksreconstruct.tab.member=Membros da Rede
+info.fluxnetworksreconstruct.tab.setting=Configurações da Rede
+info.fluxnetworksreconstruct.tab.create=Criar Nova Rede
+
+info.fluxnetworksreconstruct.superadmin.on=Você é agora um super administrador de rede
+info.fluxnetworksreconstruct.superadmin.off=Você não é mais um super administrador de rede
+
+info.fluxnetworksreconstruct.network.name=Nome
+info.fluxnetworksreconstruct.network.fullname=Nome da Rede
+info.fluxnetworksreconstruct.network.security=Tipo de Segurança
+info.fluxnetworksreconstruct.network.password=Senha
+info.fluxnetworksreconstruct.network.energy=Tipo de Energia
+info.fluxnetworksreconstruct.network.color=Cor
+
+info.fluxnetworksreconstruct.denied.access=Acesso negado: Sem permissão
+info.fluxnetworksreconstruct.denied.occupy=Acesso negado: Outro jogador já está usando
+info.fluxnetworksreconstruct.denied.removal=Remoção negada: Sem permissão
+
+info.fluxnetworksreconstruct.clickabove=Clique %s Acima
+
+info.fluxnetworksreconstruct.error.noselected=Nenhuma rede selecionada
+info.fluxnetworksreconstruct.error.nonetwork=Nenhuma rede disponível
+
+info.fluxnetworksreconstruct.flux.priority=Prioridade
+info.fluxnetworksreconstruct.flux.surgemode=Modo de Sobrecarga
+info.fluxnetworksreconstruct.flux.disablelimit=Desabilitar Limite
+info.fluxnetworksreconstruct.flux.chunkloading=Carregar Chunk
+info.fluxnetworksreconstruct.flux.name=Nome
+info.fluxnetworksreconstruct.flux.transferlimit=Limite de Transferência
+info.fluxnetworksreconstruct.flux.wireless=Ativar Sem Fio
+info.fluxnetworksreconstruct.flux.energy=Energia
+info.fluxnetworksreconstruct.flux.energystored=Energia Armazenada
+info.fluxnetworksreconstruct.flux.buffer=Buffer
+info.fluxnetworksreconstruct.flux.internalbuffer=Buffer Interno
+info.fluxnetworksreconstruct.flux.unlimited=Ilimitado
+info.fluxnetworksreconstruct.flux.forcedloading=Carregamento Forçado
+info.fluxnetworksreconstruct.flux.chunkunloaded=Chunk Descarregado
+info.fluxnetworksreconstruct.flux.surge=Sobrecarga
+info.fluxnetworksreconstruct.flux.input=Entrada
+info.fluxnetworksreconstruct.flux.output=Saída
+info.fluxnetworksreconstruct.flux.change=Mudança
+info.fluxnetworksreconstruct.flux.averagetick=Tick Médio
+
+info.fluxnetworksreconstruct.feedback.reject=O servidor rejeitou seu pedido
+info.fluxnetworksreconstruct.feedback.noowner=Você não é mais o dono da rede
+info.fluxnetworksreconstruct.feedback.noadmin=Você não é mais o administrador da rede
+info.fluxnetworksreconstruct.feedback.nospace=Você não pode criar mais redes
+info.fluxnetworksreconstruct.feedback.hascontroller=A rede já possui um controlador
+info.fluxnetworksreconstruct.feedback.invaliduser=Usuário inválido selecionado
+info.fluxnetworksreconstruct.feedback.illegalpassword=Formato de senha errado, tem de ser um dígito ou letra
+info.fluxnetworksreconstruct.feedback.hasloader=Esse chunk já possui um Carregador de Chunk
+info.fluxnetworksreconstruct.feedback.bannedloading=Carregamento de Chunks foi banido desse servidor
+info.fluxnetworksreconstruct.feedback.rejectsome=O servidor rejeitou algumas mudanças
+
+info.fluxnetworksreconstruct.gui.sortby=Ordenar por
+info.fluxnetworksreconstruct.gui.selected=Selecionado
+info.fluxnetworksreconstruct.gui.singleedit=Modo de Edição Único
+info.fluxnetworksreconstruct.gui.batchedit=Modo de Edição em Grupo
+info.fluxnetworksreconstruct.gui.editing=Editando
+info.fluxnetworksreconstruct.gui.connections=Conexões
+info.fluxnetworksreconstruct.gui.customcolor=Cor Customizada
+info.fluxnetworksreconstruct.gui.connectingto=Conectando à
+info.fluxnetworksreconstruct.gui.total=Total
+info.fluxnetworksreconstruct.gui.deletenetwork=Deletar Rede
+info.fluxnetworksreconstruct.gui.doubleshift=Shift-Esquerdo Duplo
+info.fluxnetworksreconstruct.gui.transferownership=Transferir Posse
+info.fluxnetworksreconstruct.gui.setuser=Definir para Usuário
+info.fluxnetworksreconstruct.gui.setadmin=Definir para Administrador
+info.fluxnetworksreconstruct.gui.playername=Nome de Usuário
+info.fluxnetworksreconstruct.gui.playeraccess=Acesso
+info.fluxnetworksreconstruct.gui.cancelmembership=Cancelar Filiação
+info.fluxnetworksreconstruct.gui.you=Você
+
+info.fluxnetworksreconstruct.gui.sort.smart=Smart
+info.fluxnetworksreconstruct.gui.sort.id=ID
+info.fluxnetworksreconstruct.gui.sort.name=Nome
+
+info.fluxnetworksreconstruct.button.batchclear=Limpar Selecionado
+info.fluxnetworksreconstruct.button.batchedit=Editar Selecionado
+info.fluxnetworksreconstruct.button.batchdisconnect=Desconectar Selecionado
+info.fluxnetworksreconstruct.button.apply=Aplicar
+info.fluxnetworksreconstruct.button.cancel=Cancelar
+info.fluxnetworksreconstruct.button.create=Criar
+info.fluxnetworksreconstruct.button.connect=Conectar
+info.fluxnetworksreconstruct.button.delete=Deletar
+
+info.fluxnetworksreconstruct.slot.main=Inventário Principal (Desabilitado)
+info.fluxnetworksreconstruct.slot.hotbar=Espaços da Hotbar
+info.fluxnetworksreconstruct.slot.righthand=Mão Direita
+info.fluxnetworksreconstruct.slot.lefthand=Mão Esquerda
+info.fluxnetworksreconstruct.slot.armor=Espaços de Armadura
+info.fluxnetworksreconstruct.slot.baubles=Espaços de Anéis
+
+info.fluxnetworksreconstruct.stat.plug=Plugues
+info.fluxnetworksreconstruct.stat.point=Pontos
+info.fluxnetworksreconstruct.stat.controller=Controladores
+info.fluxnetworksreconstruct.stat.storage=Armazenamentos
+
+info.fluxnetworksreconstruct.security.encrypted=Criptografado
+info.fluxnetworksreconstruct.security.public=Público
+
+info.fluxnetworksreconstruct.access.owner=Dono
+info.fluxnetworksreconstruct.access.admin=Administrador
+info.fluxnetworksreconstruct.access.user=Usuário
+info.fluxnetworksreconstruct.access.blocked=Bloqueado
+info.fluxnetworksreconstruct.access.superadmin=Super Administrador

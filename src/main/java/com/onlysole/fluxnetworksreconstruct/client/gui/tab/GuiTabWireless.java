@@ -1,6 +1,6 @@
 package com.onlysole.fluxnetworksreconstruct.client.gui.tab;
 
-import com.onlysole.fluxnetworksreconstruct.FluxNetworks;
+import com.onlysole.fluxnetworksreconstruct.FluxNetworksReconstruct;
 import com.onlysole.fluxnetworksreconstruct.api.gui.EnumFeedbackInfo;
 import com.onlysole.fluxnetworksreconstruct.api.gui.EnumNavigationTabs;
 import com.onlysole.fluxnetworksreconstruct.api.network.INetworkConnector;
@@ -44,7 +44,7 @@ public class GuiTabWireless extends GuiTabCore {
             int colour = network.getSetting(NetworkSettings.NETWORK_COLOR);
             drawCenteredString(fontRenderer, FluxTranslate.TAB_WIRELESS.t(), 88, 12, 0xb4b4b4);
             fontRenderer.drawString(FluxTranslate.ENABLE_WIRELESS.t(), 20, 156, colour);
-            drawCenteredString(fontRenderer, TextFormatting.RED + FluxNetworks.proxy.getFeedback(false).getInfo(), 88, 146, 0xffffff);
+            drawCenteredString(fontRenderer, TextFormatting.RED + FluxNetworksReconstruct.proxy.getFeedback(false).getInfo(), 88, 146, 0xffffff);
         } else {
             renderNavigationPrompt(FluxTranslate.ERROR_NO_SELECTED.t(), FluxTranslate.TAB_SELECTION.t());
         }
@@ -105,9 +105,9 @@ public class GuiTabWireless extends GuiTabCore {
     @Override
     public void updateScreen() {
         super.updateScreen();
-        if(FluxNetworks.proxy.getFeedback(true) == EnumFeedbackInfo.SUCCESS) {
+        if(FluxNetworksReconstruct.proxy.getFeedback(true) == EnumFeedbackInfo.SUCCESS) {
             apply.clickable = false;
-            FluxNetworks.proxy.setFeedback(EnumFeedbackInfo.NONE, true);
+            FluxNetworksReconstruct.proxy.setFeedback(EnumFeedbackInfo.NONE, true);
         }
     }
 }

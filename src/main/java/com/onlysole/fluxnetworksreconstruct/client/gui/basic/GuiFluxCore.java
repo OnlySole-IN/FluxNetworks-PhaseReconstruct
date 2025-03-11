@@ -1,6 +1,6 @@
 package com.onlysole.fluxnetworksreconstruct.client.gui.basic;
 
-import com.onlysole.fluxnetworksreconstruct.FluxNetworks;
+import com.onlysole.fluxnetworksreconstruct.FluxNetworksReconstruct;
 import com.onlysole.fluxnetworksreconstruct.api.gui.EnumFeedbackInfo;
 import com.onlysole.fluxnetworksreconstruct.api.network.*;
 import com.onlysole.fluxnetworksreconstruct.api.tiles.IFluxConnector;
@@ -108,8 +108,8 @@ public abstract class GuiFluxCore extends GuiPopUpHost {
     @Override
     public void onGuiClosed() {
         super.onGuiClosed();
-        FluxNetworks.proxy.setFeedback(EnumFeedbackInfo.NONE, false);
-        FluxNetworks.proxy.setFeedback(EnumFeedbackInfo.NONE, true);
+        FluxNetworksReconstruct.proxy.setFeedback(EnumFeedbackInfo.NONE, false);
+        FluxNetworksReconstruct.proxy.setFeedback(EnumFeedbackInfo.NONE, true);
     }
 
     @Override
@@ -181,8 +181,8 @@ public abstract class GuiFluxCore extends GuiPopUpHost {
             PacketHandler.network.sendToServer(new PacketTile.TileMessage(PacketTileType.SET_NETWORK, PacketTileHandler.getSetNetworkPacket(networkID, password), ((IFluxConnector)connector).getCoords().getPos(), ((IFluxConnector)connector).getCoords().getDimension()));
         }
         if(connector instanceof ItemAdminConfigurator.AdminConnector){
-            FluxNetworks.proxy.admin_viewing_network_id = networkID;
-            FluxNetworks.proxy.admin_viewing_network = FluxNetworkCache.instance.getClientNetwork(networkID);
+            FluxNetworksReconstruct.proxy.admin_viewing_network_id = networkID;
+            FluxNetworksReconstruct.proxy.admin_viewing_network = FluxNetworkCache.instance.getClientNetwork(networkID);
         }
         if(connector instanceof ItemConfigurator.NetworkConnector){
             PacketHandler.network.sendToServer(new PacketSetConfiguratorNetwork.SetConfiguratorNetworkMessage(networkID, password));

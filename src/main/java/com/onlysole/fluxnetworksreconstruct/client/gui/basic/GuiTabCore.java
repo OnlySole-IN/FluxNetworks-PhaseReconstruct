@@ -1,7 +1,7 @@
 package com.onlysole.fluxnetworksreconstruct.client.gui.basic;
 
 import com.onlysole.fluxnetworksreconstruct.FluxConfig;
-import com.onlysole.fluxnetworksreconstruct.FluxNetworks;
+import com.onlysole.fluxnetworksreconstruct.FluxNetworksReconstruct;
 import com.onlysole.fluxnetworksreconstruct.api.gui.EnumFeedbackInfo;
 import com.onlysole.fluxnetworksreconstruct.api.gui.EnumNavigationTabs;
 import com.onlysole.fluxnetworksreconstruct.api.network.INetworkConnector;
@@ -59,7 +59,7 @@ public abstract class GuiTabCore extends GuiFluxCore {
                     mc.player.closeScreen();
                 }else {
                     switchTab(EnumNavigationTabs.TAB_HOME, player, connector);
-                    FluxNetworks.proxy.setFeedback(EnumFeedbackInfo.NONE, false);
+                    FluxNetworksReconstruct.proxy.setFeedback(EnumFeedbackInfo.NONE, false);
                     if (FluxConfig.enableButtonSound)
                         mc.getSoundHandler().playSound(PositionedSoundRecord.getMasterRecord(RegistrySounds.BUTTON_CLICK, 1.0F));
                 }
@@ -103,7 +103,7 @@ public abstract class GuiTabCore extends GuiFluxCore {
                 }
                 break;
             case TAB_SELECTION:
-                if(connector instanceof ItemAdminConfigurator.AdminConnector && FluxNetworks.proxy.detailed_network_view) {
+                if(connector instanceof ItemAdminConfigurator.AdminConnector && FluxNetworksReconstruct.proxy.detailed_network_view) {
                     FMLCommonHandler.instance().showGuiScreen(new GuiTabDetailedSelection(player, connector));
                     break;
                 }

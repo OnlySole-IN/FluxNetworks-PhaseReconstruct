@@ -1,6 +1,6 @@
 package com.onlysole.fluxnetworksreconstruct.client.gui.tab;
 
-import com.onlysole.fluxnetworksreconstruct.FluxNetworks;
+import com.onlysole.fluxnetworksreconstruct.FluxNetworksReconstruct;
 import com.onlysole.fluxnetworksreconstruct.api.gui.EnumFeedbackInfo;
 import com.onlysole.fluxnetworksreconstruct.api.gui.EnumNavigationTabs;
 import com.onlysole.fluxnetworksreconstruct.api.network.INetworkConnector;
@@ -103,7 +103,7 @@ public class GuiTabConnections extends GuiTabPages<IFluxConnector> {
             }
             super.drawForegroundLayer(mouseX, mouseY);
             if(!hasActivePopup())
-                drawCenteredString(fontRenderer, TextFormatting.RED + FluxNetworks.proxy.getFeedback(false).getInfo(), 88, 165, 0xffffff);
+                drawCenteredString(fontRenderer, TextFormatting.RED + FluxNetworksReconstruct.proxy.getFeedback(false).getInfo(), 88, 165, 0xffffff);
         } else {
             super.drawForegroundLayer(mouseX, mouseY);
             renderNavigationPrompt(FluxTranslate.ERROR_NO_SELECTED.t(), FluxTranslate.TAB_SELECTION.t());
@@ -197,7 +197,7 @@ public class GuiTabConnections extends GuiTabPages<IFluxConnector> {
         }
         timer++;
         timer %= 20;
-        if(FluxNetworks.proxy.getFeedback(true) == EnumFeedbackInfo.SUCCESS) {
+        if(FluxNetworksReconstruct.proxy.getFeedback(true) == EnumFeedbackInfo.SUCCESS) {
             closePopUp();
             batchConnections.clear();
             clear.clickable = false;
@@ -205,7 +205,7 @@ public class GuiTabConnections extends GuiTabPages<IFluxConnector> {
             disconnect.clickable = false;
             refreshPages(network.getSetting(NetworkSettings.ALL_CONNECTORS));
         }
-        if(FluxNetworks.proxy.getFeedback(true) == EnumFeedbackInfo.SUCCESS_2) {
+        if(FluxNetworksReconstruct.proxy.getFeedback(true) == EnumFeedbackInfo.SUCCESS_2) {
             closePopUp();
             elements.removeAll(batchConnections);
             batchConnections.clear();

@@ -1,6 +1,6 @@
 package com.onlysole.fluxnetworksreconstruct.client.gui;
 
-import com.onlysole.fluxnetworksreconstruct.FluxNetworks;
+import com.onlysole.fluxnetworksreconstruct.FluxNetworksReconstruct;
 import com.onlysole.fluxnetworksreconstruct.api.gui.EnumNavigationTabs;
 import com.onlysole.fluxnetworksreconstruct.api.network.AccessLevel;
 import com.onlysole.fluxnetworksreconstruct.api.network.INetworkConnector;
@@ -34,7 +34,7 @@ public class GuiFluxAdminHome extends GuiTabCore {
     protected void drawForegroundLayer(int mouseX, int mouseY) {
         super.drawForegroundLayer(mouseX, mouseY);
         renderNetwork(network.getSetting(NetworkSettings.NETWORK_NAME), network.getSetting(NetworkSettings.NETWORK_COLOR), 20, 8);
-        drawCenteredString(fontRenderer, TextFormatting.RED + FluxNetworks.proxy.getFeedback(false).getInfo(), 89, 150, 0xffffff);
+        drawCenteredString(fontRenderer, TextFormatting.RED + FluxNetworksReconstruct.proxy.getFeedback(false).getInfo(), 89, 150, 0xffffff);
 
         fontRenderer.drawString(AccessLevel.SUPER_ADMIN.getName(), 20, 30, network.getSetting(NetworkSettings.NETWORK_COLOR));
         fontRenderer.drawString("Detailed Network View", 20, 42, network.getSetting(NetworkSettings.NETWORK_COLOR));
@@ -48,7 +48,7 @@ public class GuiFluxAdminHome extends GuiTabCore {
         super_admin = new SlidedSwitchButton(140, 30, 0, guiLeft, guiTop, FluxNetworkCache.instance.superAdminClient);
         switches.add(super_admin);
 
-        detailed_network_view = new SlidedSwitchButton(140, 42, 1, guiLeft, guiTop, FluxNetworks.proxy.detailed_network_view);
+        detailed_network_view = new SlidedSwitchButton(140, 42, 1, guiLeft, guiTop, FluxNetworksReconstruct.proxy.detailed_network_view);
         switches.add(detailed_network_view);
     }
 
@@ -68,7 +68,7 @@ public class GuiFluxAdminHome extends GuiTabCore {
                     PacketHandler.network.sendToServer(new PacketActivateSuperAdmin.ActivateSuperAdminMessage());
                     break;
                 case 1:
-                    FluxNetworks.proxy.detailed_network_view = switchButton.slideControl;
+                    FluxNetworksReconstruct.proxy.detailed_network_view = switchButton.slideControl;
                     break;
             }
         }

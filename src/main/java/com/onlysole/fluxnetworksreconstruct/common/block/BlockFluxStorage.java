@@ -1,7 +1,7 @@
 package com.onlysole.fluxnetworksreconstruct.common.block;
 
 import com.onlysole.fluxnetworksreconstruct.FluxConfig;
-import com.onlysole.fluxnetworksreconstruct.FluxNetworks;
+import com.onlysole.fluxnetworksreconstruct.FluxNetworksReconstruct;
 import com.onlysole.fluxnetworksreconstruct.api.translate.FluxTranslate;
 import com.onlysole.fluxnetworksreconstruct.client.render.ItemFluxStorageRenderer;
 import com.onlysole.fluxnetworksreconstruct.common.tileentity.TileFluxStorage;
@@ -84,6 +84,6 @@ public class BlockFluxStorage extends BlockFluxCore {
     @SideOnly(Side.CLIENT)
     public void registerModels() {
         Item.getItemFromBlock(this).setTileEntityItemStackRenderer(ItemFluxStorageRenderer.INSTANCE);
-        ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(this), 0, new ModelResourceLocation(FluxNetworks.MODID + ':' + "fluxstoragebuiltin", "inventory"));
+        ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(this), 0, new ModelResourceLocation(FluxNetworksReconstruct.MODID + ':' + "fluxstoragebuiltin", "inventory"));
     }
 }

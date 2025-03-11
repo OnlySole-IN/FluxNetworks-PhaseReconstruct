@@ -1,6 +1,6 @@
 package com.onlysole.fluxnetworksreconstruct.client.gui.tab;
 
-import com.onlysole.fluxnetworksreconstruct.FluxNetworks;
+import com.onlysole.fluxnetworksreconstruct.FluxNetworksReconstruct;
 import com.onlysole.fluxnetworksreconstruct.api.gui.EnumFeedbackInfo;
 import com.onlysole.fluxnetworksreconstruct.api.gui.EnumNavigationTabs;
 import com.onlysole.fluxnetworksreconstruct.api.gui.EnumNetworkColor;
@@ -47,7 +47,7 @@ public class GuiTabSettings extends GuiTabEditAbstract {
                     drawCenteredString(fontRenderer, FluxTranslate.DOUBLE_SHIFT.t(), 48, 128, 0xffffff);
                 }
             }
-            drawCenteredString(fontRenderer, TextFormatting.RED + FluxNetworks.proxy.getFeedback(false).getInfo(), 88, 156, 0xffffff);
+            drawCenteredString(fontRenderer, TextFormatting.RED + FluxNetworksReconstruct.proxy.getFeedback(false).getInfo(), 88, 156, 0xffffff);
         } else {
             renderNavigationPrompt(FluxTranslate.ERROR_NO_SELECTED.t(), FluxTranslate.TAB_SELECTION.t());
         }
@@ -129,13 +129,13 @@ public class GuiTabSettings extends GuiTabEditAbstract {
     @Override
     public void updateScreen() {
         super.updateScreen();
-        if(FluxNetworks.proxy.getFeedback(true) == EnumFeedbackInfo.SUCCESS) {
+        if(FluxNetworksReconstruct.proxy.getFeedback(true) == EnumFeedbackInfo.SUCCESS) {
             switchTab(EnumNavigationTabs.TAB_HOME, player, connector);
-            FluxNetworks.proxy.setFeedback(EnumFeedbackInfo.NONE, true);
+            FluxNetworksReconstruct.proxy.setFeedback(EnumFeedbackInfo.NONE, true);
         }
-        if(FluxNetworks.proxy.getFeedback(true) == EnumFeedbackInfo.SUCCESS_2) {
+        if(FluxNetworksReconstruct.proxy.getFeedback(true) == EnumFeedbackInfo.SUCCESS_2) {
             apply.clickable = false;
-            FluxNetworks.proxy.setFeedback(EnumFeedbackInfo.NONE, true);
+            FluxNetworksReconstruct.proxy.setFeedback(EnumFeedbackInfo.NONE, true);
         }
     }
 }

@@ -1,6 +1,6 @@
 package com.onlysole.fluxnetworksreconstruct.client.jei;
 
-import com.onlysole.fluxnetworksreconstruct.FluxNetworks;
+import com.onlysole.fluxnetworksreconstruct.FluxNetworksReconstruct;
 import com.onlysole.fluxnetworksreconstruct.common.registry.RegistryItems;
 import mezz.jei.api.IGuiHelper;
 import mezz.jei.api.IModRegistry;
@@ -23,7 +23,7 @@ import java.util.List;
 
 public class FluxCraftingCategory implements IRecipeCategory<FluxRecipeWrapper> {
 
-    public static final ResourceLocation TEXTURES = new ResourceLocation(FluxNetworks.MODID, "textures/gui/gui_creating_flux_recipe.png");
+    public static final ResourceLocation TEXTURES = new ResourceLocation(FluxNetworksReconstruct.MODID, "textures/gui/gui_creating_flux_recipe.png");
 
     private final IDrawable background;
     private final IDrawable icon;
@@ -57,7 +57,7 @@ public class FluxCraftingCategory implements IRecipeCategory<FluxRecipeWrapper> 
     @Nonnull
     @Override
     public String getTitle() {
-        return I18n.format("info.fluxnetworks.jei.creatingfluxrecipe");
+        return I18n.format("info.fluxnetworksreconstruct.jei.creatingfluxrecipe");
     }
 
     @Nullable
@@ -69,7 +69,7 @@ public class FluxCraftingCategory implements IRecipeCategory<FluxRecipeWrapper> 
     @Nonnull
     @Override
     public String getModName() {
-        return FluxNetworks.NAME;
+        return FluxNetworksReconstruct.NAME;
     }
 
     @Nonnull

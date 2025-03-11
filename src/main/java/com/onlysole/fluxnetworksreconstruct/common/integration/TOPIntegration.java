@@ -1,7 +1,7 @@
 package com.onlysole.fluxnetworksreconstruct.common.integration;
 
 import com.onlysole.fluxnetworksreconstruct.FluxConfig;
-import com.onlysole.fluxnetworksreconstruct.FluxNetworks;
+import com.onlysole.fluxnetworksreconstruct.FluxNetworksReconstruct;
 import com.onlysole.fluxnetworksreconstruct.api.tiles.IFluxConnector;
 import com.onlysole.fluxnetworksreconstruct.api.translate.FluxTranslate;
 import com.onlysole.fluxnetworksreconstruct.api.utils.EnergyType;
@@ -31,7 +31,7 @@ public class TOPIntegration implements Function<ITheOneProbe, Void> {
 
         @Override
         public String getID() {
-            return FluxNetworks.MODID;
+            return FluxNetworksReconstruct.MODID;
         }
 
         @Override
@@ -81,7 +81,7 @@ public class TOPIntegration implements Function<ITheOneProbe, Void> {
                 if(tile instanceof IFluxConnector) {
                     IFluxConnector flux = (IFluxConnector) tile;
                     ItemStack pickBlock = flux.getDisplayStack().setStackDisplayName(flux.getCustomName());
-                    iProbeInfo.horizontal().item(pickBlock).vertical().itemLabel(pickBlock).text(TextStyleClass.MODNAME + FluxNetworks.NAME);
+                    iProbeInfo.horizontal().item(pickBlock).vertical().itemLabel(pickBlock).text(TextStyleClass.MODNAME + FluxNetworksReconstruct.NAME);
                     return true;
                 }
             }

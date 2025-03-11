@@ -1,6 +1,6 @@
 package com.onlysole.fluxnetworksreconstruct.common.item;
 
-import com.onlysole.fluxnetworksreconstruct.FluxNetworks;
+import com.onlysole.fluxnetworksreconstruct.FluxNetworksReconstruct;
 import com.onlysole.fluxnetworksreconstruct.api.network.IFluxNetwork;
 import com.onlysole.fluxnetworksreconstruct.api.network.INetworkConnector;
 import net.minecraft.entity.player.EntityPlayer;
@@ -26,7 +26,7 @@ public class ItemAdminConfigurator extends ItemConfigurator {
     @Override
     public ActionResult<ItemStack> onItemRightClick(World worldIn, EntityPlayer playerIn, EnumHand handIn) {
         if (!worldIn.isRemote) {
-            playerIn.openGui(FluxNetworks.instance, 1, worldIn, 0, 0, 0);
+            playerIn.openGui(FluxNetworksReconstruct.instance, 1, worldIn, 0, 0, 0);
         }
         return new ActionResult<>(EnumActionResult.SUCCESS, playerIn.getHeldItem(handIn));
     }
@@ -41,12 +41,12 @@ public class ItemAdminConfigurator extends ItemConfigurator {
 
         @Override
         public int getNetworkID() {
-            return FluxNetworks.proxy.admin_viewing_network_id;
+            return FluxNetworksReconstruct.proxy.admin_viewing_network_id;
         }
 
         @Override
         public IFluxNetwork getNetwork() {
-            return FluxNetworks.proxy.admin_viewing_network;
+            return FluxNetworksReconstruct.proxy.admin_viewing_network;
         }
 
         @Override

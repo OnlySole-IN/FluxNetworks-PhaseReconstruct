@@ -1,6 +1,6 @@
 package com.onlysole.fluxnetworksreconstruct.client.gui.popups;
 
-import com.onlysole.fluxnetworksreconstruct.FluxNetworks;
+import com.onlysole.fluxnetworksreconstruct.FluxNetworksReconstruct;
 import com.onlysole.fluxnetworksreconstruct.api.gui.EnumFeedbackInfo;
 import com.onlysole.fluxnetworksreconstruct.api.network.INetworkConnector;
 import com.onlysole.fluxnetworksreconstruct.client.gui.basic.GuiDraw;
@@ -51,7 +51,7 @@ public class GuiPopCore<T extends GuiPopUpHost> extends GuiDraw {
         popButtons.clear();
         popBoxes.clear();
         popSwitches.clear();
-        FluxNetworks.proxy.setFeedback(EnumFeedbackInfo.NONE, true);
+        FluxNetworksReconstruct.proxy.setFeedback(EnumFeedbackInfo.NONE, true);
     }
 
     public void drawGuiContainerForegroundLayer(int mouseX, int mouseY) {
