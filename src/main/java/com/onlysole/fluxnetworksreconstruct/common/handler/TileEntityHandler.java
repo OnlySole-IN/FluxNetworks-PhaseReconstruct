@@ -1,5 +1,6 @@
 package com.onlysole.fluxnetworksreconstruct.common.handler;
 
+import com.google.common.collect.Lists;
 import com.onlysole.fluxnetworksreconstruct.api.energy.ITileEnergyHandler;
 import com.onlysole.fluxnetworksreconstruct.api.tiles.IFluxConnector;
 import com.onlysole.fluxnetworksreconstruct.common.integration.energy.ForgeEnergyHandler;
@@ -10,7 +11,6 @@ import com.onlysole.fluxnetworksreconstruct.common.tileentity.TileFluxController
 import com.onlysole.fluxnetworksreconstruct.common.tileentity.TileFluxPlug;
 import com.onlysole.fluxnetworksreconstruct.common.tileentity.TileFluxPoint;
 import com.onlysole.fluxnetworksreconstruct.common.tileentity.TileFluxStorage;
-import com.google.common.collect.Lists;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumFacing;
 import net.minecraftforge.fml.common.Loader;

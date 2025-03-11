@@ -1,6 +1,6 @@
 package com.onlysole.fluxnetworksreconstruct.client.gui.basic;
 
-import com.onlysole.fluxnetworksreconstruct.FluxNetworksReconstruct;
+import com.onlysole.fluxnetworksreconstruct.Tags;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.RenderHelper;
@@ -18,11 +18,11 @@ import java.util.concurrent.atomic.AtomicInteger;
 ////ONLY RENDER METHODS & TEXTURES \\\\
 public abstract class GuiDraw extends GuiContainer implements ITextBoxButton {
 
-    public static final ResourceLocation BACKGROUND = new ResourceLocation(FluxNetworksReconstruct.MODID, "textures/gui/gui_default_background.png");
-    public static final ResourceLocation FRAME = new ResourceLocation(FluxNetworksReconstruct.MODID, "textures/gui/gui_default_frame.png");
-    public static final ResourceLocation GUI_BAR = new ResourceLocation(FluxNetworksReconstruct.MODID, "textures/gui/gui_bar.png");
-    public static final ResourceLocation INVENTORY = new ResourceLocation(FluxNetworksReconstruct.MODID, "textures/gui/inventory_configuration.png");
-    public static final ResourceLocation BUTTONS = new ResourceLocation(FluxNetworksReconstruct.MODID, "textures/gui/gui_button.png");
+    public static final ResourceLocation BACKGROUND = new ResourceLocation(Tags.MOD_ID, "textures/gui/gui_default_background.png");
+    public static final ResourceLocation FRAME = new ResourceLocation(Tags.MOD_ID, "textures/gui/gui_default_frame.png");
+    public static final ResourceLocation GUI_BAR = new ResourceLocation(Tags.MOD_ID, "textures/gui/gui_bar.png");
+    public static final ResourceLocation INVENTORY = new ResourceLocation(Tags.MOD_ID, "textures/gui/inventory_configuration.png");
+    public static final ResourceLocation BUTTONS = new ResourceLocation(Tags.MOD_ID, "textures/gui/gui_button.png");
 
     public GuiDraw(Container inventorySlotsIn) {
         super(inventorySlotsIn);

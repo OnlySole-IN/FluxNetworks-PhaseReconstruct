@@ -1,6 +1,7 @@
 package com.onlysole.fluxnetworksreconstruct.common.block;
 
 import com.onlysole.fluxnetworksreconstruct.FluxNetworksReconstruct;
+import com.onlysole.fluxnetworksreconstruct.Tags;
 import com.onlysole.fluxnetworksreconstruct.common.CommonProxy;
 import com.onlysole.fluxnetworksreconstruct.common.item.ItemFluxConnector;
 import com.onlysole.fluxnetworksreconstruct.common.registry.RegistryBlocks;
@@ -14,7 +15,7 @@ public class BlockCore extends Block {
 
     public BlockCore(String name, Material materialIn) {
         super(materialIn);
-        setTranslationKey(FluxNetworksReconstruct.MODID + "." + name.toLowerCase());
+        setTranslationKey(Tags.MOD_ID + "." + name.toLowerCase());
         setRegistryName(name.toLowerCase());
         RegistryBlocks.BLOCKS.add(this);
         RegistryItems.ITEMS.add(new ItemBlock(this).setRegistryName(this.getRegistryName()));
@@ -23,7 +24,7 @@ public class BlockCore extends Block {
 
     public BlockCore(String name, Material materialIn, boolean special) {
         super(materialIn);
-        setTranslationKey(FluxNetworksReconstruct.MODID + "." + name.toLowerCase());
+        setTranslationKey(Tags.MOD_ID + "." + name.toLowerCase());
         setRegistryName(name.toLowerCase());
         RegistryBlocks.BLOCKS.add(this);
         RegistryItems.ITEMS.add(new ItemFluxConnector(this).setRegistryName(this.getRegistryName()));

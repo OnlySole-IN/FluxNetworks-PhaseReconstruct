@@ -1,11 +1,11 @@
 package com.onlysole.fluxnetworksreconstruct.client.gui.basic;
 
+import com.google.common.collect.Lists;
 import com.onlysole.fluxnetworksreconstruct.api.network.INetworkConnector;
 import com.onlysole.fluxnetworksreconstruct.api.network.NetworkSettings;
 import com.onlysole.fluxnetworksreconstruct.api.translate.FluxTranslate;
 import com.onlysole.fluxnetworksreconstruct.api.translate.Translation;
 import com.onlysole.fluxnetworksreconstruct.client.gui.button.PageLabelButton;
-import com.google.common.collect.Lists;
 import net.minecraft.entity.player.EntityPlayer;
 
 import java.io.IOException;

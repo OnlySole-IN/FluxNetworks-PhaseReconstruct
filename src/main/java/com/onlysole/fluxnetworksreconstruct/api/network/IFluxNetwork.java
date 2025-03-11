@@ -1,8 +1,8 @@
 package com.onlysole.fluxnetworksreconstruct.api.network;
 
+import com.google.common.collect.Lists;
 import com.onlysole.fluxnetworksreconstruct.api.tiles.IFluxConnector;
 import com.onlysole.fluxnetworksreconstruct.api.utils.NBTType;
-import com.google.common.collect.Lists;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.nbt.NBTTagCompound;
 

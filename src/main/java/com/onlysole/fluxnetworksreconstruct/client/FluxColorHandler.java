@@ -1,5 +1,6 @@
 package com.onlysole.fluxnetworksreconstruct.client;
 
+import com.google.common.collect.Lists;
 import com.onlysole.fluxnetworksreconstruct.api.network.NetworkSettings;
 import com.onlysole.fluxnetworksreconstruct.api.utils.FluxConfigurationType;
 import com.onlysole.fluxnetworksreconstruct.client.gui.basic.GuiFluxCore;
@@ -10,7 +11,6 @@ import com.onlysole.fluxnetworksreconstruct.common.handler.PacketHandler;
 import com.onlysole.fluxnetworksreconstruct.common.item.ItemConfigurator;
 import com.onlysole.fluxnetworksreconstruct.common.network.PacketColorRequest;
 import com.onlysole.fluxnetworksreconstruct.common.tileentity.TileFluxCore;
-import com.google.common.collect.Lists;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Gui;

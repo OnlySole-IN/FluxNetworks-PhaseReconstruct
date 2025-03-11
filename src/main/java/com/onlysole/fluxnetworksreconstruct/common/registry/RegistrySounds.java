@@ -1,6 +1,6 @@
 package com.onlysole.fluxnetworksreconstruct.common.registry;
 
-import com.onlysole.fluxnetworksreconstruct.FluxNetworksReconstruct;
+import com.onlysole.fluxnetworksreconstruct.Tags;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import net.minecraftforge.registries.IForgeRegistry;
@@ -14,7 +14,7 @@ public class RegistrySounds {
     }
 
     public static SoundEvent registerSound(IForgeRegistry<SoundEvent> registry, String soundName) {
-        ResourceLocation soundID = new ResourceLocation(FluxNetworksReconstruct.MODID, soundName);
+        ResourceLocation soundID = new ResourceLocation(Tags.MOD_ID, soundName);
         SoundEvent event = new SoundEvent(soundID).setRegistryName(soundID);
         registry.register(event);
         return event;

@@ -1,5 +1,6 @@
 package com.onlysole.fluxnetworksreconstruct.client.gui.popups;
 
+import com.google.common.collect.Lists;
 import com.onlysole.fluxnetworksreconstruct.FluxNetworksReconstruct;
 import com.onlysole.fluxnetworksreconstruct.api.gui.EnumFeedbackInfo;
 import com.onlysole.fluxnetworksreconstruct.api.network.INetworkConnector;
@@ -9,7 +10,6 @@ import com.onlysole.fluxnetworksreconstruct.client.gui.basic.GuiTextField;
 import com.onlysole.fluxnetworksreconstruct.client.gui.button.NormalButton;
 import com.onlysole.fluxnetworksreconstruct.client.gui.button.SlidedSwitchButton;
 import com.onlysole.fluxnetworksreconstruct.client.gui.button.TextboxButton;
-import com.google.common.collect.Lists;
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.player.EntityPlayer;
 

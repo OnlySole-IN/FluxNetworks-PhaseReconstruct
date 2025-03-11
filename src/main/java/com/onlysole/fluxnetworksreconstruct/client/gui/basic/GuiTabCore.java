@@ -1,5 +1,6 @@
 package com.onlysole.fluxnetworksreconstruct.client.gui.basic;
 
+import com.google.common.collect.Lists;
 import com.onlysole.fluxnetworksreconstruct.FluxConfig;
 import com.onlysole.fluxnetworksreconstruct.FluxNetworksReconstruct;
 import com.onlysole.fluxnetworksreconstruct.api.gui.EnumFeedbackInfo;
@@ -14,7 +15,6 @@ import com.onlysole.fluxnetworksreconstruct.common.item.ItemAdminConfigurator;
 import com.onlysole.fluxnetworksreconstruct.common.item.ItemConfigurator;
 import com.onlysole.fluxnetworksreconstruct.common.registry.RegistrySounds;
 import com.onlysole.fluxnetworksreconstruct.common.tileentity.TileFluxCore;
-import com.google.common.collect.Lists;
 import net.minecraft.client.audio.PositionedSoundRecord;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraftforge.fml.common.FMLCommonHandler;

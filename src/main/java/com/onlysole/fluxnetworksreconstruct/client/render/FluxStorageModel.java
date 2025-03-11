@@ -1,7 +1,10 @@
 package com.onlysole.fluxnetworksreconstruct.client.render;
 
-import com.onlysole.fluxnetworksreconstruct.FluxNetworksReconstruct;
-import net.minecraft.client.renderer.block.model.*;
+import com.onlysole.fluxnetworksreconstruct.Tags;
+import net.minecraft.client.renderer.block.model.BuiltInModel;
+import net.minecraft.client.renderer.block.model.IBakedModel;
+import net.minecraft.client.renderer.block.model.ItemCameraTransforms;
+import net.minecraft.client.renderer.block.model.ItemOverrideList;
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 import net.minecraft.client.renderer.vertex.VertexFormat;
 import net.minecraft.client.resources.IResourceManager;
@@ -33,7 +36,7 @@ public class FluxStorageModel extends BuiltInModel implements IModel, IBakedMode
 
     @Override
     public boolean accepts(ResourceLocation modelLocation) {
-        if(modelLocation.getNamespace().equals(FluxNetworksReconstruct.MODID)){
+        if(modelLocation.getNamespace().equals(Tags.MOD_ID)){
             return modelLocation.getPath().equals("models/item/fluxstoragebuiltin");
         }
         return false;

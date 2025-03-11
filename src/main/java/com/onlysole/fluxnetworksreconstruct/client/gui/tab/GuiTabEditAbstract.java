@@ -1,5 +1,6 @@
 package com.onlysole.fluxnetworksreconstruct.client.gui.tab;
 
+import com.google.common.collect.Lists;
 import com.onlysole.fluxnetworksreconstruct.api.gui.EnumNavigationTabs;
 import com.onlysole.fluxnetworksreconstruct.api.network.INetworkConnector;
 import com.onlysole.fluxnetworksreconstruct.api.network.SecurityType;
@@ -12,7 +13,6 @@ import com.onlysole.fluxnetworksreconstruct.client.gui.button.TextboxButton;
 import com.onlysole.fluxnetworksreconstruct.client.gui.popups.GuiPopCore;
 import com.onlysole.fluxnetworksreconstruct.client.gui.popups.GuiPopCustomColour;
 import com.onlysole.fluxnetworksreconstruct.common.core.FluxUtils;
-import com.google.common.collect.Lists;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.text.TextFormatting;
 

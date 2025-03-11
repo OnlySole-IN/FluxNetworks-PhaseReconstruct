@@ -1,6 +1,6 @@
 package com.onlysole.fluxnetworksreconstruct.common.registry;
 
-import com.onlysole.fluxnetworksreconstruct.FluxNetworksReconstruct;
+import com.onlysole.fluxnetworksreconstruct.Tags;
 import com.onlysole.fluxnetworksreconstruct.common.core.FluxUtils;
 import com.onlysole.fluxnetworksreconstruct.common.data.FluxNetworkData;
 import net.minecraft.init.Blocks;
@@ -18,7 +18,7 @@ import javax.annotation.Nonnull;
 
 public class RegistryRecipes {
 
-    public static final ResourceLocation group = new ResourceLocation(FluxNetworksReconstruct.MODID);
+    public static final ResourceLocation group = new ResourceLocation(Tags.MOD_ID);
 
     /*public static void registerRecipes() {
         addShapedRecipe(new ItemStack(RegistryItems.FLUX_CORE, 4), "GCG", "CAC", "GCG", 'C', Blocks.OBSIDIAN, 'G', RegistryItems.FLUX, 'A', Items.ENDER_EYE);
@@ -55,7 +55,7 @@ public class RegistryRecipes {
 
         public FluxShapedRecipe(@Nonnull ItemStack result, Object... recipe) {
             super(RegistryRecipes.group, result, recipe);
-            setRegistryName(new ResourceLocation(FluxNetworksReconstruct.MODID, result.getTranslationKey()));
+            setRegistryName(new ResourceLocation(Tags.MOD_ID, result.getTranslationKey()));
         }
     }
 
@@ -63,7 +63,7 @@ public class RegistryRecipes {
 
         public FluxShapelessRecipe(@Nonnull ItemStack result, Object... recipe) {
             super(RegistryRecipes.group, result, recipe);
-            setRegistryName(new ResourceLocation(FluxNetworksReconstruct.MODID, result.getTranslationKey() + 's'));
+            setRegistryName(new ResourceLocation(Tags.MOD_ID, result.getTranslationKey() + 's'));
         }
     }
 

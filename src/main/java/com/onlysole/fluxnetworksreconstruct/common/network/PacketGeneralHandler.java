@@ -1,5 +1,6 @@
 package com.onlysole.fluxnetworksreconstruct.common.network;
 
+import com.google.common.collect.Lists;
 import com.onlysole.fluxnetworksreconstruct.api.gui.EnumFeedbackInfo;
 import com.onlysole.fluxnetworksreconstruct.api.network.*;
 import com.onlysole.fluxnetworksreconstruct.api.tiles.IFluxConnector;
@@ -9,7 +10,6 @@ import com.onlysole.fluxnetworksreconstruct.common.connection.FluxNetworkCache;
 import com.onlysole.fluxnetworksreconstruct.common.core.FluxUtils;
 import com.onlysole.fluxnetworksreconstruct.common.data.FluxNetworkData;
 import com.onlysole.fluxnetworksreconstruct.common.handler.PacketHandler;
-import com.google.common.collect.Lists;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.nbt.NBTTagCompound;

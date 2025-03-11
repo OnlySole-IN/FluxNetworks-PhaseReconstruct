@@ -1,6 +1,8 @@
 package com.onlysole.fluxnetworksreconstruct.common.data;
 
+import com.google.common.collect.Lists;
 import com.onlysole.fluxnetworksreconstruct.FluxNetworksReconstruct;
+import com.onlysole.fluxnetworksreconstruct.Tags;
 import com.onlysole.fluxnetworksreconstruct.api.network.*;
 import com.onlysole.fluxnetworksreconstruct.api.tiles.IFluxConnector;
 import com.onlysole.fluxnetworksreconstruct.api.utils.Capabilities;
@@ -12,7 +14,6 @@ import com.onlysole.fluxnetworksreconstruct.common.connection.FluxNetworkCache;
 import com.onlysole.fluxnetworksreconstruct.common.connection.FluxNetworkServer;
 import com.onlysole.fluxnetworksreconstruct.common.handler.PacketHandler;
 import com.onlysole.fluxnetworksreconstruct.common.network.PacketNetworkUpdate;
-import com.google.common.collect.Lists;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.nbt.NBTTagCompound;
@@ -39,7 +40,7 @@ import java.util.Map;
  */
 public class FluxNetworkData extends WorldSavedData {
 
-    private static final String NETWORK_DATA = FluxNetworksReconstruct.MODID + "data";
+    private static final String NETWORK_DATA = Tags.MOD_ID + "data";
 
     private static FluxNetworkData data;
 

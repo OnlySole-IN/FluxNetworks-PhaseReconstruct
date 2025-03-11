@@ -1,9 +1,9 @@
 package com.onlysole.fluxnetworksreconstruct.common.block;
 
+import com.google.common.collect.Lists;
 import com.onlysole.fluxnetworksreconstruct.common.core.FluxUtils;
 import com.onlysole.fluxnetworksreconstruct.common.tileentity.TileFluxConnector;
 import com.onlysole.fluxnetworksreconstruct.common.tileentity.TileFluxCore;
-import com.google.common.collect.Lists;
 import net.minecraft.block.Block;
 import net.minecraft.block.properties.PropertyBool;
 import net.minecraft.block.state.BlockStateContainer;

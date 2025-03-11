@@ -1,7 +1,9 @@
 package com.onlysole.fluxnetworksreconstruct.common;
 
+import com.google.common.collect.Lists;
 import com.onlysole.fluxnetworksreconstruct.FluxConfig;
 import com.onlysole.fluxnetworksreconstruct.FluxNetworksReconstruct;
+import com.onlysole.fluxnetworksreconstruct.Tags;
 import com.onlysole.fluxnetworksreconstruct.api.gui.EnumFeedbackInfo;
 import com.onlysole.fluxnetworksreconstruct.api.network.IFluxNetwork;
 import com.onlysole.fluxnetworksreconstruct.api.utils.NBTType;
@@ -21,7 +23,6 @@ import com.onlysole.fluxnetworksreconstruct.common.network.PacketNetworkUpdate;
 import com.onlysole.fluxnetworksreconstruct.common.network.PacketSuperAdmin;
 import com.onlysole.fluxnetworksreconstruct.common.registry.RegistryBlocks;
 import com.onlysole.fluxnetworksreconstruct.common.registry.RegistryItems;
-import com.google.common.collect.Lists;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.item.EntityItem;
@@ -74,7 +75,7 @@ public class CommonProxy {
         PacketHandler.registerMessages();
         TileEntityHandler.registerEnergyHandler();
         FluxConfig.init(event.getModConfigurationDirectory());
-        EntityRegistry.registerModEntity(new ResourceLocation(FluxNetworksReconstruct.MODID, "Flux"), EntityFireItem.class, "Flux", 0, FluxNetworksReconstruct.instance, 64, 10, true);
+        EntityRegistry.registerModEntity(new ResourceLocation(Tags.MOD_ID, "Flux"), EntityFireItem.class, "Flux", 0, FluxNetworksReconstruct.instance, 64, 10, true);
         if(Loader.isModLoaded("mekanism")){
             MekanismIntegration.preInit();
         }
@@ -84,7 +85,7 @@ public class CommonProxy {
 
     public void init(FMLInitializationEvent event) {
         DefaultSuperAdmin.register();
-        FMLInterModComms.sendMessage("carryon", "blacklistBlock",  FluxNetworksReconstruct.MODID + ":*");
+        FMLInterModComms.sendMessage("carryon", "blacklistBlock",  Tags.MOD_ID + ":*");
         FMLInterModComms.sendFunctionMessage("theoneprobe", "getTheOneProbe", TOPIntegration.class.getName());
         if(ocLoaded) {
             OCIntegration.init();
@@ -105,7 +106,7 @@ public class CommonProxy {
         FluxChunkManager.clear();
     }
 
-    public static CreativeTabs creativeTabs = new CreativeTabs(FluxNetworksReconstruct.MODID) {
+    public static CreativeTabs creativeTabs = new CreativeTabs(Tags.MOD_ID) {
 
         @Override
         public ItemStack createIcon() {

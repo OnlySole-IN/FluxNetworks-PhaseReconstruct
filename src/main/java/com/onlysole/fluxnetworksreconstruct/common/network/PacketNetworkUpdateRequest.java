@@ -1,9 +1,9 @@
 package com.onlysole.fluxnetworksreconstruct.common.network;
 
+import com.google.common.collect.Lists;
 import com.onlysole.fluxnetworksreconstruct.api.network.IFluxNetwork;
 import com.onlysole.fluxnetworksreconstruct.api.utils.NBTType;
 import com.onlysole.fluxnetworksreconstruct.common.connection.FluxNetworkCache;
-import com.google.common.collect.Lists;
 import io.netty.buffer.ByteBuf;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessageHandler;

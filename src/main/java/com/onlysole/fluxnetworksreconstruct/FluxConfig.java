@@ -77,9 +77,9 @@ public class FluxConfig {
     }
 
     public static void generateFluxChunkConfig() {
-        if (!ForgeChunkManager.getConfig().hasCategory(FluxNetworksReconstruct.MODID)) {
-            ForgeChunkManager.getConfig().get(FluxNetworksReconstruct.MODID, "maximumChunksPerTicket", 1000000).setMinValue(0);
-            ForgeChunkManager.getConfig().get(FluxNetworksReconstruct.MODID, "maximumTicketCount", 1000000).setMinValue(0);
+        if (!ForgeChunkManager.getConfig().hasCategory(Tags.MOD_ID)) {
+            ForgeChunkManager.getConfig().get(Tags.MOD_ID, "maximumChunksPerTicket", 1000000).setMinValue(0);
+            ForgeChunkManager.getConfig().get(Tags.MOD_ID, "maximumTicketCount", 1000000).setMinValue(0);
             ForgeChunkManager.getConfig().save();
         }
     }

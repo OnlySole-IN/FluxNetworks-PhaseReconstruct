@@ -1,6 +1,7 @@
 package com.onlysole.fluxnetworksreconstruct.common.handler;
 
 import com.onlysole.fluxnetworksreconstruct.FluxNetworksReconstruct;
+import com.onlysole.fluxnetworksreconstruct.Tags;
 import com.onlysole.fluxnetworksreconstruct.common.network.*;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.network.INetHandler;
@@ -12,7 +13,7 @@ import net.minecraftforge.fml.relauncher.Side;
 
 public class PacketHandler {
 
-    public static SimpleNetworkWrapper network = NetworkRegistry.INSTANCE.newSimpleChannel(FluxNetworksReconstruct.MODID);
+    public static SimpleNetworkWrapper network = NetworkRegistry.INSTANCE.newSimpleChannel(Tags.MOD_ID);
 
     public static void registerMessages() {
         network.registerMessage(PacketGeneral.class, PacketGeneral.GeneralMessage.class, 1, Side.SERVER);
