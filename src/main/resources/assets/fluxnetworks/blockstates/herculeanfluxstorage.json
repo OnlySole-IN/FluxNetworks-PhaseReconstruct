@@ -1,12 +1,12 @@
 {
     "forge_marker": 1,
     "defaults": {
-        "model":"fluxnetworksreconstruct:fluxstorage",
+        "model":"fluxnetworks:fluxstorage",
         "transform":"forge:default-block",
         "textures": {
-            "colour": "fluxnetworksreconstruct:model/tier2_colour",
-            "1":"fluxnetworksreconstruct:model/tier2",
-            "particle":"fluxnetworksreconstruct:model/tier2"
+            "colour": "fluxnetworks:model/tier2_colour",
+            "1":"fluxnetworks:model/tier2",
+            "particle":"fluxnetworks:model/tier2"
         }
      },
     "variants": {
@@ -14,12 +14,12 @@
          "connected":{
             "true":{
                  "textures": {                 
-                    "1":"fluxnetworksreconstruct:model/tier2"
+                    "1":"fluxnetworks:model/tier2"
                   }
             },
             "false":{
                  "textures": {                 
-                    "1":"fluxnetworksreconstruct:model/tier2_off"
+                    "1":"fluxnetworks:model/tier2_off"
                   }                
             }
          }

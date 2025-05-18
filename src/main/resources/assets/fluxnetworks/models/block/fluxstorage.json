@@ -1,10 +1,10 @@
 {
     "textures": {
-        "0": "fluxnetworksreconstruct:model/gray",
-        "1": "fluxnetworksreconstruct:model/tier1",
-        "2": "fluxnetworksreconstruct:model/lightBlue",
-        "colour": "fluxnetworksreconstruct:model/tier1_colour",
-        "particle": "fluxnetworksreconstruct:model/tier1"
+        "0": "fluxnetworks:model/gray",
+        "1": "fluxnetworks:model/tier1",
+        "2": "fluxnetworks:model/lightBlue",
+        "colour": "fluxnetworks:model/tier1_colour",
+        "particle": "fluxnetworks:model/tier1"
     },
     "elements": [
         {

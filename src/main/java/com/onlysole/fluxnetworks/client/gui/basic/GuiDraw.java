@@ -49,7 +49,7 @@ public abstract class GuiDraw extends GuiContainer implements ITextBoxButton {
         GlStateManager.pushMatrix();
         drawCenteredString(fontRenderer, error, xSize / 2, 16, 0x808080);
         GlStateManager.scale(0.625, 0.625, 0.625);
-        drawCenteredString(fontRenderer, I18n.format("info.fluxnetworksreconstruct.clickabove", TextFormatting.AQUA + prompt + TextFormatting.RESET), (int) (xSize / 2 * 1.6), (int) (26 * 1.6), 0x808080);
+        drawCenteredString(fontRenderer, I18n.format("info.fluxnetworks.clickabove", TextFormatting.AQUA + prompt + TextFormatting.RESET), (int) (xSize / 2 * 1.6), (int) (26 * 1.6), 0x808080);
         GlStateManager.scale(1.6, 1.6, 1.6);
         GlStateManager.popMatrix();
     }

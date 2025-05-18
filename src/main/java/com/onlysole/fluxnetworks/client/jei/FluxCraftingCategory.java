@@ -57,7 +57,7 @@ public class FluxCraftingCategory implements IRecipeCategory<FluxRecipeWrapper> 
     @Nonnull
     @Override
     public String getTitle() {
-        return I18n.format("info.fluxnetworksreconstruct.jei.creatingfluxrecipe");
+        return I18n.format("info.fluxnetworks.jei.creatingfluxrecipe");
     }
 
     @Nullable

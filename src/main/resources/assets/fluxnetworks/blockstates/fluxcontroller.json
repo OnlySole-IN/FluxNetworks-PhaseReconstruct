@@ -1,14 +1,14 @@
 {
     "forge_marker": 1,
     "defaults": {
-        "model":"fluxnetworksreconstruct:fluxcontroller",
+        "model":"fluxnetworks:fluxcontroller",
         "transform":"forge:default-block",
         "textures": {
-          "0": "fluxnetworksreconstruct:model/fluxcontroller_bottom",
-          "1": "fluxnetworksreconstruct:model/flux_controller",
-          "colour" : "fluxnetworksreconstruct:model/fluxcontroller_colour",
-          "top": "fluxnetworksreconstruct:model/fluxcontroller_off",
-          "particle": "fluxnetworksreconstruct:model/fluxcontroller_bottom"
+          "0": "fluxnetworks:model/fluxcontroller_bottom",
+          "1": "fluxnetworks:model/flux_controller",
+          "colour" : "fluxnetworks:model/fluxcontroller_colour",
+          "top": "fluxnetworks:model/fluxcontroller_off",
+          "particle": "fluxnetworks:model/fluxcontroller_bottom"
         }
       },
     "variants": {
@@ -16,12 +16,12 @@
         "connected":{
             "true":{
                  "textures": {                 
-                    "top":"fluxnetworksreconstruct:model/fluxcontroller_on"
+                    "top":"fluxnetworks:model/fluxcontroller_on"
                   }
             },
             "false":{
                  "textures": {                 
-                    "top":"fluxnetworksreconstruct:model/fluxcontroller_off"
+                    "top":"fluxnetworks:model/fluxcontroller_off"
                   }                
             }
          }        

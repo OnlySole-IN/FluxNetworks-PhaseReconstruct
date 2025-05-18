@@ -1,7 +1,7 @@
 {
   "forge_marker": 1,
   "defaults": {
-    "textures": {"all":"fluxnetworksreconstruct:blocks/fluxblock"},
+    "textures": {"all":"fluxnetworks:blocks/fluxblock"},
     "model":"cube_all",
     "transform":"forge:default-block"
   },
