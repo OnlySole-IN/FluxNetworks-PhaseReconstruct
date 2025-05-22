@@ -1,4 +1,4 @@
-# Flux Network
+# Flux Network:Phase Reconstruct
 For any suggestions or bugs, open a new issue labelled with [Suggestion] or [Bug]
 ## License
 * GUI designs and GUI resources --- Copyright (C) 2019 BloCamLimb. All rights reserved.
