@@ -1,11 +1,13 @@
 package onlysole.fluxnetworks.common;
 
 import com.google.common.collect.Lists;
-import onlysole.fluxnetworks.common.config.FluxConfig;
+import it.unimi.dsi.fastutil.objects.ObjectArrayList;
+import onlysole.fluxnetworks.FluxConfig;
 import onlysole.fluxnetworks.FluxNetworks;
 import onlysole.fluxnetworks.Tags;
 import onlysole.fluxnetworks.api.gui.EnumFeedbackInfo;
 import onlysole.fluxnetworks.api.network.IFluxNetwork;
+import onlysole.fluxnetworks.api.network.IStellarFluxNetwork;
 import onlysole.fluxnetworks.api.utils.NBTType;
 import onlysole.fluxnetworks.common.capabilities.DefaultSuperAdmin;
 import onlysole.fluxnetworks.common.connection.FluxNetworkCache;
@@ -55,8 +57,10 @@ import net.minecraftforge.fml.common.gameevent.PlayerEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent;
 import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
 import net.minecraftforge.fml.common.registry.EntityRegistry;
+import onlysole.fluxnetworks.common.util.FluxEnvironment;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -183,9 +187,21 @@ public class CommonProxy {
                 network.onStartServerTick();
             }
         }*/
-        if(event.phase == TickEvent.Phase.END) {
-            for(IFluxNetwork network : FluxNetworkCache.instance.getAllNetworks()) {
-                network.onEndServerTick();
+        if (FluxConfig.general.parallelNetworkCalculation && FluxEnvironment.shouldParallel()) {
+            if (event.phase == TickEvent.Phase.END) {
+                Collection<IFluxNetwork> networks = FluxNetworkCache.instance.getAllNetworks();
+                List<Runnable> runnableList = new ObjectArrayList<>(networks.size() + 1);
+                networks.stream().filter(IStellarFluxNetwork.class::isInstance)
+                        .map(IStellarFluxNetwork.class::cast)
+                        .map(IStellarFluxNetwork::getCycleStartRunnable)
+                        .forEach(runnableList::add);
+                runnableList.parallelStream().forEach(Runnable::run);
+            }
+        } else {
+            if (event.phase == TickEvent.Phase.END) {
+                for (IFluxNetwork network : FluxNetworkCache.instance.getAllNetworks()) {
+                    network.onEndServerTick();
+                }
             }
         }
     }

@@ -1,11 +1,12 @@
 package onlysole.fluxnetworks.common.connection;
 
-import onlysole.fluxnetworks.common.config.FluxConfig;
+import onlysole.fluxnetworks.FluxConfig;
 import onlysole.fluxnetworks.api.network.*;
 import onlysole.fluxnetworks.api.tiles.IFluxConnector;
 import onlysole.fluxnetworks.api.utils.Coord4D;
 import onlysole.fluxnetworks.api.utils.EnergyType;
 import onlysole.fluxnetworks.api.utils.NBTType;
+import onlysole.fluxnetworks.api.utils.RandomUtils;
 import onlysole.fluxnetworks.common.data.FluxNetworkData;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.nbt.NBTTagCompound;
@@ -54,7 +55,16 @@ public class FluxNetworkCache {
     }
 
     private int getUniqueID() {
-        return FluxNetworkData.get().uniqueID++;
+        if (!FluxConfig.general.randomNetworkUniqueID) {
+            return FluxNetworkData.get().uniqueID++;
+        }else {
+            Map<Integer, IFluxNetwork> networks = FluxNetworkData.get().networks;
+            int newID = RandomUtils.nextInt();
+            while (newID == -1 || networks.containsKey(newID)) {
+                newID = RandomUtils.nextInt();
+            }
+            return (newID);
+        }
     }
 
     /** Client Only **/

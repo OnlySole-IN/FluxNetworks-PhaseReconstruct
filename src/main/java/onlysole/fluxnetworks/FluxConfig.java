@@ -1,10 +1,7 @@
-package onlysole.fluxnetworks.common.config;
+package onlysole.fluxnetworks;
 
-import com.cleanroommc.configanytime.ConfigAnytime;
 import net.minecraftforge.common.config.Config;
 import net.minecraftforge.fml.common.Mod;
-import onlysole.fluxnetworks.FluxNetworks;
-import onlysole.fluxnetworks.Tags;
 import onlysole.fluxnetworks.common.handler.ItemEnergyHandler;
 import onlysole.fluxnetworks.common.handler.TileEntityHandler;
 import net.minecraftforge.common.ForgeChunkManager;
@@ -15,21 +12,27 @@ import java.io.File;
 @Config(modid = Tags.MOD_ID, name = Tags.MOD_ID)
 public class FluxConfig {
 
+    //能源传输与存储
     @Config.Name("Energy")
     public static final Energy energy = new Energy();
 
+    //网络设置与权限
     @Config.Name("Networks")
     public static final Networks networks = new Networks();
 
+    //基础功能
     @Config.Name("General")
     public static final General general = new General();
 
+    //客户端与界面
     @Config.Name("Client")
     public static final Client client = new Client();
 
+    //黑名单
     @Config.Name("BlackList")
     public static final BlackList blacklist = new BlackList();
 
+    //模组联动-强修改
     @Config.Name("Mixin")
     public static final Mixin mixin = new Mixin();
 
@@ -123,6 +126,22 @@ public class FluxConfig {
         @Config.RequiresMcRestart
         @Config.Name("Allow Flux Chunk Loading")
         public boolean enableChunkLoading = true;
+
+        @Config.Comment("(Server Performance | Experimental) Rewriting the flux network calculation logic to improve performance using multithreading.")
+        @Config.Name("ParallelNetworkCalculation")
+        public boolean parallelNetworkCalculation = false;
+
+        @Config.Comment("(Server Performance) Removing the secondary judgement of energy transfer may help improve performance.")
+        @Config.Name("ConnectionTransferImprovements")
+        public boolean connectionTransfer = true;
+
+        @Config.Comment("Possible fix for duplicate users or even crashes on player networks in some cases.")
+        @Config.Name("SynchronizeFixes")
+        public boolean synchronize = true;
+
+        @Config.Comment("(Server) Make FluxNetworks to generate a random int uid for each network, instead of using the self-incrementing ID.")
+        @Config.Name("RandomNetworkUniqueID")
+        public boolean randomNetworkUniqueID = false;
     }
 
     public static class Client {
@@ -164,66 +183,12 @@ public class FluxConfig {
     public static class Mixin {
 
         @Config.Comment({
-                "Allows TheOneProbe to show that Mekanism's machines exceed 2147483647 units of energy.",
-                "MEKCEu already includes this feature, so installing MEKCEu will automatically disable it."
-        })
-        @Config.RequiresMcRestart
-        @Config.Name("TOPSupport")
-        public boolean topSupport = true;
-
-
-        @Config.Comment({
                 "Allows Mekanism's machines to transmit more than 2147483647 units of energy through FluxNetworks.",
                 "MEKCEu already includes this feature, so installing MEKCEu will automatically disable it."
         })
         @Config.Name("FluxNetworksSupport")
         public boolean fluxNetworksSupport = true;
     }
-
-/*        public static void read() {
-        defaultLimit = config.getInt("Default Transfer Limit", ENERGY, 800000, 0, Integer.MAX_VALUE, "The default transfer limit of a flux connector");
-
-        basicCapacity = config.getInt("Basic Storage Capacity", ENERGY, 1000000, 0, Integer.MAX_VALUE, "");
-        basicTransfer = config.getInt("Basic Storage Transfer", ENERGY, 20000, 0, Integer.MAX_VALUE, "");
-        herculeanCapacity = config.getInt("Herculean Storage Capacity", ENERGY, 8000000, 0, Integer.MAX_VALUE, "");
-        herculeanTransfer = config.getInt("Herculean Storage Transfer", ENERGY, 120000, 0, Integer.MAX_VALUE, "");
-        gargantuanCapacity = config.getInt("Gargantuan Storage Capacity", ENERGY, 128000000, 0, Integer.MAX_VALUE, "");
-        gargantuanTransfer = config.getInt("Gargantuan Storage Transfer", ENERGY, 1440000, 0, Integer.MAX_VALUE, "");
-
-        maximumPerPlayer = config.getInt("Maximum Networks Per Player", NETWORKS, 3, -1, Integer.MAX_VALUE, "Maximum networks each player can have. -1 = no limit");
-        enableSuperAdmin = config.getBoolean("Allow Network Super Admin", NETWORKS, true, "Allows someone to be a network super admin, otherwise, no one can access or dismantle your flux devices or delete your networks without permission");
-        superAdminRequiredPermission = config.getInt("Permission level required to activate Super Admin", NETWORKS, 1, 0, Integer.MAX_VALUE, "See ops.json. If the player has permission level equal or greater to the value set here they will be able to Activate Super Admin. Setting this to 0 will allow anyone to active Super Admin.");
-
-        enableFluxRecipe = config.getBoolean("Enable Flux Recipe", GENERAL, true, "Enables redstones being compressed with the bedrock and obsidian to get flux");
-        enableOldRecipe = config.getBoolean("Enable Old Recipe", GENERAL, false, "Enables redstone being turned into Flux when dropped in fire. (Need \"Enable Flux Recipe\" = true, so the default recipe can't be disabled if turns this on)");
-        enableChunkLoading = config.getBoolean("Allow Flux Chunk Loading", GENERAL, true, "Allows flux tiles to work as chunk loaders");
-
-        enableButtonSound = config.getBoolean("Enable GUI Button Sound", CLIENT, true, "Enable navigation buttons sound when pressing it");
-        enableOneProbeBasicInfo = config.getBoolean("Enable Basic One Probe Info", CLIENT, true, "Displays: Network Name, Live Transfer Rate & Internal Buffer");
-        enableOneProbeAdvancedInfo = config.getBoolean("Enable Advanced One Probe Info", CLIENT, true, "Displays: Transfer Limit & Priority etc");
-        enableOneProbeSneaking = config.getBoolean("Enable sneaking to display Advanced One Probe Info", CLIENT, true, "Displays Advanced Info when sneaking only");
-        fluxNetworksSupport = config.getBoolean("Enable sneaking to display Advanced One Probe Info", CLIENT, true, "Displays Advanced Info when sneaking only");
-
-        blockBlacklistStrings = getBlackList("Block Connection Blacklist", BLACKLIST, new String[]{"actuallyadditions:block_phantom_energyface"}, "a blacklist for blocks which flux connections shouldn't connect to, use format 'modid:name@meta'");
-        itemBlackListStrings = getBlackList("Item Transfer Blacklist", BLACKLIST, new String[]{}, "a blacklist for items which the Flux Controller shouldn't transfer to, use format 'modid:name@meta'");
-    }*/
-
-/*    public static final String ENERGY = "energy";
-    public static int defaultLimit, basicCapacity, basicTransfer, herculeanCapacity, herculeanTransfer, gargantuanCapacity, gargantuanTransfer;
-
-    public static final String NETWORKS = "networks";
-
-    public static final String GENERAL = "general";
-    public static final String CLIENT = "client";
-
-    public static Configuration config;
-    public static final String BLACKLIST = "blacklists";
-
-    public static boolean enableButtonSound, enableOneProbeBasicInfo, enableOneProbeAdvancedInfo, enableOneProbeSneaking,fluxNetworksSupport;
-    public static boolean enableFluxRecipe, enableOldRecipe, enableChunkLoading, enableSuperAdmin;
-
-    public static int maximumPerPlayer, superAdminRequiredPermission;
-    public static String[] blockBlacklistStrings, itemBlackListStrings;*/
 
     public static void init(File file) {
         //config = new Configuration(new File(file.getPath(), "flux_networks.cfg")); // 创建配置文件对象
@@ -303,27 +268,24 @@ public class FluxConfig {
         }
     }
 
-/*    public static String[] getBlackList(String name, String category, String[] defaultValue, String comment) {
-        // 获取或创建配置属性（分类，名称，默认值）
+/*    public static Configuration config;
+    public static final String BLACKLIST = "blacklists";
+    public static String[] blockBlacklistStrings, itemBlackListStrings;
+
+    public static void read() {
+        blockBlacklistStrings = getBlackList("Block Connection Blacklist", BLACKLIST, new String[]{"actuallyadditions:block_phantom_energyface"}, "a blacklist for blocks which flux connections shouldn't connect to, use format 'modid:name@meta'");
+        itemBlackListStrings = getBlackList("Item Transfer Blacklist", BLACKLIST, new String[]{}, "a blacklist for items which the Flux Controller shouldn't transfer to, use format 'modid:name@meta'");
+    }
+
+    public static String[] getBlackList(String name, String category, String[] defaultValue, String comment) {
         Property prop = config.get(category, name, defaultValue);
 
-        // 设置本地化键（用于语言文件）
         prop.setLanguageKey(name);
 
-        // 允许任意输入值（不限制有效值范围）
         prop.setValidValues(null);
 
-        // 添加配置项注释说明
         prop.setComment(comment);
 
-        // 返回字符串数组类型的配置值
         return prop.getStringList();
     }*/
-
-    /*
-    必须在最后加载。
-    */
-    static {
-        ConfigAnytime.register(FluxConfig.class);
-    }
 }

@@ -1,6 +1,6 @@
 package onlysole.fluxnetworks.common.network;
 
-import onlysole.fluxnetworks.common.config.FluxConfig;
+import onlysole.fluxnetworks.FluxConfig;
 import onlysole.fluxnetworks.api.gui.EnumFeedbackInfo;
 import onlysole.fluxnetworks.api.network.FluxLogicType;
 import onlysole.fluxnetworks.api.network.IFluxNetwork;

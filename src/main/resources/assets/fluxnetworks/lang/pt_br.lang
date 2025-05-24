@@ -1,4 +1,4 @@
-itemGroup.fluxnetworks=Flux Networks
+itemGroup.fluxnetworks=Flux Networks:Phase Reconstruct
 
 tile.fluxnetworks.fluxblock.name=Bloco de Flux
 tile.fluxnetworks.fluxcontroller.name=Controlador de Flux

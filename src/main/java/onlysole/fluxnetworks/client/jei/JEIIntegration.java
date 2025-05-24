@@ -1,6 +1,6 @@
 package onlysole.fluxnetworks.client.jei;
 
-import onlysole.fluxnetworks.common.config.FluxConfig;
+import onlysole.fluxnetworks.FluxConfig;
 import mezz.jei.api.IModPlugin;
 import mezz.jei.api.IModRegistry;
 import mezz.jei.api.JEIPlugin;

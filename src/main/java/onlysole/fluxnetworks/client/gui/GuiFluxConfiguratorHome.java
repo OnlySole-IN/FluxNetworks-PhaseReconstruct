@@ -1,6 +1,6 @@
 package onlysole.fluxnetworks.client.gui;
 
-import onlysole.fluxnetworks.common.config.FluxConfig;
+import onlysole.fluxnetworks.FluxConfig;
 import onlysole.fluxnetworks.FluxNetworks;
 import onlysole.fluxnetworks.api.gui.EnumNavigationTabs;
 import onlysole.fluxnetworks.api.network.NetworkSettings;

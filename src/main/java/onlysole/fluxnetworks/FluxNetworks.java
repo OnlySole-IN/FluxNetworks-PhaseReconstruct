@@ -12,7 +12,6 @@ import org.apache.logging.log4j.Logger;
         name = Tags.MOD_NAME,
         version = Tags.VERSION,
         dependencies = "required-after:forge@[14.23.4.2854,);" +
-                "required-after:configanytime@[3.0,);" +
                 "required-after:mixinbooter@[8.0,);",
         acceptedMinecraftVersions = "[1.12.2, 1.13)",
         guiFactory = "onlysole.fluxnetworks.common.core.ConfigGuiFactory"

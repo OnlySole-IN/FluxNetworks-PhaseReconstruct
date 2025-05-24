@@ -1,4 +1,4 @@
-itemGroup.fluxnetworks=通量网络-重构
+itemGroup.fluxnetworks=通量网络-相位重构
 
 tile.fluxnetworks.fluxblock.name=能量块
 tile.fluxnetworks.fluxcontroller.name=能量网络控制器

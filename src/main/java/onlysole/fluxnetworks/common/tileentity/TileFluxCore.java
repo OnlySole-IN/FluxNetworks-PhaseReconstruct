@@ -1,6 +1,6 @@
 package onlysole.fluxnetworks.common.tileentity;
 
-import onlysole.fluxnetworks.common.config.FluxConfig;
+import onlysole.fluxnetworks.FluxConfig;
 import onlysole.fluxnetworks.api.network.IFluxNetwork;
 import onlysole.fluxnetworks.api.network.NetworkFolder;
 import onlysole.fluxnetworks.api.network.NetworkSettings;

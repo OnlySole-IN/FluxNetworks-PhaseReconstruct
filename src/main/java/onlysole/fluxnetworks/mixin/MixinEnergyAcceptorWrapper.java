@@ -4,7 +4,7 @@ import mekanism.api.Coord4D;
 import mekanism.common.base.EnergyAcceptorWrapper;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumFacing;
-import onlysole.fluxnetworks.common.config.FluxConfig;
+import onlysole.fluxnetworks.FluxConfig;
 import onlysole.fluxnetworks.common.integration.mekanism.FluxPlugAcceptor;
 import onlysole.fluxnetworks.common.tileentity.TileFluxPlug;
 import org.spongepowered.asm.mixin.Mixin;

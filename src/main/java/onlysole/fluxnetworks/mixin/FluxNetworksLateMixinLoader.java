@@ -2,7 +2,7 @@ package onlysole.fluxnetworks.mixin;
 
 import net.minecraftforge.fml.common.Loader;
 import onlysole.fluxnetworks.FluxNetworks;
-import onlysole.fluxnetworks.common.config.FluxConfig;
+import onlysole.fluxnetworks.common.util.FluxEnvironment;
 import zone.rong.mixinbooter.ILateMixinLoader;
 
 import java.util.*;
@@ -14,6 +14,8 @@ public class FluxNetworksLateMixinLoader implements ILateMixinLoader {
     private static final Map<String, BooleanSupplier> MIXIN_CONFIGS = new LinkedHashMap<>();
 
     static {
+        FluxEnvironment.init();
+
         addModdedMixinCFG("mixins.fluxnetworks_mek.json",         "mekanism");
     }
 

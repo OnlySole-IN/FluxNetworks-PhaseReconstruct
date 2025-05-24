@@ -1,6 +1,6 @@
 package onlysole.fluxnetworks.common.block;
 
-import onlysole.fluxnetworks.common.config.FluxConfig;
+import onlysole.fluxnetworks.FluxConfig;
 import onlysole.fluxnetworks.Tags;
 import onlysole.fluxnetworks.api.translate.FluxTranslate;
 import onlysole.fluxnetworks.client.render.ItemFluxStorageRenderer;

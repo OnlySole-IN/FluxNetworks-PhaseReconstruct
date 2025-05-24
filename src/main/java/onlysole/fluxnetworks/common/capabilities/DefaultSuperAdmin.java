@@ -1,6 +1,6 @@
 package onlysole.fluxnetworks.common.capabilities;
 
-import onlysole.fluxnetworks.common.config.FluxConfig;
+import onlysole.fluxnetworks.FluxConfig;
 import onlysole.fluxnetworks.api.network.ISuperAdmin;
 import onlysole.fluxnetworks.api.utils.Capabilities;
 import onlysole.fluxnetworks.common.connection.FluxNetworkCache;

@@ -1,7 +1,7 @@
 package onlysole.fluxnetworks.client.gui.basic;
 
 import com.google.common.collect.Lists;
-import onlysole.fluxnetworks.common.config.FluxConfig;
+import onlysole.fluxnetworks.FluxConfig;
 import onlysole.fluxnetworks.FluxNetworks;
 import onlysole.fluxnetworks.api.gui.EnumFeedbackInfo;
 import onlysole.fluxnetworks.api.gui.EnumNavigationTabs;

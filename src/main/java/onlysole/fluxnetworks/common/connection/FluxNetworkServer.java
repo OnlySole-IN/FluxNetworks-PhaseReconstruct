@@ -1,16 +1,19 @@
 package onlysole.fluxnetworks.common.connection;
 
-import onlysole.fluxnetworks.common.config.FluxConfig;
+import onlysole.fluxnetworks.FluxConfig;
+import onlysole.fluxnetworks.FluxNetworks;
 import onlysole.fluxnetworks.api.network.*;
 import onlysole.fluxnetworks.api.tiles.IFluxConnector;
 import onlysole.fluxnetworks.api.tiles.IFluxPlug;
 import onlysole.fluxnetworks.api.tiles.IFluxPoint;
 import onlysole.fluxnetworks.api.utils.Capabilities;
 import onlysole.fluxnetworks.api.utils.EnergyType;
+import onlysole.fluxnetworks.common.connection.transfer.FluxControllerHandler;
 import onlysole.fluxnetworks.common.core.FluxUtils;
 import onlysole.fluxnetworks.common.event.FluxConnectionEvent;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraftforge.common.MinecraftForge;
+import onlysole.fluxnetworks.common.util.FluxEnvironment;
 
 import javax.annotation.Nonnull;
 import java.util.*;
@@ -19,7 +22,7 @@ import java.util.stream.Collectors;
 /**
  * This class represents a Flux Network on logical server
  */
-public class FluxNetworkServer extends FluxNetworkBase {
+public class FluxNetworkServer extends FluxNetworkBase implements IFluxNetwork, IStellarFluxNetwork {
 
     private final Map<FluxLogicType, List<? extends IFluxConnector>> connections = new EnumMap<>(FluxLogicType.class);
 
@@ -63,6 +66,28 @@ public class FluxNetworkServer extends FluxNetworkBase {
         }
     }
 
+    @Override
+    public Runnable getCycleStartRunnable() {
+        handleConnectionQueue();
+        return () -> {
+            List<IFluxConnector> devices = getConnections(FluxLogicType.ANY);
+            devices.parallelStream().forEach(device -> {
+                try {
+                    ITransferHandler handler = device.getTransferHandler();
+                    if (handler instanceof FluxControllerHandler) {
+                        synchronized (FluxControllerHandler.class) {
+                            handler.onCycleStart();
+                        }
+                    } else {
+                        handler.onCycleStart();
+                    }
+                } catch (Throwable e) {
+                    FluxNetworks.logger.warn("[FluxNetworkServer] Execute transfer handler `onCycleStart` failed.", e);
+                }
+            });
+        };
+    }
+
     @Nonnull
     @Override
     @SuppressWarnings("unchecked")
@@ -74,13 +99,15 @@ public class FluxNetworkServer extends FluxNetworkBase {
     public void onEndServerTick() {
         network_stats.getValue().startProfiling();
 
-        handleConnectionQueue();
-
         bufferLimiter = 0;
 
         List<IFluxConnector> devices = getConnections(FluxLogicType.ANY);
-        for (IFluxConnector f : devices) {
-            f.getTransferHandler().onCycleStart();
+
+        if (!FluxConfig.general.parallelNetworkCalculation || !FluxEnvironment.shouldParallel()) {
+            handleConnectionQueue();
+            for (IFluxConnector f : devices) {
+                f.getTransferHandler().onCycleStart();
+            }
         }
 
         if (!sortedPoints.isEmpty() && !sortedPlugs.isEmpty()) {
@@ -118,13 +145,27 @@ public class FluxNetworkServer extends FluxNetworkBase {
 
     @Override
     public AccessLevel getMemberPermission(EntityPlayer player) {
-        if (FluxConfig.networks.enableSuperAdmin) {
-            ISuperAdmin sa = player.getCapability(Capabilities.SUPER_ADMIN, null);
-            if (sa != null && sa.getPermission()) {
-                return AccessLevel.SUPER_ADMIN;
+        if (!FluxConfig.general.synchronize) {
+            if (FluxConfig.networks.enableSuperAdmin) {
+                ISuperAdmin sa = player.getCapability(Capabilities.SUPER_ADMIN, null);
+                if (sa != null && sa.getPermission()) {
+                    return AccessLevel.SUPER_ADMIN;
+                }
+            }
+            return network_players.getValue().stream().collect(Collectors.toMap(NetworkMember::getPlayerUUID, NetworkMember::getAccessPermission)).getOrDefault(EntityPlayer.getUUID(player.getGameProfile()), network_security.getValue().isEncrypted() ? AccessLevel.NONE : AccessLevel.USER);
+
+
+        } else {
+            UUID uuid = EntityPlayer.getUUID(player.getGameProfile());
+            synchronized (network_players) {
+                for (final NetworkMember member : network_players.getValue()) {
+                    if (member.getPlayerUUID().equals(uuid)) {
+                        return (member.getAccessPermission());
+                    }
+                }
+                return (network_security.getValue().isEncrypted() ? AccessLevel.NONE : AccessLevel.USER);
             }
         }
-        return network_players.getValue().stream().collect(Collectors.toMap(NetworkMember::getPlayerUUID, NetworkMember::getAccessPermission)).getOrDefault(EntityPlayer.getUUID(player.getGameProfile()), network_security.getValue().isEncrypted() ? AccessLevel.NONE : AccessLevel.USER);
     }
 
     @Override
@@ -176,20 +217,46 @@ public class FluxNetworkServer extends FluxNetworkBase {
 
     @Override
     public void addNewMember(String name) {
-        NetworkMember a = NetworkMember.createMemberByUsername(name);
-        if (network_players.getValue().stream().noneMatch(f -> f.getPlayerUUID().equals(a.getPlayerUUID()))) {
-            network_players.getValue().add(a);
+        NetworkMember newMember = NetworkMember.createMemberByUsername(name);
+        if (!FluxConfig.general.synchronize) {
+            if (network_players.getValue().stream().noneMatch(f -> f.getPlayerUUID().equals(newMember.getPlayerUUID()))) {
+                network_players.getValue().add(newMember);
+            }
+        } else {
+            synchronized (network_players) {
+                List<NetworkMember> players = network_players.getValue();
+
+                for (final NetworkMember player : players) {
+                    if (player.getPlayerUUID().equals(newMember.getPlayerUUID())) {
+                        return;
+                    }
+                }
+
+                players.add(newMember);
+            }
         }
     }
 
     @Override
     public void removeMember(UUID uuid) {
-        network_players.getValue().removeIf(p -> p.getPlayerUUID().equals(uuid) && !p.getAccessPermission().canDelete());
+        if (!FluxConfig.general.synchronize) {
+            network_players.getValue().removeIf(p -> p.getPlayerUUID().equals(uuid) && !p.getAccessPermission().canDelete());
+        } else {
+            synchronized (network_players) {
+                network_players.getValue().removeIf(member -> member.getPlayerUUID().equals(uuid) && !member.getAccessPermission().canDelete());
+            }
+        }
     }
 
     @Override
     public Optional<NetworkMember> getValidMember(UUID player) {
-        return network_players.getValue().stream().filter(f -> f.getPlayerUUID().equals(player)).findFirst();
+        if (!FluxConfig.general.synchronize) {
+            return network_players.getValue().stream().filter(f -> f.getPlayerUUID().equals(player)).findFirst();
+        } else {
+            synchronized (network_players) {
+                return network_players.getValue().stream().filter(f -> f.getPlayerUUID().equals(player)).findFirst();
+            }
+        }
     }
 
     public void markLiteSettingChanged(IFluxConnector flux) {

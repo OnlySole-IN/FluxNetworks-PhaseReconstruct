@@ -1,6 +1,6 @@
 package onlysole.fluxnetworks.common.item;
 
-import onlysole.fluxnetworks.common.config.FluxConfig;
+import onlysole.fluxnetworks.FluxConfig;
 import onlysole.fluxnetworks.api.translate.FluxTranslate;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.item.ItemStack;

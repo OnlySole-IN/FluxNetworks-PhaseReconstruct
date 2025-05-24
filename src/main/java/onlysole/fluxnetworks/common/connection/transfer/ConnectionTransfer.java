@@ -1,5 +1,6 @@
 package onlysole.fluxnetworks.common.connection.transfer;
 
+import onlysole.fluxnetworks.FluxConfig;
 import onlysole.fluxnetworks.api.energy.ITileEnergyHandler;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
@@ -17,6 +18,8 @@ public class ConnectionTransfer {
     public long outbound;
     public long inbound;
 
+    private boolean canAddEnergy = false;
+
     public ConnectionTransfer(ITileEnergyHandler energyHandler, @Nonnull TileEntity tile, @Nonnull EnumFacing dir) {
         this.energyHandler = energyHandler;
         this.tile = tile;
@@ -25,14 +28,33 @@ public class ConnectionTransfer {
     }
 
     public long sendToTile(long amount, boolean simulate) {
-        if (energyHandler.canAddEnergy(tile, side)) {
-            long added = energyHandler.addEnergy(amount, tile, side, simulate);
-            if (!simulate) {
-                inbound += added;
+        if (!FluxConfig.general.connectionTransfer) {
+            if (energyHandler.canAddEnergy(tile, side)) {
+                long added = energyHandler.addEnergy(amount, tile, side, simulate);
+                if (!simulate) {
+                    inbound += added;
+                }
+                return added;
             }
-            return added;
+            return 0;
+        } else {
+            if (simulate) {
+                if (energyHandler.canAddEnergy(tile, side)) {
+                    canAddEnergy = true;
+                    return (energyHandler.addEnergy(amount, tile, side, true));
+                }
+                canAddEnergy = false;
+                return 0L;
+            }
+
+            if (canAddEnergy) {
+                canAddEnergy = false;
+                long added = energyHandler.addEnergy(amount, tile, side, false);
+                inbound += added;
+                return added;
+            }
+            return 0L;
         }
-        return 0;
     }
 
     public void onEnergyReceived(long amount) {

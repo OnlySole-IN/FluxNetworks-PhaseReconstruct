@@ -1,6 +1,6 @@
 package onlysole.fluxnetworks.common.data;
 
-import onlysole.fluxnetworks.common.config.FluxConfig;
+import onlysole.fluxnetworks.FluxConfig;
 import onlysole.fluxnetworks.FluxNetworks;
 import net.minecraft.util.math.ChunkPos;
 import net.minecraft.world.World;

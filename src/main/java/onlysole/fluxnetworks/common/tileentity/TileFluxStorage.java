@@ -1,6 +1,6 @@
 package onlysole.fluxnetworks.common.tileentity;
 
-import onlysole.fluxnetworks.common.config.FluxConfig;
+import onlysole.fluxnetworks.FluxConfig;
 import onlysole.fluxnetworks.api.network.ConnectionType;
 import onlysole.fluxnetworks.api.network.ITransferHandler;
 import onlysole.fluxnetworks.api.tiles.IFluxStorage;

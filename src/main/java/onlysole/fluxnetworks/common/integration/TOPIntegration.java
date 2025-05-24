@@ -1,6 +1,6 @@
 package onlysole.fluxnetworks.common.integration;
 
-import onlysole.fluxnetworks.common.config.FluxConfig;
+import onlysole.fluxnetworks.FluxConfig;
 import onlysole.fluxnetworks.Tags;
 import onlysole.fluxnetworks.api.tiles.IFluxConnector;
 import onlysole.fluxnetworks.api.translate.FluxTranslate;
@@ -36,33 +36,36 @@ public class TOPIntegration implements Function<ITheOneProbe, Void> {
 
         @Override
         public void addProbeInfo(ProbeMode probeMode, IProbeInfo iProbeInfo, EntityPlayer entityPlayer, World world, IBlockState iBlockState, IProbeHitData iProbeHitData) {
-            if(!(FluxConfig.client.enableOneProbeBasicInfo || FluxConfig.client.enableOneProbeAdvancedInfo)) {
+            if (!(FluxConfig.client.enableOneProbeBasicInfo || FluxConfig.client.enableOneProbeAdvancedInfo)) {
                 return;
             }
-            if(iBlockState.getBlock() instanceof BlockFluxCore) {
+
+            if (iBlockState.getBlock() instanceof BlockFluxCore) {
                 TileEntity tile = world.getTileEntity(iProbeHitData.getPos());
-                if(tile instanceof IFluxConnector) {
+                if (tile instanceof IFluxConnector) {
                     IFluxConnector flux = (IFluxConnector) tile;
-                    if(FluxConfig.client.enableOneProbeBasicInfo) {
-                        iProbeInfo.text(TextFormatting.AQUA + (flux.getNetwork().isInvalid() ? FluxTranslate.ERROR_NO_SELECTED.t() : flux.getNetwork().getNetworkName()));
+
+                    if (FluxConfig.client.enableOneProbeBasicInfo) {
+                        final String networkStatus = flux.getNetwork().isInvalid() ?
+                                FluxTranslate.ERROR_NO_SELECTED.t() : flux.getNetwork().getNetworkName();
+                        iProbeInfo.text(TextFormatting.AQUA + networkStatus);
                         iProbeInfo.text(FluxUtils.getTransferInfo(flux.getConnectionType(), EnergyType.RF, flux.getTransferChange()));
-                        if(entityPlayer.isSneaking()) {
-                            if (flux.getConnectionType().isStorage()) {
-                                iProbeInfo.text(FluxTranslate.ENERGY_STORED.t() + ": " + TextFormatting.GREEN + NumberFormat.getInstance().format(flux.getTransferBuffer()) + "RF");
-                            } else {
-                                iProbeInfo.text(FluxTranslate.INTERNAL_BUFFER.t() + ": " + TextFormatting.GREEN + NumberFormat.getInstance().format(flux.getTransferBuffer()) + "RF");
-                            }
-                        } else {
-                            if (flux.getConnectionType().isStorage()) {
-                                iProbeInfo.text(FluxTranslate.ENERGY_STORED.t() + ": " + TextFormatting.GREEN + FluxUtils.format(flux.getTransferBuffer(), FluxUtils.TypeNumberFormat.COMPACT, "RF"));
-                            } else {
-                                iProbeInfo.text(FluxTranslate.INTERNAL_BUFFER.t() + ": " + TextFormatting.GREEN + FluxUtils.format(flux.getTransferBuffer(), FluxUtils.TypeNumberFormat.COMPACT, "RF"));
-                            }
-                        }
+
+                        final boolean isStorage = flux.getConnectionType().isStorage();
+                        final String energyKey = isStorage ? FluxTranslate.ENERGY_STORED.t() : FluxTranslate.INTERNAL_BUFFER.t();
+                        final String formattedValue = entityPlayer.isSneaking() ?
+                                NumberFormat.getInstance().format(flux.getTransferBuffer()) + "RF" :
+                                FluxUtils.format(flux.getTransferBuffer(), FluxUtils.TypeNumberFormat.COMPACT, "RF");
+
+                        iProbeInfo.text(energyKey + ": " + TextFormatting.GREEN + formattedValue);
                     }
-                    if(FluxConfig.client.enableOneProbeAdvancedInfo && (!FluxConfig.client.enableOneProbeSneaking || entityPlayer.isSneaking())) {
-                        iProbeInfo.text(FluxTranslate.TRANSFER_LIMIT.t() + ": " + TextFormatting.GREEN + (flux.getDisableLimit() ? FluxTranslate.UNLIMITED.t() : flux.getRawLimit()));
-                        iProbeInfo.text(FluxTranslate.PRIORITY.t() + ": " + TextFormatting.GREEN + (flux.getSurgeMode() ? FluxTranslate.SURGE.t() : flux.getRawPriority()));
+
+                    if (FluxConfig.client.enableOneProbeAdvancedInfo &&
+                            (!FluxConfig.client.enableOneProbeSneaking || entityPlayer.isSneaking())) {
+                        iProbeInfo.text(FluxTranslate.TRANSFER_LIMIT.t() + ": " + TextFormatting.GREEN +
+                                (flux.getDisableLimit() ? FluxTranslate.UNLIMITED.t() : flux.getRawLimit()));
+                        iProbeInfo.text(FluxTranslate.PRIORITY.t() + ": " + TextFormatting.GREEN +
+                                (flux.getSurgeMode() ? FluxTranslate.SURGE.t() : flux.getRawPriority()));
                         if (flux.isForcedLoading()) {
                             iProbeInfo.text(TextFormatting.GOLD + FluxTranslate.FORCED_LOADING.t());
                         }
