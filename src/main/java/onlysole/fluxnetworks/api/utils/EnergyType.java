@@ -1,8 +1,8 @@
 package onlysole.fluxnetworks.api.utils;
 
 public enum EnergyType {
-    RF("Redstone Flux", "RF", "RF/t"),
-    EU("Energy Units", "EU", "EU/t");
+    RF( " RF (Redstone Flux)", " RF", " RF/t"),
+    EU( " EU (Energy Units)", " EU", " EU/t");
 
     private String name = "";
     private String storage = "";

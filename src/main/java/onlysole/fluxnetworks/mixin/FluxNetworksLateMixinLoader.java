@@ -2,7 +2,7 @@ package onlysole.fluxnetworks.mixin;
 
 import net.minecraftforge.fml.common.Loader;
 import onlysole.fluxnetworks.FluxNetworks;
-import onlysole.fluxnetworks.common.util.FluxEnvironment;
+import onlysole.fluxnetworks.common.mod.Mods;
 import zone.rong.mixinbooter.ILateMixinLoader;
 
 import java.util.*;
@@ -14,9 +14,7 @@ public class FluxNetworksLateMixinLoader implements ILateMixinLoader {
     private static final Map<String, BooleanSupplier> MIXIN_CONFIGS = new LinkedHashMap<>();
 
     static {
-        FluxEnvironment.init();
-
-        addModdedMixinCFG("mixins.fluxnetworks_mek.json",         "mekanism");
+        addModdedMixinCFG("mixins.fluxnetworks_mek.json",         "mekanism", () -> Mods.MEK.loaded() || Mods.MEKCEU.loaded());
     }
 
     @Override
@@ -28,12 +26,12 @@ public class FluxNetworksLateMixinLoader implements ILateMixinLoader {
     public boolean shouldMixinConfigQueue(final String mixinConfig) {
         BooleanSupplier supplier = MIXIN_CONFIGS.get(mixinConfig);
         if (supplier == null) {
-            FluxNetworks.logger.warn("[StellarCore-MixinLoader] Mixin config {} is not found in config map! It will never be loaded.", mixinConfig);
+            FluxNetworks.logger.warn("[ FluxNetworks-MixinLoader] Mixin config {} is not found in config map! It will never be loaded.", mixinConfig);
             return false;
         }
         boolean shouldLoad = supplier.getAsBoolean();
         if (!shouldLoad) {
-            FluxNetworks.logger.info("[StellarCore-MixinLoader] Mixin config {} is disabled by config or mod is not loaded.", mixinConfig);
+            FluxNetworks.logger.info("[ FluxNetworks-MixinLoader] Mixin config {} is disabled by config or mod is not loaded.", mixinConfig);
         }
         return shouldLoad;
     }

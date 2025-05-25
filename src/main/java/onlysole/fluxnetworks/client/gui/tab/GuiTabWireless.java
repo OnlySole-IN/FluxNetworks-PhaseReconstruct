@@ -42,9 +42,9 @@ public class GuiTabWireless extends GuiTabCore {
         super.drawForegroundLayer(mouseX, mouseY);
         if(networkValid) {
             int colour = network.getSetting(NetworkSettings.NETWORK_COLOR);
-            drawCenteredString(fontRenderer, FluxTranslate.TAB_WIRELESS.t(), 88, 12, 0xb4b4b4);
+            drawCenteredString(fontRenderer, FluxTranslate.TAB_WIRELESS.t(), 88, 12, 0xB4B4B4);
             fontRenderer.drawString(FluxTranslate.ENABLE_WIRELESS.t(), 20, 156, colour);
-            drawCenteredString(fontRenderer, TextFormatting.RED + FluxNetworks.proxy.getFeedback(false).getInfo(), 88, 146, 0xffffff);
+            drawCenteredString(fontRenderer, TextFormatting.RED + FluxNetworks.proxy.getFeedback(false).getInfo(), 88, 146, 0xFFFFFF);
         } else {
             renderNavigationPrompt(FluxTranslate.ERROR_NO_SELECTED.t(), FluxTranslate.TAB_SELECTION.t());
         }

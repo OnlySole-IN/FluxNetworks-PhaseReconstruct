@@ -20,12 +20,12 @@ public class ColorButton extends GuiButtonCore {
     @Override
     public void drawButton(Minecraft mc, int mouseX, int mouseY, int guiLeft, int guiTop) {
         if(selected) {
-            drawRect(x - 1, y - 1, x + width + 1, y, 0xffffffff);
-            drawRect(x - 1, y + height, x + width + 1, y + height + 1, 0xffffffff);
-            drawRect(x - 1, y, x, y + height, 0xffffffff);
-            drawRect(x + width, y, x + width + 1, y + height, 0xffffffff);
+            drawRect(x - 1, y - 1, x + width + 1, y, 0xFFFFFFFF);
+            drawRect(x - 1, y + height, x + width + 1, y + height + 1, 0xFFFFFFFF);
+            drawRect(x - 1, y, x, y + height, 0xFFFFFFFF);
+            drawRect(x + width, y, x + width + 1, y + height, 0xFFFFFFFF);
         }
-        drawRect(x ,y , x + width, y + height, color + 0xaa000000);
+        drawRect(x ,y , x + width, y + height, color + 0xAA000000);
 
     }
 }

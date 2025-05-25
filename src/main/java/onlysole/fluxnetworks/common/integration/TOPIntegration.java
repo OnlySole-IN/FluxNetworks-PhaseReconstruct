@@ -49,13 +49,13 @@ public class TOPIntegration implements Function<ITheOneProbe, Void> {
                         final String networkStatus = flux.getNetwork().isInvalid() ?
                                 FluxTranslate.ERROR_NO_SELECTED.t() : flux.getNetwork().getNetworkName();
                         iProbeInfo.text(TextFormatting.AQUA + networkStatus);
-                        iProbeInfo.text(FluxUtils.getTransferInfo(flux.getConnectionType(), EnergyType.RF, flux.getTransferChange()));
+                        iProbeInfo.text(FluxUtils.getTransferInfo(flux.getConnectionType(), getETEUAndEU(), flux.getTransferChange()));
 
                         final boolean isStorage = flux.getConnectionType().isStorage();
                         final String energyKey = isStorage ? FluxTranslate.ENERGY_STORED.t() : FluxTranslate.INTERNAL_BUFFER.t();
                         final String formattedValue = entityPlayer.isSneaking() ?
-                                NumberFormat.getInstance().format(flux.getTransferBuffer()) + "RF" :
-                                FluxUtils.format(flux.getTransferBuffer(), FluxUtils.TypeNumberFormat.COMPACT, "RF");
+                                NumberFormat.getInstance().format(flux.getTransferBuffer()) + getEUAndEU() :
+                                FluxUtils.format(flux.getTransferBuffer(), FluxUtils.TypeNumberFormat.COMPACT, getEUAndEU());
 
                         iProbeInfo.text(energyKey + ": " + TextFormatting.GREEN + formattedValue);
                     }
@@ -73,6 +73,20 @@ public class TOPIntegration implements Function<ITheOneProbe, Void> {
                 }
             }
         }
+    }
+
+    public static EnergyType getETEUAndEU() {
+        if (FluxConfig.client.topDisplayRFAndEU) {
+            return EnergyType.RF;
+        }
+        return EnergyType.EU;
+    }
+
+    public static String getEUAndEU() {
+        if (FluxConfig.client.topDisplayRFAndEU) {
+            return " RF";
+        }
+        return " EU";
     }
 
     public static class FluxConnectorDisplayOverride implements IBlockDisplayOverride {

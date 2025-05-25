@@ -20,9 +20,9 @@ public class SimpleToggleButton extends GuiButtonCore {
         GlStateManager.pushMatrix();
 
         if (isMouseHovered(mc, mouseX - guiLeft, mouseY - guiTop)) {
-            color = 0xccffffff;
+            color = 0xCCFFFFFF;
         } else {
-            color = 0xccb4b4b4;
+            color = 0xCCB4B4B4;
         }
 
         drawRect(x - 1, y - 1, x + width + 1, y, color);
@@ -30,7 +30,7 @@ public class SimpleToggleButton extends GuiButtonCore {
         drawRect(x - 1, y, x, y + height, color);
         drawRect(x + width, y, x + width + 1, y + height, color);
         if(on)
-            drawRect(x + 1, y + 1, x + width - 1, y + height - 1, 0xddffffff);
+            drawRect(x + 1, y + 1, x + width - 1, y + height - 1, 0xDDFFFFFF);
 
         GlStateManager.popMatrix();
     }

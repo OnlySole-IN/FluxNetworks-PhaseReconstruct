@@ -54,7 +54,7 @@ public class GuiTabDetailedSelection extends GuiTabSelection {
         if (selected) {
             GlStateManager.color(f, f1, f2);
             drawTexturedModalRect(x, y, 0, 32, elementWidth, elementHeight);
-            mc.fontRenderer.drawString(text, x + 4, y + 2, 0xffffff);
+            mc.fontRenderer.drawString(text, x + 4, y + 2, 0xFFFFFF);
         } else {
             GlStateManager.color(f * 0.75f, f1 * 0.75f, f2 * 0.75f);
             drawTexturedModalRect(x, y, 0, 32, elementWidth, elementHeight);
@@ -62,7 +62,7 @@ public class GuiTabDetailedSelection extends GuiTabSelection {
         }
 
         GlStateManager.scale(0.625, 0.625, 0.625);
-        fontRenderer.drawString(FluxTranslate.CONNECTIONS.t() + ": " + element.getSetting(NetworkSettings.NETWORK_STATISTICS).getConnectionCount() + "  Avg: " + element.getSetting(NetworkSettings.NETWORK_STATISTICS).averageTickMicro + " \u00b5s/t", (int) ((x + 4) * 1.6), (int) ((y + 11) * 1.6), selected ? 0xffffff : 0x404040);
+        fontRenderer.drawString(FluxTranslate.CONNECTIONS.t() + ": " + element.getSetting(NetworkSettings.NETWORK_STATISTICS).getConnectionCount() + "  Avg: " + element.getSetting(NetworkSettings.NETWORK_STATISTICS).averageTickMicro + " \u00b5s/t", (int) ((x + 4) * 1.6), (int) ((y + 11) * 1.6), selected ? 0xFFFFFF : 0x404040);
         GlStateManager.scale(1.6, 1.6, 1.6);
 
         GlStateManager.popMatrix();

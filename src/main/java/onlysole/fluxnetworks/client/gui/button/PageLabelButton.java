@@ -24,9 +24,9 @@ public class PageLabelButton extends GuiButtonCore {
     public void drawButton(Minecraft mc, int mouseX, int mouseY, int guiLeft, int guiTop) {
         GlStateManager.pushMatrix();
 
-        drawRect(x, y, x + width, y + 1, 0x80ffffff);
-        drawRect(x, y + 3, x + width, y + height, 0x80ffffff);
-        drawRect(currentLeft, y + 1, currentLeft + singleWidth, y + 3, color | 0xf0000000);
+        drawRect(x, y, x + width, y + 1, 0x80FFFFFF);
+        drawRect(x, y + 3, x + width, y + height, 0x80FFFFFF);
+        drawRect(currentLeft, y + 1, currentLeft + singleWidth, y + 3, color | 0xF0000000);
 
         boolean b = isMouseHovered(mc, mouseX - guiLeft, mouseY - guiTop);
 

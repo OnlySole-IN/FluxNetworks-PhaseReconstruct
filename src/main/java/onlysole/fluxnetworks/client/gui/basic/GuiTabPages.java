@@ -47,7 +47,7 @@ public abstract class GuiTabPages<T> extends GuiTabCore {
             i++;
         }
         /*if(pages > 1) {
-            drawCenteredString(fontRenderer, page + " / " + pages, 89, 156, 0xffffff);
+            drawCenteredString(fontRenderer, page + " / " + pages, 89, 156, 0xFFFFFF);
         }*/
     }
 

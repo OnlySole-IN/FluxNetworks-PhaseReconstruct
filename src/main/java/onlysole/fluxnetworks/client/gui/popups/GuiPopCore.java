@@ -55,7 +55,7 @@ public class GuiPopCore<T extends GuiPopUpHost> extends GuiDraw {
     }
 
     public void drawGuiContainerForegroundLayer(int mouseX, int mouseY) {
-        drawGradientRect(0 - guiLeft, 0 - guiTop, this.width, this.height, 0xa0101010, 0xb0101010);
+        drawGradientRect(0 - guiLeft, 0 - guiTop, this.width, this.height, 0xA0101010, 0xB0101010);
         popBoxes.forEach(TextboxButton::drawTextBox);
         popButtons.forEach(b -> b.drawButton(mc, mouseX, mouseY, guiLeft, guiTop));
 

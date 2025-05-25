@@ -40,9 +40,9 @@ public class GuiPopCustomColour extends GuiPopCore<GuiFluxCore> {
 
     @Override
     public void drawGuiContainerForegroundLayer(int mouseX, int mouseY) {
-        drawRectWithBackground(30, 44, 60, 118, 0xccffffff, 0x80000000);
+        drawRectWithBackground(30, 44, 60, 118, 0xCCFFFFFF, 0x80000000);
         super.drawGuiContainerForegroundLayer(mouseX, mouseY);
-        drawCenteredString(fontRenderer, FluxTranslate.CUSTOM_COLOR.t(), 88, 48, 0xffffff);
+        drawCenteredString(fontRenderer, FluxTranslate.CUSTOM_COLOR.t(), 88, 48, 0xFFFFFF);
     }
 
 

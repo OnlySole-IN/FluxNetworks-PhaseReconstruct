@@ -42,7 +42,7 @@ public class GuiPopUserEdit extends GuiPopCore<GuiTabMembers> {
                 if(host.selectedPlayer.getAccessPermission() == AccessLevel.SUPER_ADMIN && ownerPermission) {
                     text = FluxTranslate.TRANSFER_OWNERSHIP.t();
                     length = Math.max(64, fontRenderer.getStringWidth(text) + 4);
-                    transferOwnership = new NormalButton(text, 88 - length / 2, 76 + 16 * i++, length, 12, 4).setUnclickable().setTextColor(0xffaa00aa);
+                    transferOwnership = new NormalButton(text, 88 - length / 2, 76 + 16 * i++, length, 12, 4).setUnclickable().setTextColor(0xFFAA00AA);
                     popButtons.add(transferOwnership);
                 }
             } else {
@@ -60,12 +60,12 @@ public class GuiPopUserEdit extends GuiPopCore<GuiTabMembers> {
                 if(!host.selectedPlayer.getAccessPermission().canEdit() || ownerPermission) {
                     text = FluxTranslate.CANCEL_MEMBERSHIP.t();
                     length = Math.max(64, fontRenderer.getStringWidth(text) + 4);
-                    popButtons.add(new NormalButton(text, 88 - length / 2, 76 + 16 * i++, length, 12, 3).setTextColor(0xffff5555));
+                    popButtons.add(new NormalButton(text, 88 - length / 2, 76 + 16 * i++, length, 12, 3).setTextColor(0xFFFF5555));
                 }
                 if(ownerPermission) {
                     text = FluxTranslate.TRANSFER_OWNERSHIP.t();
                     length = Math.max(64, fontRenderer.getStringWidth(text) + 4);
-                    transferOwnership = new NormalButton(text, 88 - length / 2, 76 + 16 * i++, length, 12, 4).setUnclickable().setTextColor(0xffaa00aa);
+                    transferOwnership = new NormalButton(text, 88 - length / 2, 76 + 16 * i++, length, 12, 4).setUnclickable().setTextColor(0xFFAA00AA);
                     popButtons.add(transferOwnership);
                 }
             }
@@ -73,15 +73,15 @@ public class GuiPopUserEdit extends GuiPopCore<GuiTabMembers> {
     }
     @Override
     public void drawGuiContainerForegroundLayer(int mouseX, int mouseY) {
-        drawRectWithBackground(20, 34, 100, 138, 0xccffffff, 0x80000000);
+        drawRectWithBackground(20, 34, 100, 138, 0xCCFFFFFF, 0x80000000);
         super.drawGuiContainerForegroundLayer(mouseX, mouseY);
-        drawCenteredString(fontRenderer, TextFormatting.RED + FluxNetworks.proxy.getFeedback(false).getInfo(), 88, 162, 0xffffff);
-        drawCenteredString(fontRenderer, TextFormatting.AQUA + host.selectedPlayer.getCachedName(), 88, 38, 0xffffff);
-        drawCenteredString(fontRenderer, host.selectedPlayer.getAccessPermission().getName(), 88, 48, 0xffffff);
+        drawCenteredString(fontRenderer, TextFormatting.RED + FluxNetworks.proxy.getFeedback(false).getInfo(), 88, 162, 0xFFFFFF);
+        drawCenteredString(fontRenderer, TextFormatting.AQUA + host.selectedPlayer.getCachedName(), 88, 38, 0xFFFFFF);
+        drawCenteredString(fontRenderer, host.selectedPlayer.getAccessPermission().getName(), 88, 48, 0xFFFFFF);
         String text = host.selectedPlayer.getPlayerUUID().toString();
         GlStateManager.scale(0.625, 0.625, 0.625);
-        drawCenteredString(fontRenderer, "UUID: " + text.substring(0, 16), (int) (88 * 1.6), (int) (60 * 1.6), 0xffffff);
-        drawCenteredString(fontRenderer, text.substring(16), (int) (88 * 1.6), (int) (66 * 1.6), 0xffffff);
+        drawCenteredString(fontRenderer, "UUID: " + text.substring(0, 16), (int) (88 * 1.6), (int) (60 * 1.6), 0xFFFFFF);
+        drawCenteredString(fontRenderer, text.substring(16), (int) (88 * 1.6), (int) (66 * 1.6), 0xFFFFFF);
         GlStateManager.scale(1.6, 1.6, 1.6);
     }
 

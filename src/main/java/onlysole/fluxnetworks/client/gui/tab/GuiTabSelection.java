@@ -47,10 +47,10 @@ public class GuiTabSelection extends GuiTabPages<IFluxNetwork> {
             renderNavigationPrompt(FluxTranslate.ERROR_NO_NETWORK.t(), FluxTranslate.TAB_CREATE.t());
         } else {
             String amount = FluxTranslate.TOTAL.t() + ": " + elements.size();
-            fontRenderer.drawString(amount, 158 - fontRenderer.getStringWidth(amount), 10, 0xffffff);
-            fontRenderer.drawString(FluxTranslate.SORT_BY.t() + ": " + TextFormatting.AQUA + sortType.getTranslatedName(), 19, 10, 0xffffff);
+            fontRenderer.drawString(amount, 158 - fontRenderer.getStringWidth(amount), 10, 0xFFFFFF);
+            fontRenderer.drawString(FluxTranslate.SORT_BY.t() + ": " + TextFormatting.AQUA + sortType.getTranslatedName(), 19, 10, 0xFFFFFF);
             if (!hasActivePopup()) {
-                drawCenteredString(fontRenderer, TextFormatting.RED + FluxNetworks.proxy.getFeedback(false).getInfo(), 88, 150, 0xffffff);
+                drawCenteredString(fontRenderer, TextFormatting.RED + FluxNetworks.proxy.getFeedback(false).getInfo(), 88, 150, 0xFFFFFF);
             }
         }
     }
@@ -99,7 +99,7 @@ public class GuiTabSelection extends GuiTabPages<IFluxNetwork> {
         if(selected) {
             GlStateManager.color(f, f1, f2);
             drawTexturedModalRect(x, y, 0, 16, elementWidth, elementHeight);
-            mc.fontRenderer.drawString(text, x + 4, y + 2, 0xffffff);
+            mc.fontRenderer.drawString(text, x + 4, y + 2, 0xFFFFFF);
         } else {
             GlStateManager.color(f * 0.75f, f1 * 0.75f, f2 * 0.75f);
             drawTexturedModalRect(x, y, 0, 16, elementWidth, elementHeight);

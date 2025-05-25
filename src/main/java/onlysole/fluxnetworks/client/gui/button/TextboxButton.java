@@ -13,7 +13,7 @@ public class TextboxButton extends GuiTextField {
     private boolean hexOnly;
     private ITextBoxButton gui;
 
-    private int outlineColor = 0xffb4b4b4;
+    private int outlineColor = 0xFFB4B4B4;
     private static final int boxColor = 0x20000000;
 
     public TextboxButton(ITextBoxButton gui, String text, int componentId, FontRenderer fontRenderer, int x, int y, int par5Width, int par6Height, int width) {

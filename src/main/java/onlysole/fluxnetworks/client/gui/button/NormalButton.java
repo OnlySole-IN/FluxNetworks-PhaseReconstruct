@@ -8,7 +8,7 @@ import net.minecraft.client.Minecraft;
  */
 public class NormalButton extends GuiButtonCore {
 
-    public int color = 0xffffffff;
+    public int color = 0xFFFFFFFF;
 
     public NormalButton(String text, int x, int y, int width, int height, int id) {
         super(x, y, width, height, id);
@@ -27,9 +27,9 @@ public class NormalButton extends GuiButtonCore {
             if (hovered)
                 color = this.color;
             else
-                color = 0xff000000 | (int) (r * 0.7) << 16 | (int) (g * 0.7) << 8 | (int) (b * 0.7);
+                color = 0xFF000000 | (int) (r * 0.7) << 16 | (int) (g * 0.7) << 8 | (int) (b * 0.7);
         } else {
-            color = 0xff000000 | (int) (r * 0.375) << 16 | (int) (g * 0.375) << 8 | (int) (b * 0.375);
+            color = 0xFF000000 | (int) (r * 0.375) << 16 | (int) (g * 0.375) << 8 | (int) (b * 0.375);
         }
 
         drawRect(x - 1, y - 1, x + width + 1, y, color);

@@ -49,8 +49,8 @@ public class GuiTabMembers extends GuiTabPages<NetworkMember> {
     protected void drawForegroundLayer(int mouseX, int mouseY) {
         if(networkValid) {
             String str2 = accessPermission.getName();
-            fontRenderer.drawString(str2, 158 - fontRenderer.getStringWidth(str2), 10, 0xffffff);
-            fontRenderer.drawString(FluxTranslate.SORT_BY.t() + ": " + TextFormatting.AQUA + FluxTranslate.SORTING_SMART.t(), 19, 10, 0xffffff);
+            fontRenderer.drawString(str2, 158 - fontRenderer.getStringWidth(str2), 10, 0xFFFFFF);
+            fontRenderer.drawString(FluxTranslate.SORT_BY.t() + ": " + TextFormatting.AQUA + FluxTranslate.SORTING_SMART.t(), 19, 10, 0xFFFFFF);
             super.drawForegroundLayer(mouseX, mouseY);
         } else {
             super.drawForegroundLayer(mouseX, mouseY);
@@ -105,14 +105,14 @@ public class GuiTabMembers extends GuiTabPages<NetworkMember> {
         drawTexturedModalRect(x, y, 0, 16, elementWidth, elementHeight);
 
         if(element.getPlayerUUID().equals(player.getUniqueID())) {
-            drawRect(x - 4, y + 1, x - 2, y + elementHeight - 1, 0xccffffff);
-            drawRect(x + elementWidth + 2, y + 1, x + elementWidth + 4, y + elementHeight - 1, 0xccffffff);
+            drawRect(x - 4, y + 1, x - 2, y + elementHeight - 1, 0xCCFFFFFF);
+            drawRect(x + elementWidth + 2, y + 1, x + elementWidth + 4, y + elementHeight - 1, 0xCCFFFFFF);
         }
 
-        fontRenderer.drawString(TextFormatting.WHITE + element.getCachedName(), x + 4, y + 2, 0xffffff);
+        fontRenderer.drawString(TextFormatting.WHITE + element.getCachedName(), x + 4, y + 2, 0xFFFFFF);
 
         String p = element.getAccessPermission().getName();
-        fontRenderer.drawString(p, x + 142 - fontRenderer.getStringWidth(p), y + 2, 0xffffff);
+        fontRenderer.drawString(p, x + 142 - fontRenderer.getStringWidth(p), y + 2, 0xFFFFFF);
 
         GlStateManager.popMatrix();
     }

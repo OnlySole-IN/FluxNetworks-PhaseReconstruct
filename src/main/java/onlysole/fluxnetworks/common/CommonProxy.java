@@ -78,7 +78,7 @@ public class CommonProxy {
         MinecraftForge.EVENT_BUS.register(this);
         PacketHandler.registerMessages();
         TileEntityHandler.registerEnergyHandler();
-        FluxConfig.init(event.getModConfigurationDirectory());
+        FluxConfig.init();
         EntityRegistry.registerModEntity(new ResourceLocation(Tags.MOD_ID, "Flux"), EntityFireItem.class, "Flux", 0, FluxNetworks.instance, 64, 10, true);
         if(Loader.isModLoaded("mekanism")){
             MekanismIntegration.preInit();

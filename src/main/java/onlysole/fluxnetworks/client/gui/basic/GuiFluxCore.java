@@ -135,7 +135,7 @@ public abstract class GuiFluxCore extends GuiPopUpHost {
         fontRenderer.drawString(FluxUtils.getTransferInfo(fluxConnector.getConnectionType(), network.getSetting(NetworkSettings.NETWORK_ENERGY), fluxConnector.getTransferChange()), x, y, color);
         fontRenderer.drawString((fluxConnector.getConnectionType().isStorage() ? FluxTranslate.ENERGY.t() : FluxTranslate.BUFFER.t()) +
                 ": " + TextFormatting.BLUE + FluxUtils.format(fluxConnector.getTransferBuffer(), FluxUtils.TypeNumberFormat.COMMAS,
-                network.getSetting(NetworkSettings.NETWORK_ENERGY), false), x, y + 10, 0xffffff);
+                network.getSetting(NetworkSettings.NETWORK_ENERGY), false), x, y + 10, 0xFFFFFF);
 
         renderItemStack(fluxConnector.getDisplayStack(), x - 20, y + 1);
 

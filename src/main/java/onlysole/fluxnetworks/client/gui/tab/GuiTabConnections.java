@@ -97,13 +97,13 @@ public class GuiTabConnections extends GuiTabPages<IFluxConnector> {
     protected void drawForegroundLayer(int mouseX, int mouseY) {
         if(networkValid) {
             if(batchConnections.size() > 0) {
-                fontRenderer.drawString(FluxTranslate.SELECTED.t() + ": " + TextFormatting.AQUA + batchConnections.size(), 20, 10, 0xffffff);
+                fontRenderer.drawString(FluxTranslate.SELECTED.t() + ": " + TextFormatting.AQUA + batchConnections.size(), 20, 10, 0xFFFFFF);
             } else {
-                fontRenderer.drawString(FluxTranslate.SORT_BY.t() + ": " + TextFormatting.AQUA + FluxTranslate.SORTING_SMART.t(), 19, 10, 0xffffff);
+                fontRenderer.drawString(FluxTranslate.SORT_BY.t() + ": " + TextFormatting.AQUA + FluxTranslate.SORTING_SMART.t(), 19, 10, 0xFFFFFF);
             }
             super.drawForegroundLayer(mouseX, mouseY);
             if(!hasActivePopup())
-                drawCenteredString(fontRenderer, TextFormatting.RED + FluxNetworks.proxy.getFeedback(false).getInfo(), 88, 165, 0xffffff);
+                drawCenteredString(fontRenderer, TextFormatting.RED + FluxNetworks.proxy.getFeedback(false).getInfo(), 88, 165, 0xFFFFFF);
         } else {
             super.drawForegroundLayer(mouseX, mouseY);
             renderNavigationPrompt(FluxTranslate.ERROR_NO_SELECTED.t(), FluxTranslate.TAB_SELECTION.t());
@@ -117,7 +117,7 @@ public class GuiTabConnections extends GuiTabPages<IFluxConnector> {
         GlStateManager.enableAlpha();
         GlStateManager.color(1.0f, 1.0f, 1.0f);
         mc.getTextureManager().bindTexture(GuiDraw.GUI_BAR);
-        int fontColor = 0xffffff;
+        int fontColor = 0xFFFFFF;
         int color = element.getConnectionType().color;
 
         float f = (float)(color >> 16 & 255) / 255.0F;
@@ -126,16 +126,16 @@ public class GuiTabConnections extends GuiTabPages<IFluxConnector> {
 
         if(batchConnections.size() > 0) {
             if (batchConnections.contains(element)) {
-                drawRect(x - 5, y + 1, x - 3, y + elementHeight - 1, 0xccffffff);
-                drawRect(x + elementWidth + 3, y + 1, x + elementWidth + 5, y + elementHeight - 1, 0xccffffff);
+                drawRect(x - 5, y + 1, x - 3, y + elementHeight - 1, 0xCCFFFFFF);
+                drawRect(x + elementWidth + 3, y + 1, x + elementWidth + 5, y + elementHeight - 1, 0xCCFFFFFF);
                 GlStateManager.color(f, f1, f2);
                 drawTexturedModalRect(x, y, 0, 32, elementWidth, elementHeight);
             } else {
-                drawRect(x - 5, y + 1, x - 3, y + elementHeight - 1, 0xaa606060);
-                drawRect(x + elementWidth + 3, y + 1, x + elementWidth + 5, y + elementHeight - 1, 0xaa606060);
+                drawRect(x - 5, y + 1, x - 3, y + elementHeight - 1, 0xAA606060);
+                drawRect(x + elementWidth + 3, y + 1, x + elementWidth + 5, y + elementHeight - 1, 0xAA606060);
                 GlStateManager.color(f * 0.5f, f1 * 0.5f, f2 * 0.5f);
                 drawTexturedModalRect(x, y, 0, 32, elementWidth, elementHeight);
-                fontColor = 0xd0d0d0;
+                fontColor = 0xD0D0D0;
             }
         } else {
             GlStateManager.color(f, f1, f2);

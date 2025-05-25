@@ -40,7 +40,7 @@ public abstract class GuiDraw extends GuiContainer implements ITextBoxButton {
 
         mc.getTextureManager().bindTexture(GUI_BAR);
         drawTexturedModalRect(x, y, 0, 0, 135, 12);
-        fontRenderer.drawString(name, x + 4, y + 2, 0xffffff);
+        fontRenderer.drawString(name, x + 4, y + 2, 0xFFFFFF);
 
         GlStateManager.popMatrix();
     }
@@ -92,10 +92,10 @@ public abstract class GuiDraw extends GuiContainer implements ITextBoxButton {
     protected void drawHoverTooltip(List<String> strings, int x, int y) {
         AtomicInteger maxLength = new AtomicInteger();
         strings.forEach(a -> maxLength.set(Math.max(fontRenderer.getStringWidth(a), maxLength.get())));
-        drawRectWithBackground(x, y, strings.size() * 9 + 3, maxLength.get() + 4, 0x80ffffff, 0xc0000000);
+        drawRectWithBackground(x, y, strings.size() * 9 + 3, maxLength.get() + 4, 0x80FFFFFF, 0xc0000000);
         int i = 0;
         for (String s : strings) {
-            fontRenderer.drawString(s, x + 2, y + 2 + 9 * i, 0xffffff);
+            fontRenderer.drawString(s, x + 2, y + 2 + 9 * i, 0xFFFFFF);
             i++;
         }
     }

@@ -66,7 +66,7 @@ public abstract class GuiTabEditAbstract extends GuiTabCore {
         super.drawForegroundLayer(mouseX, mouseY);
         if (getNavigationTab() == EnumNavigationTabs.TAB_CREATE || networkValid) {
 
-            drawCenteredString(fontRenderer, getNavigationTab().getTranslatedName(), 88, 10, 0xb4b4b4);
+            drawCenteredString(fontRenderer, getNavigationTab().getTranslatedName(), 88, 10, 0xB4B4B4);
             fontRenderer.drawString(FluxTranslate.NETWORK_NAME.t() + ":", 14, 30, 0x606060);
             fontRenderer.drawString(FluxTranslate.NETWORK_SECURITY.t() + ": " + TextFormatting.AQUA + securityType.getName(), 14, 50, 0x606060);
             if (securityType == SecurityType.ENCRYPTED)
