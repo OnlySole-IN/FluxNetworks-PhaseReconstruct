@@ -4,6 +4,7 @@ import onlysole.fluxnetworks.FluxConfig;
 import onlysole.fluxnetworks.api.network.ConnectionType;
 import onlysole.fluxnetworks.api.network.ITransferHandler;
 import onlysole.fluxnetworks.api.tiles.IFluxStorage;
+import onlysole.fluxnetworks.api.translate.FluxTranslate;
 import onlysole.fluxnetworks.common.connection.transfer.FluxStorageHandler;
 import onlysole.fluxnetworks.common.core.FluxUtils;
 import onlysole.fluxnetworks.common.data.FluxNetworkData;
@@ -31,8 +32,8 @@ public class TileFluxStorage extends TileFluxCore implements IFluxStorage, IBigP
 
     public TileFluxStorage() {
         this(new ItemStack(RegistryBlocks.FLUX_STORAGE_1));
-        customName = "Basic Storage";
-        limit = FluxConfig.energy.basicTransfer;
+        customName = FluxTranslate.STORAGE_FLUXSTORAGE.t();
+        limit = (long) FluxConfig.energystorage.basicTransfer;
     }
 
     private TileFluxStorage(ItemStack stack) {
@@ -43,13 +44,13 @@ public class TileFluxStorage extends TileFluxCore implements IFluxStorage, IBigP
 
         public Herculean() {
             super(new ItemStack(RegistryBlocks.FLUX_STORAGE_2));
-            customName = "Herculean Storage";
-            limit = FluxConfig.energy.herculeanTransfer;
+            customName = FluxTranslate.STORAGE_HERCULEANFLUXSTORAGE.t();
+            limit = (long) FluxConfig.energystorage.herculeanTransfer;
         }
 
         @Override
         public long getMaxTransferLimit() {
-            return FluxConfig.energy.herculeanCapacity;
+            return (long) FluxConfig.energystorage.herculeanCapacity;
         }
     }
 
@@ -57,13 +58,13 @@ public class TileFluxStorage extends TileFluxCore implements IFluxStorage, IBigP
 
         public Gargantuan() {
             super(new ItemStack(RegistryBlocks.FLUX_STORAGE_3));
-            customName = "Gargantuan Storage";
-            limit = FluxConfig.energy.gargantuanTransfer;
+            customName = FluxTranslate.STORAGE_GARGANTUANFLUXSTORAGE.t();
+            limit = (long) FluxConfig.energystorage.gargantuanTransfer;
         }
 
         @Override
         public long getMaxTransferLimit() {
-            return FluxConfig.energy.gargantuanCapacity;
+            return (long) FluxConfig.energystorage.gargantuanCapacity;
         }
     }
 
@@ -106,7 +107,7 @@ public class TileFluxStorage extends TileFluxCore implements IFluxStorage, IBigP
 
     @Override
     public long getMaxTransferLimit() {
-        return FluxConfig.energy.basicCapacity;
+        return (long) FluxConfig.energystorage.basicCapacity;
     }
 
     public ItemStack writeStorageToDisplayStack(ItemStack stack) {

@@ -48,7 +48,7 @@ public abstract class TileFluxCore extends TileEntity implements IFluxConnector,
     public int folderID = -1;
 
     public int priority = 0;
-    public long limit = FluxConfig.energy.defaultLimit;
+    public long limit = (long) FluxConfig.energytransmit.defaultLimit;
 
     public boolean surgeMode = false;
     public boolean disableLimit = false;

@@ -158,7 +158,7 @@ public class GuiFluxConfiguratorHome extends GuiTabCore {
             stackCustomName = stack.getDisplayName();
             stackPriority = 0;
             stackSurgeMode = false;
-            stackLimit = FluxConfig.energy.defaultLimit;
+            stackLimit = (long) FluxConfig.energytransmit.defaultLimit;
             stackDisableLimit = false;
             stackChunkLoading = false; //disabled.
         }

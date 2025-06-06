@@ -7,12 +7,16 @@ import onlysole.fluxnetworks.common.handler.TileEntityHandler;
 import net.minecraftforge.common.ForgeChunkManager;
 
 @Mod.EventBusSubscriber(modid = Tags.MOD_ID)
-@Config(modid = Tags.MOD_ID, name = Tags.MOD_ID)
+@Config(modid = Tags.MOD_ID, name = Tags.MOD_NAME)
 public class FluxConfig {
 
-    //能源传输与存储
+    //能源存储
     @Config.Name("Energy")
-    public static final Energy energy = new Energy();
+    public static final EnergyStorage energystorage = new EnergyStorage();
+
+    //能源传输
+    @Config.Name("Energy")
+    public static final EnergyTransmit energytransmit = new EnergyTransmit();
 
     //网络设置与权限
     @Config.Name("Networks")
@@ -34,44 +38,47 @@ public class FluxConfig {
     @Config.Name("Mixin")
     public static final Mixin mixin = new Mixin();
 
-    public static class Energy {
+    public static class EnergyStorage {
+
+        @Config.Comment({"The default capacity limit of a basic flux storage"})
+        @Config.RangeDouble(min = 0, max = Long.MAX_VALUE)
+        @Config.Name("Basic Storage Capacity")
+        public double basicCapacity = 1000000;
+
+        @Config.Comment({"The default transfer limit of a basic flux storage"})
+        @Config.RangeDouble(min = 0, max = Long.MAX_VALUE)
+        @Config.Name("Basic Storage Transfer")
+        public double basicTransfer = 20000;
+
+        @Config.Comment({"The default capacity limit of a herculean flux storage"})
+        @Config.RangeDouble(min = 0, max = Long.MAX_VALUE)
+        @Config.Name("Herculean Storage Capacity")
+        public double herculeanCapacity = 8000000;
+
+        @Config.Comment({"The default transfer limit of a herculean flux storage"})
+        @Config.RangeDouble(min = 0, max = Long.MAX_VALUE)
+        @Config.Name("Herculean Storage Transfer")
+        public double herculeanTransfer = 120000;
+
+        @Config.Comment({"The default capacity limit of a gargantuan flux storage"})
+        @Config.RangeDouble(min = 0, max = Long.MAX_VALUE)
+        @Config.Name("Gargantuan Storage Capacity")
+        public double gargantuanCapacity = 128000000;
+
+        @Config.Comment({"The default transfer limit of a gargantuan flux storage"})
+        @Config.RangeDouble(min = 0, max = Long.MAX_VALUE)
+        @Config.Name("Gargantuan Storage Transfer")
+        public double gargantuanTransfer = 1440000;
+
+
+    }
+
+    public static class EnergyTransmit {
 
         @Config.Comment({"The default transfer limit of a flux connector"})
-        @Config.RangeDouble(min = 0, max = Integer.MAX_VALUE)
+        @Config.RangeDouble(min = 0, max = Long.MAX_VALUE)
         @Config.Name("Default Transfer Limit")
-        public int defaultLimit = 800000;
-
-        @Config.Comment({""})
-        @Config.RangeDouble(min = 0, max = Integer.MAX_VALUE)
-        @Config.Name("Basic Storage Capacity")
-        public int basicCapacity = 1000000;
-
-        @Config.Comment({""})
-        @Config.RangeDouble(min = 0, max = Integer.MAX_VALUE)
-        @Config.Name("Basic Storage Transfer")
-        public int basicTransfer = 20000;
-
-        @Config.Comment({""})
-        @Config.RangeDouble(min = 0, max = Integer.MAX_VALUE)
-        @Config.Name("Herculean Storage Capacity")
-        public int herculeanCapacity = 8000000;
-
-        @Config.Comment({""})
-        @Config.RangeDouble(min = 0, max = Integer.MAX_VALUE)
-        @Config.Name("Herculean Storage Transfer")
-        public int herculeanTransfer = 120000;
-
-        @Config.Comment({""})
-        @Config.RangeDouble(min = 0, max = Integer.MAX_VALUE)
-        @Config.Name("Gargantuan Storage Capacity")
-        public int gargantuanCapacity = 128000000;
-
-        @Config.Comment({""})
-        @Config.RangeDouble(min = 0, max = Integer.MAX_VALUE)
-        @Config.Name("Gargantuan Storage Transfer")
-        public int gargantuanTransfer = 1440000;
-
-
+        public double defaultLimit = 800000;
     }
 
     public static class Networks {
@@ -81,8 +88,8 @@ public class FluxConfig {
         @Config.Name("Maximum Networks Per Player")
         public int maximumPerPlayer = 3;
 
-        @Config.Comment({"Allows someone to be a network super admin, otherwise, no one can access or dismantle your flux devices or delete your networks without permission"})
-        @Config.RangeDouble(min = 0.25F, max = 1.0F)
+        @Config.Comment({"Allows someone to be a network super admin, otherwise, " +
+                "no one can access or dismantle your flux devices or delete your networks without permission"})
         @Config.Name("Allow Network Super Admin")
         public boolean enableSuperAdmin = true;
 
@@ -247,8 +254,10 @@ public class FluxConfig {
     public static String[] blockBlacklistStrings, itemBlackListStrings;
 
     public static void read() {
-        blockBlacklistStrings = getBlackList("Block Connection Blacklist", BLACKLIST, new String[]{"actuallyadditions:block_phantom_energyface"}, "a blacklist for blocks which flux connections shouldn't connect to, use format 'modid:name@meta'");
-        itemBlackListStrings = getBlackList("Item Transfer Blacklist", BLACKLIST, new String[]{}, "a blacklist for items which the Flux Controller shouldn't transfer to, use format 'modid:name@meta'");
+        blockBlacklistStrings = getBlackList("Block Connection Blacklist", BLACKLIST, new String[]{"actuallyadditions:block_phantom_energyface"},
+        "a blacklist for blocks which flux connections shouldn't connect to, use format 'modid:name@meta'");
+        itemBlackListStrings = getBlackList("Item Transfer Blacklist", BLACKLIST, new String[]{},
+        "a blacklist for items which the Flux Controller shouldn't transfer to, use format 'modid:name@meta'");
     }
 
     public static String[] getBlackList(String name, String category, String[] defaultValue, String comment) {

@@ -101,6 +101,13 @@ public class FluxTranslate implements ITranslationProvider {
     public static final Translation CONTROLLERS = i("stat.controller");
     public static final Translation STORAGES = i("stat.storage");
 
+    public static final Translation STORAGE_FLUXSTORAGE = i("storage.fluxstorage");
+    public static final Translation STORAGE_HERCULEANFLUXSTORAGE = i("storage.herculeanfluxstorage");
+    public static final Translation STORAGE_GARGANTUANFLUXSTORAGE = i("storage.gargantuanfluxstorage");
+
+    public static final Translation TRANSMIT_FLUXCONTROLLER = i("transmit.fluxcontroller");
+    public static final Translation TRANSMIT_FLUXPOINT = i("transmit.fluxpoint");
+    public static final Translation TRANSMIT_FLUXPLUG = i("transmit.fluxplug");
 
     /** Server Only (Translation key) **/
     public static final String ACCESS_DENIED_KEY = "info.fluxnetworks.denied.access";

@@ -29,8 +29,8 @@ public class BlockFluxStorage extends BlockFluxCore {
         super("FluxStorage");
     }
 
-    public int getMaxStorage() {
-        return FluxConfig.energy.basicCapacity;
+    public long getMaxStorage() {
+        return (long) FluxConfig.energystorage.basicCapacity;
     }
 
     @Nullable
@@ -52,8 +52,8 @@ public class BlockFluxStorage extends BlockFluxCore {
         }
 
         @Override
-        public int getMaxStorage() {
-            return FluxConfig.energy.herculeanCapacity;
+        public long getMaxStorage() {
+            return (long) FluxConfig.energystorage.herculeanCapacity;
         }
     }
 
@@ -70,8 +70,8 @@ public class BlockFluxStorage extends BlockFluxCore {
         }
 
         @Override
-        public int getMaxStorage() {
-            return FluxConfig.energy.gargantuanCapacity;
+        public long getMaxStorage() {
+            return (long) FluxConfig.energystorage.gargantuanCapacity;
         }
     }
 

@@ -5,7 +5,12 @@ import net.minecraftforge.fml.common.Loader;
 public enum Mods {
 
     MEK(                  "mekanism"),
-    MEKCEU(               "mekanism",          "mekanism.common.concurrent.TaskExecutor") {
+    MEKCEU(               "mekanism",          "mekanism.common.concurrent.TaskExecutor") ,
+    IC2(                  "ic2"),
+    RFAPI(                "redstoneflux"),
+    TOP(                  "theoneprobe"),
+    GT(                   "gregtech"),
+    TOPML(                "theoneprobe",       "mcjty.theoneprobe.compat.event.SpecialNameEvent"){
         @Override
         public boolean loaded() {
             if (!MEK.loaded()) {

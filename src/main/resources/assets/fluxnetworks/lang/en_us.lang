@@ -19,6 +19,13 @@ tooltip.fluxnetworks.fluxplug=Receives energy from adjacent blocks passively, ad
 tooltip.fluxnetworks.fluxpoint=Provides energy to adjacent blocks actively, removing energy from your Flux Network
 tooltip.fluxnetworks.fluxstorage=Stores energy for your Flux Network
 
+info.fluxnetworks.storage.fluxstorage=Basic Flux Storage
+info.fluxnetworks.storage.herculeanfluxstorage=Herculean Flux Storage
+info.fluxnetworks.storage.gargantuanfluxstorage=Gargantuan Flux Storage
+info.fluxnetworks.transmit.fluxcontroller=Flux Controller
+info.fluxnetworks.transmit.fluxpoint=Flux Point
+info.fluxnetworks.transmit.fluxplug=Flux Plug
+
 info.fluxnetworks.tab.home=Home
 info.fluxnetworks.tab.selection=Network Selection
 info.fluxnetworks.tab.wireless=Wireless Charging

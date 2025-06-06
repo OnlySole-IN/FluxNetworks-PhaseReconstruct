@@ -3,6 +3,7 @@ package onlysole.fluxnetworks.common.tileentity;
 import onlysole.fluxnetworks.api.network.ConnectionType;
 import onlysole.fluxnetworks.api.network.ITransferHandler;
 import onlysole.fluxnetworks.api.tiles.IFluxController;
+import onlysole.fluxnetworks.api.translate.FluxTranslate;
 import onlysole.fluxnetworks.common.connection.transfer.FluxControllerHandler;
 
 public class TileFluxController extends TileFluxCore implements IFluxController {
@@ -10,7 +11,7 @@ public class TileFluxController extends TileFluxCore implements IFluxController 
     private final FluxControllerHandler handler = new FluxControllerHandler(this);
 
     public TileFluxController() {
-        customName = "Flux Controller";
+        customName = FluxTranslate.TRANSMIT_FLUXCONTROLLER.t();
     }
 
     @Override

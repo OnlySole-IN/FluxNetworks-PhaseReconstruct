@@ -9,7 +9,7 @@ tile.fluxnetworks.herculeanfluxstorage.name=大型能量存储器
 tile.fluxnetworks.gargantuanfluxstorage.name=超大型能量存储器
 
 item.fluxnetworks.flux.name=通量粉尘
-item.fluxnetworks.fluxcore.name=能量核心
+item.fluxnetworks.fluxcore.name=通量核心
 item.fluxnetworks.fluxconfigurator.name=能量网络配置器
 item.fluxnetworks.adminconfigurator.name=管理员网络配置器
 
@@ -18,6 +18,13 @@ tooltip.fluxnetworks.fluxcontroller=给你的网络带来无线充电功能
 tooltip.fluxnetworks.fluxplug=用于向能量网络中增加能量(从相邻方块中被动接收能量)
 tooltip.fluxnetworks.fluxpoint=用于从能量网络中移除能量(主动为相邻方块供给能量)
 tooltip.fluxnetworks.fluxstorage=为你的能量网络存储能量
+
+info.fluxnetworks.storage.fluxstorage=基础能量存储器
+info.fluxnetworks.storage.herculeanfluxstorage=大型能量存储器
+info.fluxnetworks.storage.gargantuanfluxstorage=超大型能量存储器
+info.fluxnetworks.transmit.fluxcontroller=能量网络控制器
+info.fluxnetworks.transmit.fluxpoint=能量网络接出点
+info.fluxnetworks.transmit.fluxplug=能量网络接入点
 
 info.fluxnetworks.tab.home=主页
 info.fluxnetworks.tab.selection=网络选择
