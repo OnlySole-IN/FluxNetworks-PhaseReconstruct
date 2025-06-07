@@ -11,11 +11,11 @@ import net.minecraftforge.common.ForgeChunkManager;
 public class FluxConfig {
 
     //能源存储
-    @Config.Name("Energy")
+    @Config.Name("EnergyStorage")
     public static final EnergyStorage energystorage = new EnergyStorage();
 
     //能源传输
-    @Config.Name("Energy")
+    @Config.Name("EnergyTransmit")
     public static final EnergyTransmit energytransmit = new EnergyTransmit();
 
     //网络设置与权限
@@ -154,11 +154,6 @@ public class FluxConfig {
         @Config.Name("Enable sneaking to display Advanced One Probe Info")
         public boolean enableOneProbeSneaking = true;
 
-        @Config.Comment({"TOP Display : ",
-                "True Display RF(Redstone Flux) ",
-                "False Display EU(Energy Units)"})
-        @Config.Name("TOP Display RF And EU")
-        public boolean topDisplayRFAndEU = true;
     }
 
     public static class BlackList {

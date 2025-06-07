@@ -78,7 +78,7 @@ public class GuiFluxConfiguratorHome extends GuiTabCore {
         priority.setText(String.valueOf(stackPriority));
 
         limit = TextboxButton.create(this, FluxTranslate.TRANSFER_LIMIT.t() + ": ", 2, fontRenderer, 16, 62, 144, 12).setOutlineColor(color).setDigitsOnly();
-        limit.setMaxStringLength(9);
+        limit.setMaxStringLength(18);
         limit.setText(String.valueOf(stackLimit));
 
         switches.add(surge = new SlidedSwitchButton(140, 90, 1, guiLeft, guiTop, stackSurgeMode));

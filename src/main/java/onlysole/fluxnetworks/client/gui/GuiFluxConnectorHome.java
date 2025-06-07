@@ -65,7 +65,7 @@ public class GuiFluxConnectorHome extends GuiTabCore {
         priority.setText(String.valueOf(tileEntity.priority));
 
         limit = TextboxButton.create(this, FluxTranslate.TRANSFER_LIMIT.t() + ": ", 2, fontRenderer, 16, 62, 144, 12).setOutlineColor(color).setDigitsOnly();
-        limit.setMaxStringLength(9);
+        limit.setMaxStringLength(18);
         limit.setText(String.valueOf(tileEntity.limit));
 
         surge = new SlidedSwitchButton(140, 120, 1, guiLeft, guiTop, tileEntity.surgeMode);

@@ -46,26 +46,25 @@ public class TOPIntegration implements Function<ITheOneProbe, Void> {
                     IFluxConnector flux = (IFluxConnector) tile;
 
                     if (FluxConfig.client.enableOneProbeBasicInfo) {
-                        final String networkStatus = flux.getNetwork().isInvalid() ?
-                                FluxTranslate.ERROR_NO_SELECTED.t() : flux.getNetwork().getNetworkName();
-                        iProbeInfo.text(TextFormatting.AQUA + networkStatus);
-                        iProbeInfo.text(FluxUtils.getTransferInfo(flux.getConnectionType(), getETEUAndEU(), flux.getTransferChange()));
 
+                        // 显示网络状态（水蓝色）
+                        iProbeInfo.text(TextFormatting.AQUA + (flux.getNetwork().isInvalid() ? FluxTranslate.ERROR_NO_SELECTED.t() : flux.getNetwork().getNetworkName()));
+
+                        // 显示传输速率
+                        iProbeInfo.text(FluxUtils.getTransferInfo(flux.getConnectionType(), flux.getNetwork().getEnergyType(), flux.getTransferChange()));
+
+                        // 根据潜行状态显示不同格式的能源信息
                         final boolean isStorage = flux.getConnectionType().isStorage();
                         final String energyKey = isStorage ? FluxTranslate.ENERGY_STORED.t() : FluxTranslate.INTERNAL_BUFFER.t();
-                        final String formattedValue = entityPlayer.isSneaking() ?
-                                NumberFormat.getInstance().format(flux.getTransferBuffer()) + getEUAndEU() :
-                                FluxUtils.format(flux.getTransferBuffer(), FluxUtils.TypeNumberFormat.COMPACT, getEUAndEU());
 
-                        iProbeInfo.text(energyKey + ": " + TextFormatting.GREEN + formattedValue);
+                        final boolean isTypeNumberFormat = entityPlayer.isSneaking();
+                        final FluxUtils.TypeNumberFormat typeNumberFormat = isTypeNumberFormat ? FluxUtils.TypeNumberFormat.COMMAS : FluxUtils.TypeNumberFormat.COMPACT;
+
+                        iProbeInfo.text(energyKey + ": " + TextFormatting.GREEN + FluxUtils.format(flux.getTransferBuffer(), typeNumberFormat, flux.getNetwork().getEnergyType(), false));
                     }
-
-                    if (FluxConfig.client.enableOneProbeAdvancedInfo &&
-                            (!FluxConfig.client.enableOneProbeSneaking || entityPlayer.isSneaking())) {
-                        iProbeInfo.text(FluxTranslate.TRANSFER_LIMIT.t() + ": " + TextFormatting.GREEN +
-                                (flux.getDisableLimit() ? FluxTranslate.UNLIMITED.t() : flux.getRawLimit()));
-                        iProbeInfo.text(FluxTranslate.PRIORITY.t() + ": " + TextFormatting.GREEN +
-                                (flux.getSurgeMode() ? FluxTranslate.SURGE.t() : flux.getRawPriority()));
+                    if (FluxConfig.client.enableOneProbeAdvancedInfo && (!FluxConfig.client.enableOneProbeSneaking || entityPlayer.isSneaking())) {
+                        iProbeInfo.text(FluxTranslate.TRANSFER_LIMIT.t() + ": " + TextFormatting.GREEN + (flux.getDisableLimit() ? FluxTranslate.UNLIMITED.t() : flux.getRawLimit()));
+                        iProbeInfo.text(FluxTranslate.PRIORITY.t() + ": " + TextFormatting.GREEN + (flux.getSurgeMode() ? FluxTranslate.SURGE.t() : flux.getRawPriority()));
                         if (flux.isForcedLoading()) {
                             iProbeInfo.text(TextFormatting.GOLD + FluxTranslate.FORCED_LOADING.t());
                         }
@@ -73,20 +72,6 @@ public class TOPIntegration implements Function<ITheOneProbe, Void> {
                 }
             }
         }
-    }
-
-    public static EnergyType getETEUAndEU() {
-        if (FluxConfig.client.topDisplayRFAndEU) {
-            return EnergyType.RF;
-        }
-        return EnergyType.EU;
-    }
-
-    public static String getEUAndEU() {
-        if (FluxConfig.client.topDisplayRFAndEU) {
-            return " RF";
-        }
-        return " EU";
     }
 
     public static class FluxConnectorDisplayOverride implements IBlockDisplayOverride {

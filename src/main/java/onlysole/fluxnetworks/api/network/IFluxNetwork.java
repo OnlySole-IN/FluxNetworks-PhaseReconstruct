@@ -2,6 +2,7 @@ package onlysole.fluxnetworks.api.network;
 
 import com.google.common.collect.Lists;
 import onlysole.fluxnetworks.api.tiles.IFluxConnector;
+import onlysole.fluxnetworks.api.utils.EnergyType;
 import onlysole.fluxnetworks.api.utils.NBTType;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.nbt.NBTTagCompound;
@@ -18,6 +19,10 @@ public interface IFluxNetwork {
 
     default String getNetworkName() {
         return getSetting(NetworkSettings.NETWORK_NAME);
+    }
+
+    default EnergyType getEnergyType() {
+        return getSetting(NetworkSettings.NETWORK_ENERGY);
     }
 
     <T> T getSetting(NetworkSettings<T> setting);

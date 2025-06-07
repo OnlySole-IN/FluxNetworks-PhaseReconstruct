@@ -153,17 +153,17 @@ public abstract class GuiFluxCore extends GuiPopUpHost {
             }
             list.add(FluxUtils.getTransferInfo(flux.getConnectionType(), network.getSetting(NetworkSettings.NETWORK_ENERGY), flux.getTransferChange()));
             if(flux.getConnectionType() == ConnectionType.STORAGE) {
-                list.add(FluxTranslate.ENERGY_STORED.t() + ": " + TextFormatting.BLUE + NumberFormat.getInstance().format(flux.getTransferBuffer()) + "RF");
+                list.add(FluxTranslate.ENERGY_STORED.t() + ": " + TextFormatting.BLUE + NumberFormat.getInstance().format(flux.getTransferBuffer()) + flux.getNetwork().getEnergyType().getStorageSuffix());
             } else {
-                list.add(FluxTranslate.INTERNAL_BUFFER.t() + ": " + TextFormatting.BLUE + NumberFormat.getInstance().format(flux.getTransferBuffer()) + "RF");
+                list.add(FluxTranslate.INTERNAL_BUFFER.t() + ": " + TextFormatting.BLUE + NumberFormat.getInstance().format(flux.getTransferBuffer()) + flux.getNetwork().getEnergyType().getStorageSuffix());
             }
         } else {
             list.add(TextFormatting.RED + FluxTranslate.CHUNK_UNLOADED.t());
             if(tag != null) {
                 if (tag.hasKey("energy")) {
-                    list.add(FluxTranslate.ENERGY_STORED.t() + ": " + TextFormatting.BLUE + NumberFormat.getInstance().format(tag.getLong("energy")) + "RF");
+                    list.add(FluxTranslate.ENERGY_STORED.t() + ": " + TextFormatting.BLUE + NumberFormat.getInstance().format(tag.getLong("energy")) + flux.getNetwork().getEnergyType().getStorageSuffix());
                 } else {
-                    list.add(FluxTranslate.INTERNAL_BUFFER.t() + ": " + TextFormatting.BLUE + NumberFormat.getInstance().format(tag.getLong("buffer")) + "RF");
+                    list.add(FluxTranslate.INTERNAL_BUFFER.t() + ": " + TextFormatting.BLUE + NumberFormat.getInstance().format(tag.getLong("buffer")) + flux.getNetwork().getEnergyType().getStorageSuffix());
                 }
             }
         }

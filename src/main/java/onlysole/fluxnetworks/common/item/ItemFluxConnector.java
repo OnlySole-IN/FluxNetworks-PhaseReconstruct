@@ -1,5 +1,6 @@
 package onlysole.fluxnetworks.common.item;
 
+import onlysole.fluxnetworks.api.tiles.IFluxConnector;
 import onlysole.fluxnetworks.api.translate.FluxTranslate;
 import onlysole.fluxnetworks.api.utils.EnergyType;
 import onlysole.fluxnetworks.client.FluxColorHandler;

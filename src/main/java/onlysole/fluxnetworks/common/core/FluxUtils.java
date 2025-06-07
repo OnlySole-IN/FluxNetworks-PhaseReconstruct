@@ -78,14 +78,15 @@ public class FluxUtils {
             if(change == 0) {
                 return FluxTranslate.CHANGE.t() + ": " + TextFormatting.GOLD + change + energyType.getUsageSuffix();
             } else if(change > 0) {
-                return FluxTranslate.CHANGE.t() + ": " + TextFormatting.RED + "-" + FluxUtils.format(change, TypeNumberFormat.COMMAS, energyType, true);
+                return FluxTranslate.CHANGE.t() + ": " + TextFormatting.GREEN + "+" + FluxUtils.format(change, TypeNumberFormat.COMMAS, energyType, true);
             } else {
-                return FluxTranslate.CHANGE.t() + ": " + TextFormatting.GREEN + "+" + FluxUtils.format(-change, TypeNumberFormat.COMMAS, energyType, true);
+                return FluxTranslate.CHANGE.t() + ": " + TextFormatting.RED + "-" + FluxUtils.format(-change, TypeNumberFormat.COMMAS, energyType, true);
             }
         }
         return "";
     }
 
+    //注释掉的经验值(XP)计算系统
     /*public static int getPlayerXP(EntityPlayer player) {
         return (int) (getExperienceForLevel(player.experienceLevel) + (player.experience * player.xpBarCap()));
     }
@@ -191,10 +192,10 @@ public class FluxUtils {
     }
 
     public enum TypeNumberFormat {
-        FULL,                   // Full format
-        COMPACT,                // Compact format (like 3.5M)
-        COMMAS,                 // Language dependent comma separated format
-        NONE                    // No output (empty string)
+        FULL,                   // 完整显示模式（如：1000000FE）
+        COMPACT,                // 紧凑格式（如：1.0MFE）
+        COMMAS,                 // 千分位分隔格式（如：1,000,000FE）
+        NONE                    // 仅显示单位（如：FE）
     }
 
     public static String format(long in, TypeNumberFormat style, String suffix) {

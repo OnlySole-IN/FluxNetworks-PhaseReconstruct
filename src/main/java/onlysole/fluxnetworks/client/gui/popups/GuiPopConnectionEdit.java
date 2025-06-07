@@ -59,7 +59,7 @@ public class GuiPopConnectionEdit extends GuiPopCore<GuiTabConnections> {
             priority.setMaxStringLength(5);
 
             limit = TextboxButton.create(this, FluxTranslate.TRANSFER_LIMIT.t() + ": ", 2, fontRenderer, 20, 64, 136, 12).setOutlineColor(color).setDigitsOnly();
-            limit.setMaxStringLength(9);
+            limit.setMaxStringLength(18);
         } else {
             fluxName = TextboxButton.create(this, FluxTranslate.NAME.t() + ": ", 0, fontRenderer, 18, 30, 140, 12).setOutlineColor(color);
             fluxName.setMaxStringLength(24);
@@ -68,7 +68,7 @@ public class GuiPopConnectionEdit extends GuiPopCore<GuiTabConnections> {
             priority.setMaxStringLength(5);
 
             limit = TextboxButton.create(this, FluxTranslate.TRANSFER_LIMIT.t() + ": ", 2, fontRenderer, 18, 64, 140, 12).setOutlineColor(color).setDigitsOnly();
-            limit.setMaxStringLength(9);
+            limit.setMaxStringLength(18);
         }
 
         if(!batchMode) {

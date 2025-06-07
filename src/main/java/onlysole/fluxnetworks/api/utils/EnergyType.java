@@ -1,5 +1,7 @@
 package onlysole.fluxnetworks.api.utils;
 
+import onlysole.fluxnetworks.FluxConfig;
+
 public enum EnergyType {
     RF( " RF (Redstone Flux)", " RF", " RF/t"),
     EU( " EU (Energy Units)", " EU", " EU/t");
